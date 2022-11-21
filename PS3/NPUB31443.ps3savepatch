@@ -314,7 +314,7 @@
 [Grade Shop: 10X EXP / HP +1000 / Double Gald]
 00000366 000000F0
 
-[Grade Shop: Double Item Drops / Unlock Skits / Double Gauge Growth / AC +3 / Arte Usage / Artes and Skills
+[Grade Shop: Double Item Drops / Unlock Skits / Double Gauge Growth / AC +3 / Arte Usage / Artes and Skills]
 00000367 000000FF
 
 [Grade Shop: Increase Power Combo Time / Increase Power Combo Damage / Chromatus LV.4 (Max)]
@@ -741,7 +741,7 @@
 4203C814 0000270F
 40020004 00000000
 
-[Leia Link Artes Usage:
+[Leia Link Artes Usage: 9999]
 4203BC80 0000270F
 40030004 00000000
 2003BC94 0000270F
