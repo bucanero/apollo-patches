@@ -1,0 +1,42 @@
+name: Push commit
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events but only for the main branch
+  push:
+    branches: [ main ]
+
+jobs:
+  updatepack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create PS3 update file
+        run: |
+          rm -fr docs/PS3/apollo-ps3-update.zip
+          cd PS3
+          zip ../docs/PS3/apollo-ps3-update.zip *.*
+
+      - name: Create PS4 update file
+        run: |
+          rm -fr docs/PS4/apollo-ps4-update.zip
+          cd PS4
+          zip ../docs/PS4/apollo-ps4-update.zip *.*
+
+      - name: Create PS Vita update file
+        run: |
+          rm -fr docs/PSV/apollo-vita-update.zip
+          cd PSV
+          zip ../docs/PSV/apollo-vita-update.zip *.*
+          cd ../PSP
+          zip ../docs/PSV/apollo-vita-update.zip *.*
+
+      - name: Commit update files
+        run: |
+          git config --global user.name 'bucanero'
+          git config --global user.email 'bucanero@users.noreply.github.com'
+          git add docs/PS3/apollo-ps3-update.zip
+          git add docs/PS4/apollo-ps4-update.zip
+          git add docs/PSV/apollo-vita-update.zip
+          git commit -am "Apollo update pack" || true
+          git push || true
