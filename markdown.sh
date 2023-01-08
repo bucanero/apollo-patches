@@ -16,7 +16,7 @@ done
 mv *.md ../docs/PSV/
 
 cd ../PS3
-for file in *.ps3savepatch
+for file in *.savepatch
 do
 	../parser ${file} -d > /dev/null
 	echo ${file}
