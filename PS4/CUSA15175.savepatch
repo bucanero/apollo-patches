@@ -326,7 +326,7 @@
 28000004 3B9AC9FF
 
 [GROUP:-- Swap Food Items --]
-[RED:INFO:You must have the in-game max quantity, before using any of these.]
+[INFO:You must have the in-game max quantity, before using any of these.]
 [INFO:When chapter 1 starts, max out money & buy everything out of the shop]
 [INFO:then apply these cheats]
 [Replace Bitter Chocolate With Sweet Chocolate]
@@ -370,7 +370,7 @@
 80010004 06010000
 28000004 3B9AC9FF
 
-[RED:INFO:Must Have all of them to apply, may break save otherwise]
+[INFO:Must Have all of them to apply, may break save otherwise]
 [Set All Material To 999999999]
 80010004 06010000
 28000004 3B9AC9FF
@@ -672,7 +672,7 @@ A000CD44 00000025
 62000000 62000000
 
 [INFO:Editable Templates Below]
-[RED:INFO:Only Use these if the above cheats aren't enough & you know what you are doing!]
+[INFO:Only Use these if the above cheats aren't enough & you know what you are doing!]
 ;Uncomment The lines & edit the templates according do the documentation.
 
 ;[Set Essence (Money)]
