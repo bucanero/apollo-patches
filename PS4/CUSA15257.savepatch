@@ -326,7 +326,7 @@
 28000004 3B9AC9FF
 
 [GROUP:-- Swap Food Items --]
-[RED:INFO:You must have the in-game max quantity, before using any of these.]
+[INFO:You must have the in-game max quantity, before using any of these.]
 [INFO:When chapter 1 starts, max out money & buy everything out of the shop]
 [INFO:then apply these cheats]
 [Replace Bitter Chocolate With Sweet Chocolate]
@@ -370,7 +370,7 @@
 80010004 06010000
 28000004 3B9AC9FF
 
-[RED:INFO:Must Have all of them to apply, may break save otherwise]
+[INFO:Must Have all of them to apply, may break save otherwise]
 [Set All Material To 999999999]
 80010004 06010000
 28000004 3B9AC9FF
@@ -489,7 +489,7 @@
 [GROUP:-- Loot pool modifier --]
 [INFO:This when you purify torments to get a set amount of items from the loot pool]
 
-[Loot Pool: (ATK/Down) [Rare - I] - SLOT 1]
+[Loot Pool: (ATK/Down) (Rare - I) - SLOT 1]
 95000000 0000B310
 48000000 000000ED
 40020030 00000000
@@ -502,7 +502,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: (ATK/Middle) [Rare - II] - SLOT 2]
+[Loot Pool: (ATK/Middle) (Rare - II) - SLOT 2]
 95000000 0000B310
 48000060 000000EE
 40020030 00000000
@@ -515,7 +515,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: (ATK/UP) [Rare - III] - SLOT 3]
+[Loot Pool: (ATK/UP) (Rare - III) - SLOT 3]
 95000000 0000B310
 480000C0 000000EF
 40020030 00000000
@@ -528,7 +528,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: (DEF/Down) [Rare - I] - SLOT 4]
+[Loot Pool: (DEF/Down) (Rare - I) - SLOT 4]
 95000000 0000B310
 48000120 000000F0
 40020030 00000000
@@ -541,7 +541,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: (DEF/Middle) [Rare - II] - SLOT 5]
+[Loot Pool: (DEF/Middle) (Rare - II) - SLOT 5]
 95000000 0000B310
 48000180 000000F1
 40020030 00000000
@@ -554,7 +554,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: (DEF/UP) [Rare - III] - SLOT 1]
+[Loot Pool: (DEF/UP) (Rare - III) - SLOT 1]
 95000000 0000B310
 48000000 000000F2
 40020030 00000000
@@ -567,7 +567,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Kuon's Feelings (ATK) [Rare - III] - SLOT 2]
+[Loot Pool: Kuon's Feelings (ATK) (Rare - III) - SLOT 2]
 95000000 0000B310
 48000060 000000F3
 40020030 00000000
@@ -580,7 +580,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Parting Thought (ATK) [Rare - III] - SLOT 3]
+[Loot Pool: Parting Thought (ATK) (Rare - III) - SLOT 3]
 95000000 0000B310
 480000C0 000000F4
 40020030 00000000
@@ -593,7 +593,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Evil Thought (ATK) [Rare - III] - SLOT 4]
+[Loot Pool: Evil Thought (ATK) (Rare - III) - SLOT 4]
 95000000 0000B310
 48000120 000000F5
 40020030 00000000
@@ -606,7 +606,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Pure Thought (ATK) [Rare - III] - SLOT 5]
+[Loot Pool: Pure Thought (ATK) (Rare - III) - SLOT 5]
 95000000 0000B310
 48000180 000000F6
 40020030 00000000
@@ -619,7 +619,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Kuon's Thought (DEF) [Rare - III] - SLOT 1]
+[Loot Pool: Kuon's Thought (DEF) (Rare - III) - SLOT 1]
 48000000 000000F7
 40020030 00000000
 48000004 00000014
@@ -632,7 +632,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Parting Thought (DEF) [Rare - III] - SLOT 2]
+[Loot Pool: Parting Thought (DEF) (Rare - III) - SLOT 2]
 95000000 0000B310
 48000060 000000F8
 40020030 00000000
@@ -645,7 +645,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Evil Thought (DEF) [Rare - III] - SLOT 3]
+[Loot Pool: Evil Thought (DEF) (Rare - III) - SLOT 3]
 95000000 0000B310
 480000C0 000000F9
 40020030 00000000
@@ -658,7 +658,7 @@ A000CD44 00000025
 62000000 62000000 
 62000000 62000000
 
-[Loot Pool: Pure Thought (DEF) [Rare - III] - SLOT 4]
+[Loot Pool: Pure Thought (DEF) (Rare - III) - SLOT 4]
 95000000 0000B310
 48000120 000000FA
 40020030 00000000
@@ -672,7 +672,7 @@ A000CD44 00000025
 62000000 62000000
 
 [INFO:Editable Templates Below]
-[RED:INFO:Only Use these if the above cheats aren't enough & you know what you are doing!]
+[INFO:Only Use these if the above cheats aren't enough & you know what you are doing!]
 ;Uncomment The lines & edit the templates according do the documentation.
 
 ;[Set Essence (Money)]
