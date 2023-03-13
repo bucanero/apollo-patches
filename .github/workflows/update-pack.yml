@@ -23,6 +23,12 @@ jobs:
           cd PS4
           zip ../docs/PS4/apollo-ps4-update.zip *.*
 
+      - name: Create PSP update file
+        run: |
+          rm -fr docs/PSP/apollo-psp-update.zip
+          cd PSP
+          zip ../docs/PSP/apollo-psp-update.zip *.*
+
       - name: Create PS Vita update file
         run: |
           rm -fr docs/PSV/apollo-vita-update.zip
@@ -37,6 +43,7 @@ jobs:
           git config --global user.email 'bucanero@users.noreply.github.com'
           git add docs/PS3/apollo-ps3-update.zip
           git add docs/PS4/apollo-ps4-update.zip
+          git add docs/PSP/apollo-psp-update.zip
           git add docs/PSV/apollo-vita-update.zip
           git commit -am "Apollo update pack" || true
           git push || true
