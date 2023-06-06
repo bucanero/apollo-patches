@@ -1,7 +1,8 @@
 ; BLUS30145
-[INFO: Some patches may not be supported by BSD yet]
 ; Prototype
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLUS30145-DATA-*\CRC.BIN
 ; type: hidden
