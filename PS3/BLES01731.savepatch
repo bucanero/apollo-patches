@@ -1,3 +1,4 @@
+; BLES01731
 :SYS-DATA
 [Max Experience]
 write at 0x0008B930:0x271000
@@ -37,6 +38,6 @@ write next (1708):0x000F41DC
 
 
 ; BLES01731
-; South Park™: The Stick of Truth
+; South Parkâ„¢: The Stick of Truth
 
 
