@@ -1,0 +1,18 @@
+;CUSA08519
+;Red Dead Redemption 2
+; by bucanero
+
+:SRDR*
+
+[AES Decrypt data (Required)]
+set range:0x000120,EOF+1
+DECRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022F5)
+
+;
+; savedata0/SRDR30000
+; cheat codes go here
+;
+
+[AES Encrypt data (Required)]
+set range:0x000120,EOF+1
+ENCRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022F5)
