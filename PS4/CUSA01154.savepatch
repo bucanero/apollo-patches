@@ -1,0 +1,22 @@
+; CUSA01154
+; Metal Gear Solid 5: The Phantom Pain
+;encryption/checksum by bucanero
+
+:TPP_GAME_DATA*
+
+[Decrypt Save Data (Required)]
+set range:0x0000,EOF+1
+DECRYPT MGS5_TPP(0x4131F8BE)
+
+;
+; cheat codes go here
+;
+
+[Update MD5 checksum (Required)]
+set range:0x0010,EOF+1
+set [hash]:MD5
+write at 0x0000:[hash]
+
+[Encrypt Save Data (Required)]
+set range:0x0000,EOF+1
+ENCRYPT MGS5_TPP(0x4131F8BE)
