@@ -7,6 +7,15 @@
 [Enable Auditore Crypt Uplay map]
 00000498 00000001
 
+[Enable Uplay Altairs outfit]
+00000486 00000001
+
+[Enable Uplay knives upgrade]
+00000474 00000001
+
+[Enable Verizon App Store Bonus skin]
+0000041A 00000001
+
 [Update Custom CRC32 OPTIONS (Required)]
 set crc_bandwidth:32
 set crc_polynomial:0x4C11DB7
