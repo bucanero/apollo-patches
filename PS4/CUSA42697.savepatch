@@ -1,0 +1,24 @@
+;CUSA42697
+;Shin Megami Tensei V: Vengeance
+; by bucanero
+
+:Megaten5.ps4.sav
+
+[AES Decrypt savedata (Required)]
+set range:0x0000,EOF+1
+DECRYPT aes_ecb("0123456789abcdef0123456789abcdef")
+
+;
+; cheats go here
+;
+
+; checksum by Skiller
+[Update SHA1 for savedata (Required)]
+set pointer:EOF+1
+set range:0x000040,pointer
+set [hash]:SHA1
+write at 0x0000:[hash]
+
+[AES Encrypt savedata (Required)]
+set range:0x0000,EOF+1
+ENCRYPT aes_ecb("0123456789abcdef0123456789abcdef")
