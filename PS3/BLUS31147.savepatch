@@ -2,11 +2,13 @@
 ; Batman: Arkham Origins™
 ; From zeick
 
+;BLUS31147-SAVE*\
+
 :SPBATMAN
 [Decompress SAVE (Required)]
 Decompress(*, 15)
 
-:BLUS31147-SAVE*\~extracted\*.dat
+:~extracted\*.dat
 [9000000 XP]
 search "VoiceOfThePeople"
 write next (73):0x00895440

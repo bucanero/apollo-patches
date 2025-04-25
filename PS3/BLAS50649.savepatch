@@ -5,7 +5,7 @@
 [Decompress SAVE (Required)]
 Decompress(*, 15)
 
-:BLUS31207-SAVE*\~extracted\*.dat
+:~extracted\*.dat
 [9000000 XP]
 search "VoiceOfThePeople"
 write next (73):0x00895440

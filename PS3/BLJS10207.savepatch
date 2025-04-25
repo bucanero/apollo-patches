@@ -2,11 +2,13 @@
 ;BioShock Infinite
 ;From zeick
 
+;BLJS10207*\
+
 :PAYLOAD
 [Decompress Save (Required)]
 Decompress(*, 15)
 
-:BLJS10207*\~extracted\*.dat
+:~extracted\*.dat
 
 [Money $9999]
 search 0xC12581B2

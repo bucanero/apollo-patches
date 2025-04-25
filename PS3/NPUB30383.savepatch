@@ -6,7 +6,8 @@
 [Decompress Save (Required)]
 Decompress(*, 15)
 
-:NPUB30383-AUTOSAVE\~extracted\*.dat
+;NPUB30383-AUTOSAVE\
+:~extracted\*.dat
 
 [Must have 1 or more for cheats to work]
 [Retry x 9999]
