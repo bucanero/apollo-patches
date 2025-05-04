@@ -10,36 +10,36 @@ jobs:
   updatepack:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Create PS3 update file
         run: |
           rm -fr docs/PS3/apollo-ps3-update.zip
-          zip docs/PS3/apollo-ps3-update.zip ps1titleid.txt ps2titleid.txt
+          zip -9 docs/PS3/apollo-ps3-update.zip ps1titleid.txt ps2titleid.txt
           cd PS3
-          zip ../docs/PS3/apollo-ps3-update.zip *.*
+          zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
 
       - name: Create PS4 update file
         run: |
           rm -fr docs/PS4/apollo-ps4-update.zip
-          zip docs/PS4/apollo-ps4-update.zip ps1titleid.txt ps2titleid.txt
+          zip -9 docs/PS4/apollo-ps4-update.zip ps1titleid.txt ps2titleid.txt
           cd PS4
-          zip ../docs/PS4/apollo-ps4-update.zip *.*
+          zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
 
       - name: Create PSP update file
         run: |
           rm -fr docs/PSP/apollo-psp-update.zip
-          zip docs/PSP/apollo-psp-update.zip ps1titleid.txt psptitleid.txt
+          zip -9 docs/PSP/apollo-psp-update.zip ps1titleid.txt psptitleid.txt
           cd PSP
-          zip ../docs/PSP/apollo-psp-update.zip *.*
+          zip -9 ../docs/PSP/apollo-psp-update.zip *.*
 
       - name: Create PS Vita update file
         run: |
           rm -fr docs/PSV/apollo-vita-update.zip
-          zip docs/PSV/apollo-vita-update.zip ps1titleid.txt psptitleid.txt
+          zip -9 docs/PSV/apollo-vita-update.zip ps1titleid.txt psptitleid.txt psvtitleid.txt
           cd PSV
-          zip ../docs/PSV/apollo-vita-update.zip *.*
+          zip -9 ../docs/PSV/apollo-vita-update.zip *.*
           cd ../PSP
-          zip ../docs/PSV/apollo-vita-update.zip *.*
+          zip -9 ../docs/PSV/apollo-vita-update.zip *.*
 
       - name: Commit update files
         run: |
