@@ -1,4 +1,4 @@
-name: Push commit
+name: Build Jekyll site
 
 # Controls when the workflow will run
 on:
@@ -6,8 +6,13 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  updatepack:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,12 +22,16 @@ jobs:
           zip -9 docs/PS3/apollo-ps3-update.zip ps1titleid.txt ps2titleid.txt
           cd PS3
           zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
+          cd ../PS2
+          zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
 
       - name: Create PS4 update file
         run: |
           rm -fr docs/PS4/apollo-ps4-update.zip
           zip -9 docs/PS4/apollo-ps4-update.zip ps1titleid.txt ps2titleid.txt
           cd PS4
+          zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
+          cd ../PS2
           zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
 
       - name: Create PSP update file
@@ -41,13 +50,25 @@ jobs:
           cd ../PSP
           zip -9 ../docs/PSV/apollo-vita-update.zip *.*
 
-      - name: Commit update files
-        run: |
-          git config --global user.name 'bucanero'
-          git config --global user.email 'bucanero@users.noreply.github.com'
-          git add docs/PS3/apollo-ps3-update.zip
-          git add docs/PS4/apollo-ps4-update.zip
-          git add docs/PSP/apollo-psp-update.zip
-          git add docs/PSV/apollo-vita-update.zip
-          git commit -am "Apollo update pack" || true
-          git push || true
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: "./docs"
+          destination: "./output"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./output"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
