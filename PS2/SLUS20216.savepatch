@@ -14,6 +14,7 @@
 
 :SaveData-0*
 
+; some code offset/values from https://github.com/joaovitorbf/dmcsaveeditor
 ; difficulty settings
 {DS}0001=Easy Automatic;0003=Normal;0005=Hard;0007=Dante Must Die{/DS}
 
