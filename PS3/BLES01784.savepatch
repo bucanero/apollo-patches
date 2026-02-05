@@ -25,7 +25,6 @@ swcode = """
 6F706C65 00000000
 28000049 00895440
 """
-
 apollo.apply_savewizard(unzip_data, swcode)
 
 
@@ -41,7 +40,6 @@ swcode = """
 6F706C65 00000000
 08000020 00000063
 """
-
 apollo.apply_savewizard(unzip_data, swcode)
 
 
