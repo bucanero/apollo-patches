@@ -52,7 +52,7 @@ import uzlib
 print("Compressing bytes:", len(unzip_data))
 print("Compress offset: 0x{:08X}".format(zip_offset[1][0]))
 savedata = uzlib.packzip(savedata, zip_offset[1], unzip_data)
-print("Updated save size:", len(savedata))
+print("New compressed size:", zip_offset[1][1])
 
 
 :SPBATMAN
