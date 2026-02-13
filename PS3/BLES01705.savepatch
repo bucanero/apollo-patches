@@ -16,8 +16,8 @@ print("Decompressed size:", zip_offset[0][2])
 
 
 [Python:Money $9999]
-#search 0xC12581B2
-#write next (4):0000270F
+;search 0xC12581B2
+;write next (4):0000270F
 
 import apollo
 
@@ -29,8 +29,8 @@ apollo.apply_savewizard(unzip_data, sw_code)
 
 
 [Python:Lockpicks 30]
-#search 0xC12581B2
-#write next (34):001E
+;search 0xC12581B2
+;write next (34):001E
 
 import apollo
 
@@ -44,8 +44,8 @@ apollo.apply_savewizard(unzip_data, sw_code)
 [info:CHEATS BELOW MAY STOP STORY TROPHIES]
 
 [Python:Money 90000]
-#search 0xC12581B2
-#write next (4):00015F90
+;search 0xC12581B2
+;write next (4):00015F90
 
 import apollo
 
@@ -57,8 +57,8 @@ apollo.apply_savewizard(unzip_data, sw_code)
 
 
 [Python:Lockpicks 900]
-#search 0xC12581B2
-#write next (34):0384
+;search 0xC12581B2
+;write next (34):0384
 
 import apollo
 
@@ -94,21 +94,22 @@ import apollo
 
 sw_code = """
 80010004 C12581B2
-18000022 000003E7
+28000034 000003E7
 """
 apollo.apply_savewizard(unzip_data, sw_code)
 
 
 [Python:Infinity Health (Normal Mode)]
-#search C12581B2
-#write next 97: 7FFFFF7FFFFF
+;search C12581B2
+;write next 97: 7FFFFF7FFFFF
+;https://web.save-editor.com/cache/bbs_savedata_ps3/5259.html
 
 import apollo
 
 sw_code = """
 80010004 C12581B2
-A8000097 00000006
-7FFFFF7F FFFF0000
+A8000097 00000008
+7FFFFFFF 7FFFFFFF
 """
 apollo.apply_savewizard(unzip_data, sw_code)
 
