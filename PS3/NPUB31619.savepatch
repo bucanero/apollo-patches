@@ -1,0 +1,10 @@
+;NPUB31619
+;Dragon Ball Xenoverse
+;checksum by Bucanero
+
+:SDATA000.DAT
+
+[Update MD5 checksum (Required)]
+set range:0x0020,0x33797
+set [hash]:MD5
+write at 0x0010:[hash]
