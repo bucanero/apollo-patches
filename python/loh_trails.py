@@ -145,7 +145,7 @@ def loh_trails_decompress(compressed_data: bytes) -> bytearray | None:
     print("Decompressed size: {} bytes".format(target_size))
 
     # Validate sizes
-    if source_size != len(compressed_data):
+    if source_size > len(compressed_data):
         raise Exception("Compressed size mismatch")
     
     # Create buffer for decompressed data
@@ -200,13 +200,14 @@ def compress_type1_bound_for_backref_byte(
 def find_best_backref(
     uncompressed_data: bytes,
     uncompressed_length: int,
-    uncompressed_position: int
+    uncompressed_position: int,
+    backref_length: int = 255
 ) -> Backref:
     """
     Find the best back reference at the current position.
     """
-    MAX_BACKREF_LENGTH = 255
-    MAX_BACKREF_OFFSET = 254
+    MAX_BACKREF_LENGTH = backref_length
+    MAX_BACKREF_OFFSET = (backref_length - 1)
     
     best_backref = Backref(Position=0, Length=0)
     
@@ -270,7 +271,7 @@ def compress_type1(max_bound,
     prev = -1
     
     while pos < uncompressed_length:
-        best_backref = find_best_backref(uncompressed_data, uncompressed_length, pos)
+        best_backref = find_best_backref(uncompressed_data, uncompressed_length, pos, 63)
         
         pct = (pos * 100) // uncompressed_length
         if (pct % 10) == 0 and pct != prev:
