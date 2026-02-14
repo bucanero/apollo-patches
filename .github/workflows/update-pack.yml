@@ -24,6 +24,8 @@ jobs:
           zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
           cd ../PS2
           zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
+          cd ..
+          zip -9 -r ../docs/PS3/apollo-ps3-update.zip python/
 
       - name: Create PS4 update file
         run: |
@@ -33,6 +35,8 @@ jobs:
           zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
           cd ../PS2
           zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
+          cd ..
+          zip -9 -r ../docs/PS3/apollo-ps3-update.zip python/
 
       - name: Create PSP update file
         run: |
@@ -40,6 +44,8 @@ jobs:
           zip -9 docs/PSP/apollo-psp-update.zip ps1titleid.txt psptitleid.txt
           cd PSP
           zip -9 ../docs/PSP/apollo-psp-update.zip *.*
+          cd ..
+          zip -9 -r ../docs/PS3/apollo-ps3-update.zip python/
 
       - name: Create PS Vita update file
         run: |
@@ -49,6 +55,8 @@ jobs:
           zip -9 ../docs/PSV/apollo-vita-update.zip *.*
           cd ../PSP
           zip -9 ../docs/PSV/apollo-vita-update.zip *.*
+          cd ..
+          zip -9 -r ../docs/PS3/apollo-ps3-update.zip python/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
