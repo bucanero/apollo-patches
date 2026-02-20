@@ -21,6 +21,8 @@ print("New CRC:", ubinascii.hexlify(trails_crc))
 savedata[12:16] = trails_crc
 
 
+[INFO:Compression takes time, please wait until it's done]
+
 [Python:Compress Save data (Required)]
 import loh_trails
 

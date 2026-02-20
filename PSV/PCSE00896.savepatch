@@ -15,6 +15,7 @@ savedata = unpack
 ; add cheats here
 ;
 
+[INFO:Compression takes time, please wait until it's done]
 
 [Python:Compress Save data (Required)]
 import loh_trails
