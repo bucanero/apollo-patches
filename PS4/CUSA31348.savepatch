@@ -1,0 +1,70 @@
+; CUSA31348
+; Crisis Core: Final Fantasy VII: Reunion
+; encryption + checksum by Bucanero
+
+; Save slots option values
+{Z}001=Auto Save;002=Save Slot 1;003=Save Slot 2;004=Save Slot 3;005=Save Slot 4;006=Save Slot 5{/Z}
+
+:ue4savegame.ps4.sav
+
+[python:Decrypt Save data (Required)]
+import ff7cc
+
+ff7cc.ff7cc_crypt(ff7cc.MODE_DECRYPT, savedata)
+
+
+[99,999,999 Gil]
+8{Z}0004 53484544
+28008AB1 05F5E0FF
+
+[Max Materia Slots]
+8{Z}0004 53484544
+0800097D 00000006
+
+;more code info from
+;https://docs.google.com/spreadsheets/d/1hRmQh7W-sEbd7RYszBpLjbY8kpodk9s6UXmX4qZNvNY
+;
+[Add And Mod Materia (Slot 391, Cure, Lucky Stars, HP, Amount)]
+8{Z}0004 53484544
+92000000 00000005
+A8002BC4 0000000E
+09400101 00000605
+60010000 00010000
+
+[Add And Mod Materia (Slot 392, Octaslash, Jump, HP, Amount)]
+8{Z}0004 53484544
+92000000 00000005
+A8002BD3 0000000E
+7D400101 00000337
+70010000 00010000
+
+[Add And Mod Materia (Slot 393, Lucky Stars, Jump, HP, Amount)]
+8{Z}0004 53484544
+92000000 00000005
+A8002BE2 0000000E
+82400101 00000337
+70010000 00010000
+
+[Add And Mod Materia (Slot 394, Cure, Lucky Stars, HP, Amount)]
+8{Z}0004 53484544
+92000000 00000005
+A8002BF1 0000000E
+09400101 00000605
+60010000 00010000
+
+
+[python:Encrypt Save data (Required)]
+import ff7cc
+
+ff7cc.ff7cc_crypt(ff7cc.MODE_ENCRYPT, savedata)
+
+[python:Update custom Checksum (Required)]
+import ff7cc
+import ustruct as struct
+
+size_csum = struct.unpack_from("<I", savedata, 0x55C)[0]
+size_csum += 0x560
+csum = ff7cc.ff7cc_checksum(savedata[0x568:size_csum])
+
+struct.pack_into("<I", savedata, 0x564, csum)
+print("New Checksum: 0x{:08X}".format(csum))
