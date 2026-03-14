@@ -12,6 +12,10 @@ import ff7cc
 
 ff7cc.ff7cc_crypt(ff7cc.MODE_DECRYPT, savedata)
 
+; code info from
+; https://github.com/RyudoSynbios/game-tools-collection/blob/master/src/lib/templates/crisis-core-final-fantasy-vii-reunion-windows/
+; more code info from
+; https://docs.google.com/spreadsheets/d/1hRmQh7W-sEbd7RYszBpLjbY8kpodk9s6UXmX4qZNvNY
 
 [99,999,999 Gil]
 8{Z}0004 53484544
@@ -21,37 +25,101 @@ ff7cc.ff7cc_crypt(ff7cc.MODE_DECRYPT, savedata)
 8{Z}0004 53484544
 0800097D 00000006
 
-;more code info from
-;https://docs.google.com/spreadsheets/d/1hRmQh7W-sEbd7RYszBpLjbY8kpodk9s6UXmX4qZNvNY
-;
-[Add And Mod Materia (Slot 391, Cure, Lucky Stars, HP, Amount)]
-8{Z}0004 53484544
-92000000 00000005
-A8002BC4 0000000E
-09400101 00000605
-60010000 00010000
+[Group:Character]
 
-[Add And Mod Materia (Slot 392, Octaslash, Jump, HP, Amount)]
+[Level 99]
 8{Z}0004 53484544
-92000000 00000005
-A8002BD3 0000000E
-7D400101 00000337
-70010000 00010000
+08008A37 00000063
 
-[Add And Mod Materia (Slot 393, Lucky Stars, Jump, HP, Amount)]
+[Max Exp]
 8{Z}0004 53484544
-92000000 00000005
-A8002BE2 0000000E
-82400101 00000337
-70010000 00010000
+28008A05 3B9AC9FF
 
-[Add And Mod Materia (Slot 394, Cure, Lucky Stars, HP, Amount)]
+[Max SP]
 8{Z}0004 53484544
-92000000 00000005
-A8002BF1 0000000E
-09400101 00000605
-60010000 00010000
+28008A0d 05F5E0FF
 
+[99,999 HP (Current)]
+8{Z}0004 53484544
+28008A11 0001869F
+
+[99,999 HP (Max)]
+8{Z}0004 53484544
+28008A15 0001869F
+
+[99,999 Base Max HP]
+8{Z}0004 53484544
+28008A19 0001869F
+
+[9,999 MP (Current)]
+8{Z}0004 53484544
+28008A1d 0000270F
+
+[9,999 MP (Max)]
+8{Z}0004 53484544
+28008A21 0000270F
+
+[9,999 Base Max MP]
+8{Z}0004 53484544
+28008A25 0000270F
+
+[9,999 AP (Current)]
+8{Z}0004 53484544
+28008A29 0000270F
+
+[9,999 AP (Max)]
+8{Z}0004 53484544
+28008A2d 0000270F
+
+[9,999 Base Max AP]
+8{Z}0004 53484544
+28008A31 0000270F
+
+[Group:Stats]
+
+[Attack 99]
+8{Z}0004 53484544
+08008A38 00000063
+
+[Vitality 99]
+8{Z}0004 53484544
+08008A39 00000063
+
+[Magic 99]
+8{Z}0004 53484544
+08008A3a 00000063
+
+[Spirit 99]
+8{Z}0004 53484544
+08008A3b 00000063
+
+[Luck 99]
+8{Z}0004 53484544
+08008A3c 00000063
+
+[Group:Base Stats]
+
+[Base Attack 99]
+8{Z}0004 53484544
+08008A3e 00000063
+
+[Base Vitality 99]
+8{Z}0004 53484544
+08008A3f 00000063
+
+[Base Magic 99]
+8{Z}0004 53484544
+08008A40 00000063
+
+[Base Spirit 99]
+8{Z}0004 53484544
+08008A41 00000063
+
+[Base Luck 99]
+8{Z}0004 53484544
+08008A42 00000063
+
+[Group:\]
 
 [python:Encrypt Save data (Required)]
 import ff7cc
