@@ -484,6 +484,14 @@ def dishonored2_decompress(file_data):
     body = file_data[4:]   # skip 4-byte checksum
     print("Compressed body  : {} bytes".format(len(body)))
 
+    # Step 0: check MD5-XOR checksum
+    checksum = _md5_xor_checksum(body)
+    if checksum != file_data[:4]:
+        print("Warning: checksum mismatch! (expected {}, got {})".format(
+            ubinascii.hexlify(file_data[:4]), ubinascii.hexlify(checksum)))
+    else:
+        print("Checksum OK      : {}".format(ubinascii.hexlify(checksum)))
+
     # Pass 1: arithmetic decode
     bits  = BitReader(body)
     arith = ArithDecoder(bits)
@@ -536,12 +544,7 @@ def dishonored2_compress(file_data):
     body = bw.get_bytes()
     print("Compressed body  : {} bytes  ({:.1f}% of original)".format(len(body), len(body) * 100 / len(raw)))
 
-    # Step 4: prepend MD5-XOR checksum
-    checksum = _md5_xor_checksum(body)
-
-    print("Checksum         : {}".format(ubinascii.hexlify(checksum)))
-
-    file_data[:] = checksum + body
+    file_data[4:] = body
 
     gc.collect()
     return True
