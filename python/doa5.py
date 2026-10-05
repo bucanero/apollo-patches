@@ -33,7 +33,8 @@ def calc_checksum(data):
 def decrypt_save(data, byte_order):
     offset = 0
 
-    while offset < len(data):
+    # Stop when there is no room left for a block header (DOA5 Last Round PS3 saves have a 4-byte trailer)
+    while offset + 16 <= len(data):
         magic, size, checksum, seed = struct.unpack_from(byte_order + "IIII", data, offset)
 
         print("Decrypting Block At Offset 0x{:X}".format(offset))
@@ -41,6 +42,10 @@ def decrypt_save(data, byte_order):
 
         if size == 0:
             size = len(data) - offset
+
+        if size < 16 or size > len(data) - offset:
+            print("[!] Invalid block size 0x{:X}".format(size))
+            break
 
         section = data[(offset+16):(offset+size)]
 
@@ -57,7 +62,8 @@ def decrypt_save(data, byte_order):
 def encrypt_save(data, byte_order):
     offset = 0
 
-    while offset < len(data):
+    # Stop when there is no room left for a block header (DOA5 Last Round PS3 saves have a 4-byte trailer)
+    while offset + 16 <= len(data):
         magic, size, checksum, seed = struct.unpack_from(byte_order + "IIII", data, offset)
 
         print("Encrypting Block At Offset 0x{:X}".format(offset))
@@ -65,6 +71,10 @@ def encrypt_save(data, byte_order):
 
         if size == 0:
             size = len(data) - offset
+
+        if size < 16 or size > len(data) - offset:
+            print("[!] Invalid block size 0x{:X}".format(size))
+            break
 
         section = data[(offset+16):(offset+size)]
 
@@ -83,7 +93,7 @@ def encrypt_save(data, byte_order):
 def doa5_crypt(mode, data: bytearray):
     """Main function to handle decryption/encryption of the save file"""
 
-    byteorder = ">" if (data[:6] == b"\x00\x00\x00\x00\x00\x00") else "<"
+    byteorder = ">" if (data[:3] == b"\x00\x00\x00" and data[4] == 0 and data[5] == 0) else "<"
 
     if mode == DECRYPT:
         decrypt_save(data, byteorder)
