@@ -22,7 +22,7 @@ search 0x03000C
 write next (3):0x00039206
 
 :BLES01455-PROFILE\PAYLOAD
-[Fix Compression]
+[Fix Compression (Required)]
 delete at 0x20:0x4ff
 
 :PAYLOAD
