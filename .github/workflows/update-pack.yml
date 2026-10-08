@@ -1,74 +1,99 @@
-name: Build Jekyll site
+name: Build update packs and site
 
-# Controls when the workflow will run
+# Everything published to GitHub Pages is built here from the patches as
+# pushed; nothing generated is committed.
+#
+#   <PLATFORM>/apollo-*-update.zip   what the console apps download
+#                                    (ONLINE_PATCH_URL in each app); these
+#                                    paths must never change
+#   patches.json                     the patch index the web patcher reads
+#   <PLATFORM>/<TITLEID>.html        one static page per patch, plus the
+#   <PLATFORM>/index.html, ...       listings, landing page and sitemap
+#
+# The index and the pages come from bucanero/apollo-patcher's tools/, so the
+# site and the web patcher read patches the same way. The interactive view of a
+# patch is the web patcher; every page links into it.
+
 on:
-  # Triggers the workflow on push events but only for the main branch
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# One deploy at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Checkout apollo-patcher
+        uses: actions/checkout@v4
+        with:
+          repository: bucanero/apollo-patcher
+          path: .apollo-patcher
+
       - name: Create PS3 update file
         run: |
-          rm -fr docs/PS3/apollo-ps3-update.zip
-          zip -9 docs/PS3/apollo-ps3-update.zip ps1titleid.txt ps2titleid.txt
+          mkdir -p _site/PS3
+          zip -9 _site/PS3/apollo-ps3-update.zip ps1titleid.txt ps2titleid.txt
           cd PS3
-          zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
+          zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ../PS2
-          zip -9 ../docs/PS3/apollo-ps3-update.zip *.*
+          zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ..
-          zip -9 -r docs/PS3/apollo-ps3-update.zip python/
+          zip -9 -r _site/PS3/apollo-ps3-update.zip python/
 
       - name: Create PS4 update file
         run: |
-          rm -fr docs/PS4/apollo-ps4-update.zip
-          zip -9 docs/PS4/apollo-ps4-update.zip ps1titleid.txt ps2titleid.txt
+          mkdir -p _site/PS4
+          zip -9 _site/PS4/apollo-ps4-update.zip ps1titleid.txt ps2titleid.txt
           cd PS4
-          zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
+          zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ../PS2
-          zip -9 ../docs/PS4/apollo-ps4-update.zip *.*
+          zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ..
-          zip -9 -r docs/PS4/apollo-ps4-update.zip python/
+          zip -9 -r _site/PS4/apollo-ps4-update.zip python/
 
       - name: Create PSP update file
         run: |
-          rm -fr docs/PSP/apollo-psp-update.zip
-          zip -9 docs/PSP/apollo-psp-update.zip ps1titleid.txt psptitleid.txt
+          mkdir -p _site/PSP
+          zip -9 _site/PSP/apollo-psp-update.zip ps1titleid.txt psptitleid.txt
           cd PSP
-          zip -9 ../docs/PSP/apollo-psp-update.zip *.*
+          zip -9 ../_site/PSP/apollo-psp-update.zip *.*
           cd ..
-          zip -9 -r docs/PSP/apollo-psp-update.zip python/
+          zip -9 -r _site/PSP/apollo-psp-update.zip python/
 
       - name: Create PS Vita update file
         run: |
-          rm -fr docs/PSV/apollo-vita-update.zip
-          zip -9 docs/PSV/apollo-vita-update.zip ps1titleid.txt psptitleid.txt psvtitleid.txt
+          mkdir -p _site/PSV
+          zip -9 _site/PSV/apollo-vita-update.zip ps1titleid.txt psptitleid.txt psvtitleid.txt
           cd PSV
-          zip -9 ../docs/PSV/apollo-vita-update.zip *.*
+          zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ../PSP
-          zip -9 ../docs/PSV/apollo-vita-update.zip *.*
+          zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ..
-          zip -9 -r docs/PSV/apollo-vita-update.zip python/
+          zip -9 -r _site/PSV/apollo-vita-update.zip python/
+
+      - name: Build patch index and pages
+        run: |
+          python3 .apollo-patcher/tools/build-index.py . _site/patches.json
+          python3 .apollo-patcher/tools/build-site.py . _site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: "./docs"
-          destination: "./output"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./output"
+          path: "./_site"
 
   deploy:
     runs-on: ubuntu-latest
