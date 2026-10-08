@@ -2,6 +2,8 @@
 ; Final Fantasy XIII
 ;From Game Genie For PS3
 
+{CH}09=Fang;0B=Hope;0D=Lightning;0E=Sazh;10=Snow;11=Vanille{/CH}
+
 :MRTC00003-*\APP.DAT
 
 [Decrypt APP.DAT (Required)]
@@ -677,13 +679,13 @@ Group: New Code by Skiller & Deathwing Zero
 ; Party Modifier
 
 [Slot 1]
-2001BE38 00XX0000
+2001BE38 {CH}0000
 
 [Slot 2]
-2001BE3C 00XX0000
+2001BE3C {CH}0000
 
 [Slot 3]
-2001BE40 00XX0000
+2001BE40 {CH}0000
 
 ; 09 = Fang
 ; 0B = Hope
@@ -693,7 +695,7 @@ Group: New Code by Skiller & Deathwing Zero
 ; 11 = Vanille
 
 [Party Leader]
-0001BE45 000000XX
+0001BE45 0000{CH}
 
 ; 09 = Fang
 ; 0B = Hope
