@@ -147,7 +147,7 @@
 [Work Together with King Mickey - Link Once to Complete]
 20000B68 00040001
 
----
+; ---
 
 [Defeat the Shadows - Complete]
 20000AE0 001E0002
@@ -462,13 +462,13 @@
 [Defeat the Earth Cores - Complete]
 20004634 00140002
 
-Test of Strength I - Complete]
+[Test of Strength I - Complete]
 20004638 00000002
 
-Test of Strength II - Complete]
+[Test of Strength II - Complete]
 2000463C 00000002
 
-Test of Strength III - Complete]
+[Test of Strength III - Complete]
 20004640 00000002
 
 [Master of Counters - Complete]
