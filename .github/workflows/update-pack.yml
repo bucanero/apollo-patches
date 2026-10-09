@@ -49,6 +49,8 @@ jobs:
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ../PS2
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
+          cd ../PS1
+          zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ..
           zip -9 -r _site/PS3/apollo-ps3-update.zip python/
 
@@ -59,6 +61,8 @@ jobs:
           cd PS4
           zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ../PS2
+          zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
+          cd ../PS1
           zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ..
           zip -9 -r _site/PS4/apollo-ps4-update.zip python/

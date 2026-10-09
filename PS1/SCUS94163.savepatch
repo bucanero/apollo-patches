@@ -1,0 +1,20 @@
+; SCUS94163
+; Final Fantasy VII
+; codes by Bucanero
+
+:BASCUS-94163FF7*
+
+[Max 9,999,999 Gil]
+20000D7C 0098967F
+
+[Update CRC-16 GENIBUS Checksum (Required)]
+set crc_bandwidth:16
+set crc_polynomial:0x1021
+set crc_initial_value:0xFFFF
+set crc_output_xor:0xFFFF
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:0x0204,0x12F3
+set [hash]:crc
+set [hash]:endian_swap
+write at 0x0200:[hash]
