@@ -1,6 +1,7 @@
 ; BLJM60558
 ; Lightning Returns: Final Fantasy XIII
 ; From Savedata.jp & bokosukagames
+; https://web.save-editor.com/cache/bbs_savedata_ps3/7295.html
 
 :BLJM60558-*\KEY.DAT
 [Read Encryption KEY.DAT (Required)]
@@ -347,8 +348,8 @@ DECRYPT FFXIII(3, [key])
 2000136A 00000003
 2000136E 97FF68C0
 
-[Medicine of Heroes]
-6865726F 00000000
+;[Medicine of Heroes]
+;6865726F 00000000
 
 [Location Item1 Elixir 65535]
 2001C464 69745F00
