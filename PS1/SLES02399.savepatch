@@ -1,0 +1,142 @@
+; SLES02399
+; Grandia
+; codes by bucanero, offsets from game-tools-collection save editor
+;PAL layout (SLES-02397/02398/02399)
+
+:B?SLES-02399*
+
+{IT}0AF3=Biscuits;0AF5=Coal Candy;0AF7=Pearl;0AF9=Boiled Egg;0AFA=Chocolate;0AFB=Jawbreaker;0AFD=Frost Herb;0C0A=Revival Stone;0C1C=Tear Jewel;0C1D=Spirit Potion;0C1E=Wound Salve;0C1F=Baobab Fruit;0C20=Boiled Coconut;0C21=Chocolate Cookies;0C22=Honey;0C23=Ultra Drink;0C24=Weeds;0C25=Dried Fish;0C26=Bamboo Shoots;0C27=Beef Jerky;0C28=Box Lunch;0C29=Herbs;0C2A=White Sulfa Weed;0C2B=Smarna Weed;0C2C=Cholla Flowers;0C2D=Bamo Fruit;0C2E=Squid Guts;0C2F=Move Mushroom;0C30=Power Mushroom;0C31=Poison Antidote;0C32=Ginseng;0C33=Banana;0C34=Bandage;0C35=Box of Sweets;0C36=First Aid Kit;0C37=Red Medicine;0C38=Blue Medicine;0C39=Yellow Medicine;0C3A=Crimson Potion;0C3B=Deep Blue Potion;0C3C=Golden Potion;0C3D=Magic Lamp;0C3E=Poison Antidote;0C3F=Vaccine;0C40=Eye Drops;0C41=Smelling Salts;0C42=Paralysis Ointment;0C43=Spell Breaker;0C44=Move Breaker;0C45=Resurrect Potion;0C46=Panacea;0C47=Bond of Trust;0C48=Seed of Power;0C49=Seed of Defense;0C4A=Seed of Speed;0C4B=Seed of Running;0C4C=All-Around Seed;0C4D=Seed of Life;0C4E=Seed of Magic;0C4F=Seed of Moves;0C50=Mace Coloring Book;0C51=Bow Coloring Book;0C52=Sword Secrets;0C53=Fire Secrets;0C54=Earth Secrets;0C55=How to Cut 'Em;0C56=How to Pound 'Em;0C57=How to Chop 'Em;0C58=Roach Bomb;0C59=Firewood Sparks;0C5A=Mana Egg;0C5B=Holy Fire;0C5C=Hand Grenade;0C5D=Dynamite;0C5E=Rocket Fireworks;0C5F=Launch Fireworks;0C60=BOOM! Scroll;0C61=Howler Scroll;0C62=Vacuum Scroll;0C63=Tremor Scroll;0C64=Zap! Book;0C65=Lightning Scroll;0C66=Gale Scroll;0C67=Overflowing Walnut;0C68=Restraint Walnut;0C69=Sonic Walnut;0C6A=Running Walnut;0C6B=Snooze Scroll;0C6C=Poisoned Apple;0C6D=Culture Medium;0C6E=Dream Truffle;0C6F=Paralyze Mushroom;0C70=Orb of Silence;0C71=Black Onyx;0C72=Weak-Knee Weed;0C73=Ragged Weed;0C74=Slouch Weed;0C75=Trudge Weed;0C76=Root of Confusion;0C77=Torte's Whistle;0C78=Freesia Flowers;0C79=Cone of Light;0C7A=Mikeroma Scroll;0C7B=Shuffle Card;0C7C=Miracle Drink;0C81=Pretty Jewel;0C82=Pretty Jewel;0C83=Pretty Jewel;0C84=Horn of Inogon;0C85=Key;0C86=Health Weed;0C88=Resurrect Potion;0C89=Expensive Jewel;0C8A=Rainbow Weed;0C8B=Smoked Salmon;0C8C=Prime Rib;0C8D=Rescue Set;0C8E=Black Nail Polish;0C90=Thor's Fury;0C91=Magic Lipstick;0C93=Fruit of Power;0C94=Fruit of Defense;0C95=Fruit of Speed;0C96=Fruit of Agility;0C97=All-Around Fruit;0C98=Fruit of Life;0C99=Fruit of Magic;0C9A=Fruit of Moves;0C9B=Mogay Teachings 1;0C9C=Mogay Teachings 2;0C9D=Mogay Teachings 3;0CA1=Blizzard Scroll;0CAA=Brown Crayon;0CAB=Blue Crayon;0CAC=Red Crayon;0CAD=Sky-Blue Crayon;0CB0=Poison of Power;0CB1=Poison of Defense;0CB2=Poison of Speed;0CB3=Poison of Agility;0CB4=All-Around Poison;0CB5=Poison of Life;0CB6=Poison of Magic;0CB7=Poison of Moves;0CB8=+1 Dagger Skill;0CB9=+5 Dagger Skill;0CBA=+1 Sword Skill;0CBB=+5 Sword Skill;0CBC=+1 Mace Skill;0CBD=+5 Mace Skill;0CBE=+1 Ax Skill;0CBF=+5 Ax Skill;0CC0=+1 Whip Skill;0CC1=+5 Whip Skill;0CC2=+1 Bow Skill;0CC3=+5 Bow Skill;0CC4=+1 Fire Skill;0CC5=+5 Fire Skill;0CC6=+1 Wind Skill;0CC7=+5 Wind Skill;0CC8=+1 Water Skill;0CC9=+5 Water Skill;0CCA=+1 Earth Skill;0CCB=+5 Earth Skill{/IT}
+
+[LE:Max Gold 9999999]
+200001B0 0098967F
+
+[All Characters Level 99]
+40000313 00000063
+40080080 00000000
+
+[LE:Max HP and SP 999 (All Characters)]
+;Max HP, HP, Max SP, SP (8 characters, stride 0x80)
+4100031A 000003E7
+40080080 00000000
+4100031C 000003E7
+40080080 00000000
+41000326 000003E7
+40080080 00000000
+41000328 000003E7
+40080080 00000000
+
+[LE:Max Strength, Vitality, Wit, Agility 999 (All Characters)]
+4100031E 000003E7
+40080080 00000000
+41000320 000003E7
+40080080 00000000
+41000322 000003E7
+40080080 00000000
+41000324 000003E7
+40080080 00000000
+
+[Max Magic and Weapon Levels 99 (All Characters)]
+;Fire, Water, Wind, Earth, Weapon types 1-4
+4000033C 00000063
+40080080 00000000
+4000033D 00000063
+40080080 00000000
+4000033E 00000063
+40080080 00000000
+4000033F 00000063
+40080080 00000000
+40000340 00000063
+40080080 00000000
+40000341 00000063
+40080080 00000000
+40000342 00000063
+40080080 00000000
+40000343 00000063
+40080080 00000000
+
+[Max MP 99 (All Characters)]
+;Level 1-3 MP, current and max
+4000034C 00000063
+40080080 00000000
+4000034D 00000063
+40080080 00000000
+4000034E 00000063
+40080080 00000000
+4000034F 00000063
+40080080 00000000
+40000350 00000063
+40080080 00000000
+40000351 00000063
+40080080 00000000
+
+[Cure All Conditions]
+;clear Poison, Plague, Move Block, Magic Block, Fallen
+set [b]:read(0x35B,1)
+set [b]:and:07
+write at 0x35B:[b]
+set [b]:read(0x3DB,1)
+set [b]:and:07
+write at 0x3DB:[b]
+set [b]:read(0x45B,1)
+set [b]:and:07
+write at 0x45B:[b]
+set [b]:read(0x4DB,1)
+set [b]:and:07
+write at 0x4DB:[b]
+set [b]:read(0x55B,1)
+set [b]:and:07
+write at 0x55B:[b]
+set [b]:read(0x5DB,1)
+set [b]:and:07
+write at 0x5DB:[b]
+set [b]:read(0x65B,1)
+set [b]:and:07
+write at 0x65B:[b]
+set [b]:read(0x6DB,1)
+set [b]:and:07
+write at 0x6DB:[b]
+
+[Learn All Magic (All Characters)]
+;one byte per spell, bit N = character N
+write at 0x1B9:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+write at 0x1CD:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+write at 0x219:FF
+write at 0x21B:FF
+write at 0x22C:FF
+
+[99x All Items in Stash]
+write at 0xAF3:63
+write at 0xAF5:63
+write at 0xAF7:63
+write at 0xAF9:636363
+write at 0xAFD:63
+write at 0xC0A:63
+write at 0xC1C:63636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363
+write at 0xC81:636363636363
+write at 0xC88:63636363636363
+write at 0xC90:6363
+write at 0xC93:6363636363636363636363
+write at 0xCA1:63
+write at 0xCAA:63636363
+write at 0xCB0:63636363636363636363636363636363636363636363636363636363
+
+[99x All Equipment in Stash]
+;weapons, shields, armors, helmets, shoes, jewelries
+write at 0xAEE:6363636363
+write at 0xAFC:63
+write at 0xAFE:63
+write at 0xB0E:636363636363636363636363636363636363
+write at 0xB21:6363636363636363636363
+write at 0xB2D:63636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363
+write at 0xBE3:636363636363636363636363636363636363636363636363636363636363636363636363636363
+write at 0xC0C:63636363636363636363636363636363
+write at 0xC87:63
+write at 0xC92:63
+write at 0xC9E:636363
+write at 0xCA2:636363
+write at 0xCA6:63636363
+write at 0xCAE:63
+write at 0xCCC:636363
+
+[99x Stash Item]
+0000{IT} 00000063

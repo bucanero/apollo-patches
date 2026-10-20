@@ -1,0 +1,103 @@
+; SLKA25076
+; Shin Megami Tensei III - Nocturne
+; codes by bucanero, offsets from game-tools-collection save editor
+;
+; JP/KR vanilla layout (VER 03, 0x16DC0 bytes): EU/US offsets 0x24..0x657B shifted by -4. No checksum.
+
+:BKSLKA-25076-dds3-*
+
+[LE:Max Macca (9,999,999)]
+20000A44 0098967F
+
+[LE:Protagonist Max HP & MP (999)]
+10000A56 000003E7
+10000A58 000003E7
+10000A5A 000003E7
+10000A5C 000003E7
+
+[LE:Protagonist Level 99]
+10000A64 00000063
+;save preview level
+00000006 00000063
+
+[Protagonist Max Stats (40)]
+;St, Ma, Vi, Ag, Lu
+00000A66 00000028
+00000A68 00000028
+00000A69 00000028
+00000A6A 00000028
+00000A6B 00000028
+
+[LE:Max Demon Stock Size (12)]
+20000A4C 0000000C
+
+[99 of All Items]
+;item quantities at 0x1924 + item id (Incense excluded)
+write at 0x1925:6363636363636363636363636363636363636363636363636363636363636363
+write at 0x1946:63636363
+write at 0x1950:636363
+write at 0x1958:6363636363
+write at 0x195E:63
+write at 0x1961:63
+
+[99 of All Incense]
+;St, Ma, Vi, Ag, Lu Incense
+write at 0x194A:63
+write at 0x194C:63636363
+
+[99 of All Gems]
+write at 0x1984:6363636363636363636363
+write at 0x1990:63
+write at 0x1992:6363
+
+[All Magatama]
+;owned list (ids 01-19, sorted) + owned count
+write at 0x1CF7:0102030405060708090A0B0C0D0E0F10111213141516171819
+write at 0x1D77:19
+
+[Unlock All Terminals]
+set [b]:read(0x8C4,1)
+set [b]:or:02
+write at 0x8C4:[b]
+set [b]:read(0x8C8,1)
+set [b]:or:02
+write at 0x8C8:[b]
+set [b]:read(0x8CC,1)
+set [b]:or:02
+write at 0x8CC:[b]
+set [b]:read(0x8D4,1)
+set [b]:or:02
+write at 0x8D4:[b]
+set [b]:read(0x8D8,1)
+set [b]:or:06
+write at 0x8D8:[b]
+set [b]:read(0x8DC,1)
+set [b]:or:02
+write at 0x8DC:[b]
+set [b]:read(0x8E0,1)
+set [b]:or:02
+write at 0x8E0:[b]
+set [b]:read(0x8E4,1)
+set [b]:or:02
+write at 0x8E4:[b]
+set [b]:read(0x8EC,1)
+set [b]:or:02
+write at 0x8EC:[b]
+set [b]:read(0x8F0,1)
+set [b]:or:02
+write at 0x8F0:[b]
+set [b]:read(0x8F4,1)
+set [b]:or:02
+write at 0x8F4:[b]
+set [b]:read(0x908,1)
+set [b]:or:0E
+write at 0x908:[b]
+set [b]:read(0x90C,1)
+set [b]:or:02
+write at 0x90C:[b]
+set [b]:read(0x910,1)
+set [b]:or:02
+write at 0x910:[b]
+set [b]:read(0x918,1)
+set [b]:or:02
+write at 0x918:[b]

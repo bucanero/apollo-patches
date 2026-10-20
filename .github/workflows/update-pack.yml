@@ -74,7 +74,7 @@ jobs:
           cd PSP
           zip -9 ../_site/PSP/apollo-psp-update.zip *.*
           cd ../PS1
-          zip -9 ../_site/PS3/apollo-psp-update.zip *.*
+          zip -9 ../_site/PSP/apollo-psp-update.zip *.*
           cd ..
           zip -9 -r _site/PSP/apollo-psp-update.zip python/
 
@@ -87,7 +87,7 @@ jobs:
           cd ../PSP
           zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ../PS1
-          zip -9 ../_site/PS3/apollo-vita-update.zip *.*
+          zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ..
           zip -9 -r _site/PSV/apollo-vita-update.zip python/
 

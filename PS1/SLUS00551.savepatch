@@ -1,0 +1,75 @@
+; SLUS00551
+; Resident Evil - Director's Cut
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLUS-00551*
+
+{IT}0001=Combat Knife;0002=Beretta;0003=Shotgun;0004=Colt Python (Dumdum);0005=Colt Python (Magnum);0006=Flamethrower;0007=Bazooka (Explosive R.);0008=Bazooka (Acid R.);0009=Bazooka (Flame R.);000A=R. Launcher;000B=Clip;000C=Shells;000D=Dumdum Rounds;000E=Magnum Rounds;000F=Fuel;0010=Explosive R.;0011=Acid Rounds;0012=Flame Rounds;0013=Empty Bottle;0014=Water;0015=UMB No. 2;0016=UMB No. 4;0017=UMB No. 7;0018=UMB No. 13;0019=Yellow-6;001A=NP-003;001B=V-Jolt;001C=Broken Shotgun;001D=Square Crank;001E=Hex. Crank;001F=Emblem;0020=Gold Emblem;0021=Blue Jewel;0022=Red Jewel;0023=Music Notes;0024=Wolf Medal;0025=Eagle Medal;0026=Herbicide;0027=Battery;0028=MO Disk;0029=Wind Crest;002A=Flare;002B=Slides;002C=Moon Crest;002D=Star Crest;002E=Sun Crest;002F=Ink Ribbon;0030=Lighter;0031=Lockpick;0033=Sword Key;0034=Armor Key;0035=Shield Key;0036=Helmet Key;0037=Master Key;0038=Closet Key;0039=002 Key;003A=003 Key;003B=C. Room Key;003C=P. Room Key;003D=Desk Key;003E=Blank Book;003F=Doom Book 2;0040=Doom Book 1;0041=F.-Aid Spray;0042=Serum;0043=Red Herb;0044=Green Herb;0045=Blue Herb;0046=Mixed Herbs (G+R);0047=Mixed Herbs (G+G);0048=Mixed Herbs (G+B);0049=Mixed Herbs (G+R+B);004A=Mixed Herbs (G+G+G);004B=Mixed Herbs (G+G+B){/IT}
+{QT}0001=1;0006=6;0007=7;000F=15;0019=25;0032=50;0063=99;00FA=250{/QT}
+
+[LE:Max Health]
+1000021E 0000008C
+
+[Cure Poison]
+set [b]:read(0x232,1)
+set [b]:and:FD
+write at 0x232:[b]
+
+[Reset Ink Ribbons Used]
+00000228 00000000
+
+[LE:Reset Play Time]
+20000224 00000000
+
+[Unlimited Rocket Launcher]
+set [b]:read(0x2AC,1)
+set [b]:or:02
+write at 0x2AC:[b]
+
+[Com. Radio]
+set [b]:read(0x2AC,1)
+set [b]:or:01
+write at 0x2AC:[b]
+
+[Alternative Outfit]
+set [b]:read(0x2A6,1)
+set [b]:or:20
+write at 0x2A6:[b]
+
+[All Files]
+;Chris and Jill files: 0x2C1 b6-7, 0x2C2 all, 0x2C3 b0-5
+set [b]:read(0x2C1,1)
+set [b]:or:C0
+write at 0x2C1:[b]
+set [b]:read(0x2C2,1)
+set [b]:or:FF
+write at 0x2C2:[b]
+set [b]:read(0x2C3,1)
+set [b]:or:3F
+write at 0x2C3:[b]
+
+[All Maps]
+;Mansion 1F/2F, Courtyard 1F/B1 (0x2BC b0-3), Guardhouse and Lab (0x2C3 b6-7)
+set [b]:read(0x2BC,1)
+set [b]:or:0F
+write at 0x2BC:[b]
+set [b]:read(0x2C3,1)
+set [b]:or:C0
+write at 0x2C3:[b]
+
+[All Items Analyzed]
+set [b]:read(0x29E,2)
+set [b]:or:FCFF
+write at 0x29E:[b]
+
+[Weapon Kit in Item Box Slots 41-46]
+;Shotgun x7, Python Magnum x6, Flamethrower x100, R. Launcher x250, Shells x99, Magnum Rounds x99
+write at 0x314:0307050606640AFA0C630E63
+
+[Item Box Slot 47]
+00000320 0000{IT}
+00000321 0000{QT}
+
+[Item Box Slot 48]
+00000322 0000{IT}
+00000323 0000{QT}

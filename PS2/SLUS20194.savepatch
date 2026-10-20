@@ -1,0 +1,142 @@
+; SLUS20194
+; Grandia II
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:BASLUS-20194G*
+
+{AI}0000=Manual;0011=Play Fair;0012=Power Up;0013=Withdraw;0014=Go Wild;0015=Safety 1st;0016=Meanie;0017=Each Own{/AI}
+{IT}08F9=Mystic Potion;08FA=Scarlet Potion;08FB=Healing Fruit;08FC=Holy Wound Salve;08FD=Wound Salve;08FE=Medicinal Herb;0903=Potion of Azure;0904=Healing Incense;0905=Scroll of Alheal;0906=Healing Herb;090D=Miracle Elixir;090E=Hero's Elixir;090F=Yomi's Elixir;0910=Panacea;0911=Purifying Herb;0912=Poison Antidote;0913=Paralysis Salve;0914=Torte's Reedpipe;0915=Eye Drops;0916=Smelling Salts;0917=Blessing Scroll;0918=Move Blessing;0919=Magic Blessing;091A=Vaccine;0921=Indigo Potion;0922=Magical Medicine;0923=Grail Fruit;0924=Lumir Flower;092A=Nut of Light;092B=Golden Potion;092C=Baobab Fruit;092D=Butter Roll;092E=Blueberry;0935=Caterpillar Soup;0936=Fresh Sandwich;0937=Toad Oil;093F=Calming Harp;0940=Mana Harp;0941=Lion Harp;095A=Golden Nut;095B=Golden Statue;095D=Hyper Mogay Bomb;095E=Super Mogay Bomb;095F=Mogay Bomb;0960=Meteor Scroll;0961=Thor Stone;0962=Red Bird Stone;0963=Icefang Stone;0964=Electrum Stone;0965=Gale Stone;0966=Flame Stone;0967=Quake Stone;0968=Fireball Scroll;0969=Whirlwind Scroll;096A=Serpentine;096B=Spiderweb;096C=Dynamite;096D=Red Goblin Toad;096E=Holy Ashes;096F=Insecticide Bomb;0970=Makibishi;0971=Sandman Whiskers;0972=Mushroom Cloud;0973=Firebomb;0974=Hand Grenade;0975=Goblin Toadstool;0976=Platinum Feather;0977=Gold Feather;0978=Silver Feather;0979=Scattering Stone;097B=Battle Manicure;097C=Face Paint;097D=Demon Ash;097E=Muscle Mushroom;097F=Guard Mushroom;0980=Speed Mushroom;0981=Runner Mushroom;0982=WOW! Scroll;0983=Diggin' Scroll;0984=Speedy Scroll;0985=Runner Scroll;0986=Myriad Power Nut;0987=Patience Nut;0988=Sympathy Nut;0989=Swiftness Nut;098A=Powerless Nut;098B=Weakness Nut;098C=Exhaustion Nut;098D=Slowpoke Nut;098F=Kuko Berry;0990=Sleeping Harp;0991=Silence Lute;0992=Mermaid Harp;0993=Bone Harp{/IT}
+
+[LE:Max Gold 9999999]
+200000A0 0098967F
+
+[LE:Max Special Coins 99999]
+200000A4 0001869F
+
+[LE:Max Magic Coins 99999]
+200000A8 0001869F
+
+[All Characters Level 99]
+400000FA 00000063
+4007006C 00000000
+
+[LE:Max HP 9999 (All Characters)]
+41000104 0000270F
+4007006C 00000000
+41000106 0000270F
+4007006C 00000000
+
+[LE:Max MP and SP 999 (All Characters)]
+41000108 000003E7
+4007006C 00000000
+4100010A 000003E7
+4007006C 00000000
+4100010C 000003E7
+4007006C 00000000
+4100010E 000003E7
+4007006C 00000000
+
+[LE:Max Stats 999 (All Characters)]
+;Strength, Vitality, Agility, Speed, Magic, Mentality
+41000110 000003E7
+4007006C 00000000
+41000112 000003E7
+4007006C 00000000
+41000114 000003E7
+4007006C 00000000
+41000116 000003E7
+4007006C 00000000
+41000118 000003E7
+4007006C 00000000
+4100011A 000003E7
+4007006C 00000000
+
+[6 Skill Slots (All Characters)]
+40000134 00000006
+4007006C 00000000
+
+[Cure All Conditions (All Characters)]
+4000014F 00000000
+4007006C 00000000
+
+[All Special Moves Level 5]
+;4 moves per character, 6 for Millenia
+400003DD 00000005
+40040004 00000000
+400003F5 00000005
+40040004 00000000
+4000040D 00000005
+40060004 00000000
+40000425 00000005
+40040004 00000000
+4000043D 00000005
+40040004 00000000
+40000455 00000005
+40040004 00000000
+4000046D 00000005
+40040004 00000000
+
+[All Magic Level 5]
+;10 Mana Eggs x 18 spells
+400004CD 00000005
+40B40004 00000000
+
+[All Skills Level 5]
+;9 Skill Books x 6 skills
+400007B5 00000005
+40360004 00000000
+
+[99x All Recovery Items]
+write at 0x8F9:636363636363
+write at 0x903:63636363
+write at 0x90D:6363636363636363636363636363
+write at 0x921:63636363
+write at 0x92A:6363636363
+write at 0x935:636363
+write at 0x93F:636363
+write at 0x95A:6363
+
+[99x All Attack Items]
+write at 0x95D:6363636363636363636363636363636363636363636363636363636363
+write at 0x97B:63636363636363636363636363636363636363
+write at 0x98F:6363636363
+
+[99x All Weapons and Armor]
+;weapons, armors, headgears, footwears, accessories
+write at 0x9C1:63636363636363636363636363636363636363636363
+write at 0x9DF:636363636363636363636363636363636363636363
+write at 0x9FD:6363636363636363
+write at 0xA1B:63636363636363636363636363
+write at 0xA39:6363636363636363636363
+write at 0xA57:636363636363636363636363
+write at 0xA89:63636363636363636363
+write at 0xA9D:63636363636363636363636363636363636363
+write at 0xAB1:6363636363636363
+write at 0xABB:6363636363636363636363
+write at 0xACF:636363636363636363636363
+write at 0xAE3:6363636363636363636363
+write at 0xAF7:6363636363636363636363
+write at 0xB0B:636363636363636363
+write at 0xB1F:6363636363636363636363
+write at 0xB33:6363636363636363
+write at 0xB3D:636363636363636363636363
+write at 0xB5B:636363636363636363636363636363636363636363636363
+write at 0xB78:63636363636363636363636363
+write at 0xB8D:636363636363636363636363636363
+write at 0xBA1:636363636363636363636363636363636363
+
+[All Mana Eggs]
+write at 0xB51:01010101010101010101
+
+[All Skill Books]
+write at 0x8C7:010101010101010101
+
+[99x All Seeds, Lores and Miracle Items]
+write at 0x8D1:63636363636363636363636363
+write at 0x8E5:63636363
+
+[99x Item]
+0000{IT} 00000063
+
+[Party AI]
+000000E2 0000{AI}

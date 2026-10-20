@@ -1,0 +1,285 @@
+; SLUS00707
+; Silent Hill
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLUS-00707*
+
+; Each SILENTxx file holds 11 game slots (0x280 bytes at 0x380 + i*0x280)
+; and 11 save preview entries (0xC bytes at 0x204 + i*0xC).
+{SF}0380=Slot 1;0600=Slot 2;0880=Slot 3;0B00=Slot 4;0D80=Slot 5;1000=Slot 6;1280=Slot 7;1500=Slot 8;1780=Slot 9;1A00=Slot 10;1C80=Slot 11{/SF}
+{BC}0000=Normal;0002=Green;0005=Violet;000B=Black{/BC}
+{BA}0000=x1;0001=x2;0002=x3;0003=x4;0004=x5;0005=x6{/BA}
+{DF}00F0=Easy;0000=Normal;0010=Hard{/DF}
+{GC}0001=1;0002=2;0003=3;0004=4;0005=5;000A=10{/GC}
+
+[Unlock All Endings]
+;options 0x327: Good+, Good, Bad+, Bad, UFO
+set [b]:read(0x327,1)
+set [b]:or:1F
+write at 0x327:[b]
+
+[Blood Color]
+00000324 0000{BC}
+
+[Bullet Adjust]
+0000032D 0000{BA}
+
+[LE:Full Health (100)]
+;slot+0x240 u32, 20.12 fixed point
+95000000 0000{SF}
+28000240 00064000
+
+[Max Inventory Slots (40)]
+95000000 0000{SF}
+080000AB 00000028
+
+[Difficulty]
+95000000 0000{SF}
+08000263 0000{DF}
+
+[Game Clear Count]
+95000000 0000{SF}
+0800024A 0000{GC}
+
+[Next Fear Mode]
+;slot+0x25C bit 0, mirrored to the preview entry by the sync code
+set pointer:0x0000{SF}
+set [b]:read(pointer+0x25C,1)
+set [b]:or:01
+write at pointer+0x25C:[b]
+
+[All Maps]
+set pointer:0x0000{SF}
+set [b]:read(pointer+0x164,1)
+set [b]:or:FE
+write at pointer+0x164:[b]
+set [b]:read(pointer+0x165,1)
+set [b]:or:FF
+write at pointer+0x165:[b]
+set [b]:read(pointer+0x166,1)
+set [b]:or:FF
+write at pointer+0x166:[b]
+set [b]:read(pointer+0x16C,1)
+set [b]:or:40
+write at pointer+0x16C:[b]
+set [b]:read(pointer+0x170,1)
+set [b]:or:08
+write at pointer+0x170:[b]
+set [b]:read(pointer+0x17D,1)
+set [b]:or:08
+write at pointer+0x17D:[b]
+set [b]:read(pointer+0x181,1)
+set [b]:or:80
+write at pointer+0x181:[b]
+set [b]:read(pointer+0x182,1)
+set [b]:or:01
+write at pointer+0x182:[b]
+set [b]:read(pointer+0x195,1)
+set [b]:or:02
+write at pointer+0x195:[b]
+set [b]:read(pointer+0x196,1)
+set [b]:or:04
+write at pointer+0x196:[b]
+set [b]:read(pointer+0x19E,1)
+set [b]:or:10
+write at pointer+0x19E:[b]
+
+[All Channeling Stone Locations]
+set pointer:0x0000{SF}
+set [b]:read(pointer+0x1A1,1)
+set [b]:or:1F
+write at pointer+0x1A1:[b]
+
+[Extra Items Available (Katana, Gasoline Tank, Channeling Stone)]
+set pointer:0x0000{SF}
+set [b]:read(pointer+0x16F,1)
+set [b]:or:46
+write at pointer+0x16F:[b]
+
+[Good+ Ending Requirements (Vial Found, Cybil Saved)]
+set pointer:0x0000{SF}
+set [b]:read(pointer+0x198,1)
+set [b]:or:80
+write at pointer+0x198:[b]
+set [b]:read(pointer+0x1A0,1)
+set [b]:or:02
+write at pointer+0x1A0:[b]
+
+[Best Ranking Stats (Playtime 0, 1 Save, 0 Continues)]
+;playtime slot+0x250 and its overflow bits 1-2 of slot+0x25C, saves slot+0xA6, continues slot+0x27B
+set pointer:0x0000{SF}
+;literal writes do not take pointer+N on v1.4.0, so these go through a variable
+set [b]:read(pointer+0x250,4)
+set [b]:and:00000000
+write at pointer+0x250:[b]
+set [b]:read(pointer+0x25C,1)
+set [b]:and:F9
+write at pointer+0x25C:[b]
+set [b]:read(pointer+0xA6,2)
+set [b]:and:0000
+set [b]:or:0100
+write at pointer+0xA6:[b]
+set [b]:read(pointer+0x27B,1)
+set [b]:and:00
+write at pointer+0x27B:[b]
+
+[Sync Save Preview Mirrors (Required)]
+;preview +4 = slot+0x250 (playtime), +8 = slot+0xA6 (saves), +A = slot+0xA8, +B = slot+0x25C
+;empty slots are all zero, so their preview bytes stay zero
+set [m]:read(0x5D0,4)
+write at 0x208:[m]
+set [m]:read(0x426,2)
+write at 0x20C:[m]
+set [m]:read(0x428,1)
+write at 0x20E:[m]
+set [m]:read(0x5DC,1)
+write at 0x20F:[m]
+set [m]:read(0x850,4)
+write at 0x214:[m]
+set [m]:read(0x6A6,2)
+write at 0x218:[m]
+set [m]:read(0x6A8,1)
+write at 0x21A:[m]
+set [m]:read(0x85C,1)
+write at 0x21B:[m]
+set [m]:read(0xAD0,4)
+write at 0x220:[m]
+set [m]:read(0x926,2)
+write at 0x224:[m]
+set [m]:read(0x928,1)
+write at 0x226:[m]
+set [m]:read(0xADC,1)
+write at 0x227:[m]
+set [m]:read(0xD50,4)
+write at 0x22C:[m]
+set [m]:read(0xBA6,2)
+write at 0x230:[m]
+set [m]:read(0xBA8,1)
+write at 0x232:[m]
+set [m]:read(0xD5C,1)
+write at 0x233:[m]
+set [m]:read(0xFD0,4)
+write at 0x238:[m]
+set [m]:read(0xE26,2)
+write at 0x23C:[m]
+set [m]:read(0xE28,1)
+write at 0x23E:[m]
+set [m]:read(0xFDC,1)
+write at 0x23F:[m]
+set [m]:read(0x1250,4)
+write at 0x244:[m]
+set [m]:read(0x10A6,2)
+write at 0x248:[m]
+set [m]:read(0x10A8,1)
+write at 0x24A:[m]
+set [m]:read(0x125C,1)
+write at 0x24B:[m]
+set [m]:read(0x14D0,4)
+write at 0x250:[m]
+set [m]:read(0x1326,2)
+write at 0x254:[m]
+set [m]:read(0x1328,1)
+write at 0x256:[m]
+set [m]:read(0x14DC,1)
+write at 0x257:[m]
+set [m]:read(0x1750,4)
+write at 0x25C:[m]
+set [m]:read(0x15A6,2)
+write at 0x260:[m]
+set [m]:read(0x15A8,1)
+write at 0x262:[m]
+set [m]:read(0x175C,1)
+write at 0x263:[m]
+set [m]:read(0x19D0,4)
+write at 0x268:[m]
+set [m]:read(0x1826,2)
+write at 0x26C:[m]
+set [m]:read(0x1828,1)
+write at 0x26E:[m]
+set [m]:read(0x19DC,1)
+write at 0x26F:[m]
+set [m]:read(0x1C50,4)
+write at 0x274:[m]
+set [m]:read(0x1AA6,2)
+write at 0x278:[m]
+set [m]:read(0x1AA8,1)
+write at 0x27A:[m]
+set [m]:read(0x1C5C,1)
+write at 0x27B:[m]
+set [m]:read(0x1ED0,4)
+write at 0x280:[m]
+set [m]:read(0x1D26,2)
+write at 0x284:[m]
+set [m]:read(0x1D28,1)
+write at 0x286:[m]
+set [m]:read(0x1EDC,1)
+write at 0x287:[m]
+
+[Update XOR-8 Checksums (Required)]
+;8-bit XOR of each range (end exclusive), written to both bytes of the u16 after it
+;previews 0x204..0x2FB, options 0x300..0x37B, slot i 0x380+i*0x280 +0..0x27B
+set [x]:0
+set [x]:xor(0x204,0x2FC,1)
+set [x]:left([x],1)
+write at 0x2FC:[x]
+write at 0x2FD:[x]
+set [x]:0
+set [x]:xor(0x300,0x37C,1)
+set [x]:left([x],1)
+write at 0x37C:[x]
+write at 0x37D:[x]
+set [x]:0
+set [x]:xor(0x380,0x5FC,1)
+set [x]:left([x],1)
+write at 0x5FC:[x]
+write at 0x5FD:[x]
+set [x]:0
+set [x]:xor(0x600,0x87C,1)
+set [x]:left([x],1)
+write at 0x87C:[x]
+write at 0x87D:[x]
+set [x]:0
+set [x]:xor(0x880,0xAFC,1)
+set [x]:left([x],1)
+write at 0xAFC:[x]
+write at 0xAFD:[x]
+set [x]:0
+set [x]:xor(0xB00,0xD7C,1)
+set [x]:left([x],1)
+write at 0xD7C:[x]
+write at 0xD7D:[x]
+set [x]:0
+set [x]:xor(0xD80,0xFFC,1)
+set [x]:left([x],1)
+write at 0xFFC:[x]
+write at 0xFFD:[x]
+set [x]:0
+set [x]:xor(0x1000,0x127C,1)
+set [x]:left([x],1)
+write at 0x127C:[x]
+write at 0x127D:[x]
+set [x]:0
+set [x]:xor(0x1280,0x14FC,1)
+set [x]:left([x],1)
+write at 0x14FC:[x]
+write at 0x14FD:[x]
+set [x]:0
+set [x]:xor(0x1500,0x177C,1)
+set [x]:left([x],1)
+write at 0x177C:[x]
+write at 0x177D:[x]
+set [x]:0
+set [x]:xor(0x1780,0x19FC,1)
+set [x]:left([x],1)
+write at 0x19FC:[x]
+write at 0x19FD:[x]
+set [x]:0
+set [x]:xor(0x1A00,0x1C7C,1)
+set [x]:left([x],1)
+write at 0x1C7C:[x]
+write at 0x1C7D:[x]
+set [x]:0
+set [x]:xor(0x1C80,0x1EFC,1)
+set [x]:left([x],1)
+write at 0x1EFC:[x]
+write at 0x1EFD:[x]

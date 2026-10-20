@@ -1,0 +1,190 @@
+; SLES00049
+; Rayman
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLES-00049*
+
+{LV}0000=Pink Plant Woods;0001=Anguish Lagoon;0002=Swamps of Forgetfulness;0003=Moskito's Nest;0004=Bongo Hills;0005=Allegro Presto;0006=Gong Heights;0007=Mr Sax's Hullaballoo;0008=Twilight Gulch;0009=The Hard Rocks;000A=Mr Stone's Peaks;000B=Eraser Plains;000C=Pencil Pentathlon;000D=Space Mama's Crater;000E=Crystal Palace;000F=Eat At Joe's;0010=Mr Skops' Stalactites;0011=Mr Dark's Dare;0012=Dream Forest (Save);0013=Band Land (Save);0014=Blue Mountains (Save);0015=Picture City (Save);0016=Caves of Skops (Save);0017=Candy Chateau (Save){/LV}
+
+[99 Lives]
+00000400 00000063
+
+[99 Continues]
+00000200 00000063
+
+[99 Tings]
+00000406 00000063
+
+[5 Hit Points + Full Health]
+00000409 00000004
+00000480 00000004
+
+[All Powers]
+;Punch, Hang, Helicopter, Grab (0x300) + Run (0x301)
+set [b]:read(0x300,2)
+set [b]:or:8701
+write at 0x300:[b]
+
+[Unlock All Levels and Save Points]
+;bit 0 of 0x280..0x297
+set [b]:read(0x280,4)
+set [b]:or:01010101
+write at 0x280:[b]
+set [b]:read(0x284,4)
+set [b]:or:01010101
+write at 0x284:[b]
+set [b]:read(0x288,4)
+set [b]:or:01010101
+write at 0x288:[b]
+set [b]:read(0x28C,4)
+set [b]:or:01010101
+write at 0x28C:[b]
+set [b]:read(0x290,4)
+set [b]:or:01010101
+write at 0x290:[b]
+set [b]:read(0x294,4)
+set [b]:or:01010101
+write at 0x294:[b]
+
+[Free All Electoon Cages]
+;cage flags, then per-level unlock + 6 cages (0x19) and 100% progress text
+set [b]:read(0x521,1)
+set [b]:or:40
+write at 0x521:[b]
+set [b]:read(0x529,1)
+set [b]:or:34
+write at 0x529:[b]
+set [b]:read(0x56A,1)
+set [b]:or:A0
+write at 0x56A:[b]
+set [b]:read(0x583,2)
+set [b]:or:01E8
+write at 0x583:[b]
+set [b]:read(0x5C3,1)
+set [b]:or:40
+write at 0x5C3:[b]
+set [b]:read(0x600,1)
+set [b]:or:30
+write at 0x600:[b]
+set [b]:read(0x626,2)
+set [b]:or:0280
+write at 0x626:[b]
+set [b]:read(0x648,1)
+set [b]:or:06
+write at 0x648:[b]
+set [b]:read(0x667,1)
+set [b]:or:4C
+write at 0x667:[b]
+set [b]:read(0x689,1)
+set [b]:or:0B
+write at 0x689:[b]
+set [b]:read(0x7AA,1)
+set [b]:or:01
+write at 0x7AA:[b]
+set [b]:read(0x7D3,1)
+set [b]:or:20
+write at 0x7D3:[b]
+set [b]:read(0x7E8,1)
+set [b]:or:08
+write at 0x7E8:[b]
+set [b]:read(0x810,1)
+set [b]:or:08
+write at 0x810:[b]
+set [b]:read(0x832,1)
+set [b]:or:03
+write at 0x832:[b]
+set [b]:read(0x860,1)
+set [b]:or:34
+write at 0x860:[b]
+set [b]:read(0x88F,1)
+set [b]:or:80
+write at 0x88F:[b]
+set [b]:read(0x8A1,1)
+set [b]:or:05
+write at 0x8A1:[b]
+set [b]:read(0x900,1)
+set [b]:or:B4
+write at 0x900:[b]
+set [b]:read(0x920,1)
+set [b]:or:48
+write at 0x920:[b]
+set [b]:read(0x954,1)
+set [b]:or:FC
+write at 0x954:[b]
+set [b]:read(0x9EA,2)
+set [b]:or:06F0
+write at 0x9EA:[b]
+set [b]:read(0xA37,1)
+set [b]:or:40
+write at 0xA37:[b]
+set [b]:read(0xA44,1)
+set [b]:or:60
+write at 0xA44:[b]
+set [b]:read(0xA69,2)
+set [b]:or:0340
+write at 0xA69:[b]
+set [b]:read(0xA90,1)
+set [b]:or:03
+write at 0xA90:[b]
+set [b]:read(0xAA5,1)
+set [b]:or:80
+write at 0xAA5:[b]
+set [b]:read(0xAC6,1)
+set [b]:or:02
+write at 0xAC6:[b]
+set [b]:read(0xAF3,2)
+set [b]:or:0180
+write at 0xAF3:[b]
+set [b]:read(0xB93,1)
+set [b]:or:18
+write at 0xB93:[b]
+set [b]:read(0xBB2,1)
+set [b]:or:08
+write at 0xBB2:[b]
+set [b]:read(0xBCF,2)
+set [b]:or:0680
+write at 0xBCF:[b]
+set [b]:read(0xC17,2)
+set [b]:or:0180
+write at 0xC17:[b]
+set [b]:read(0xC2A,1)
+set [b]:or:05
+write at 0xC2A:[b]
+set [b]:read(0xC4B,2)
+set [b]:or:0280
+write at 0xC4B:[b]
+set [b]:read(0xC68,1)
+set [b]:or:0C
+write at 0xC68:[b]
+set [b]:read(0xC81,1)
+set [b]:or:05
+write at 0xC81:[b]
+set [b]:read(0xCB3,1)
+set [b]:or:30
+write at 0xCB3:[b]
+set [b]:read(0xD2C,1)
+set [b]:or:32
+write at 0xD2C:[b]
+set [b]:read(0xD4B,2)
+set [b]:or:01C0
+write at 0xD4B:[b]
+set [b]:read(0xD87,1)
+set [b]:or:08
+write at 0xD87:[b]
+set [b]:read(0xDB1,1)
+set [b]:or:1A
+write at 0xDB1:[b]
+set [b]:read(0xDE0,1)
+set [b]:or:40
+write at 0xDE0:[b]
+set [b]:read(0xE07,1)
+set [b]:or:10
+write at 0xE07:[b]
+set [b]:read(0xE20,1)
+set [b]:or:7E
+write at 0xE20:[b]
+write at 0x280:1919191919191919191919191919191919
+write at 0x00F:"100"
+
+[Current Level]
+00001080 0000{LV}

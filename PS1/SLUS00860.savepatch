@@ -1,0 +1,224 @@
+; SLUS00860
+; Tony Hawk's Pro Skater
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLUS-00860*
+
+; Career records: 11 characters, 0xE bytes each, base 0x288 + c*0xE
+; +0 tape count, +4/+5/+6/+8/+9/+B goal bits 0-4, +7/+A/+C competition medal (0x20 gold)
+
+[All Tapes and Goals (All Characters)]
+;sets goal bits 0-4 on the 6 levels, clears bits 0-4 of the Skate Park and Burnside medal bytes
+;(the game counts them too), then writes the matching tape count 30 (0x1E)
+write at 0x288:1E
+set [b]:read(0x28C,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x28C:[b]
+set [b]:read(0x290,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x290:[b]
+write at 0x296:1E
+set [b]:read(0x29A,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x29A:[b]
+set [b]:read(0x29E,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x29E:[b]
+write at 0x2A4:1E
+set [b]:read(0x2A8,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2A8:[b]
+set [b]:read(0x2AC,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2AC:[b]
+write at 0x2B2:1E
+set [b]:read(0x2B6,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2B6:[b]
+set [b]:read(0x2BA,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2BA:[b]
+write at 0x2C0:1E
+set [b]:read(0x2C4,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2C4:[b]
+set [b]:read(0x2C8,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2C8:[b]
+write at 0x2CE:1E
+set [b]:read(0x2D2,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2D2:[b]
+set [b]:read(0x2D6,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2D6:[b]
+write at 0x2DC:1E
+set [b]:read(0x2E0,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2E0:[b]
+set [b]:read(0x2E4,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2E4:[b]
+write at 0x2EA:1E
+set [b]:read(0x2EE,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2EE:[b]
+set [b]:read(0x2F2,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x2F2:[b]
+write at 0x2F8:1E
+set [b]:read(0x2FC,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x2FC:[b]
+set [b]:read(0x300,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x300:[b]
+write at 0x306:1E
+set [b]:read(0x30A,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x30A:[b]
+set [b]:read(0x30E,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x30E:[b]
+write at 0x314:1E
+set [b]:read(0x318,4)
+set [b]:or:1F1F1F00
+set [b]:and:FFFFFFE0
+write at 0x318:[b]
+set [b]:read(0x31C,4)
+set [b]:or:1F1F001F
+set [b]:and:FFFFE0FF
+write at 0x31C:[b]
+
+[All Gold Medals (All Characters)]
+;Skate Park (+7), Burnside (+A), Roswell (+C): medal bits 5-7 set to gold (0x20), bits 0-4 kept so the tape count stays valid
+set [b]:read(0x28F,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x28F:[b]
+set [b]:read(0x294,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x294:[b]
+set [b]:read(0x29D,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x29D:[b]
+set [b]:read(0x2A2,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2A2:[b]
+set [b]:read(0x2AB,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2AB:[b]
+set [b]:read(0x2B0,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2B0:[b]
+set [b]:read(0x2B9,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2B9:[b]
+set [b]:read(0x2BE,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2BE:[b]
+set [b]:read(0x2C7,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2C7:[b]
+set [b]:read(0x2CC,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2CC:[b]
+set [b]:read(0x2D5,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2D5:[b]
+set [b]:read(0x2DA,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2DA:[b]
+set [b]:read(0x2E3,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2E3:[b]
+set [b]:read(0x2E8,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2E8:[b]
+set [b]:read(0x2F1,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2F1:[b]
+set [b]:read(0x2F6,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x2F6:[b]
+set [b]:read(0x2FF,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x2FF:[b]
+set [b]:read(0x304,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x304:[b]
+set [b]:read(0x30D,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x30D:[b]
+set [b]:read(0x312,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x312:[b]
+set [b]:read(0x31B,4)
+set [b]:and:1FFFFF1F
+set [b]:or:20000020
+write at 0x31B:[b]
+set [b]:read(0x320,1)
+set [b]:and:1F
+set [b]:or:20
+write at 0x320:[b]
+
+[LE:Max High Score (1st Place, All Courses)]
+;999,999 points, record 0x324 + course*0x60, score at +8
+2000032C 000F423F
+2000038C 000F423F
+200003EC 000F423F
+2000044C 000F423F
+200004AC 000F423F
+2000050C 000F423F
+2000056C 000F423F
+200005CC 000F423F
+2000062C 000F423F
+
+[Update Checksum (Required)]
+;sum of (byte + 1) over 0x280..0xC7F = byte sum + 0xA00, low 16 bits stored little-endian at 0x236
+carry(0)
+set [csum]:0
+set [csum]:add(0x280,0xC7F)
+set [csum]:[csum]+0xA00
+set [sum16]:right([csum],2)
+set [sum16]:endian_swap
+write at 0x236:[sum16]

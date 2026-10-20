@@ -1,0 +1,36 @@
+; SLPS00040
+; Tekken
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLPS-00040*
+
+{DF}0000=Easy;0001=Medium;0002=Hard;0003=Very Hard;0004=Ultra Hard{/DF}
+{RT}0000=20 Seconds;0001=30 Seconds;0002=40 Seconds;0003=50 Seconds;0004=60 Seconds;0005=Infinite{/RT}
+{FC}0000=1 Round;0001=2 Rounds;0002=3 Rounds;0003=4 Rounds;0004=5 Rounds{/FC}
+
+[Unlock All Characters]
+;Kazuya..Michelle (0x20C), Wang..Kuma (0x20D), Kunimitsu (0x20E bit 0)
+write at 0x20C:FFFF
+set [b]:read(0x20E,1)
+set [b]:or:01
+write at 0x20E:[b]
+
+[All Characters Arcade Completed]
+write at 0x210:FFFF
+set [b]:read(0x212,1)
+set [b]:or:01
+write at 0x212:[b]
+
+[Unlock Kazuya Alternate Costume]
+set [b]:read(0x214,1)
+set [b]:or:01
+write at 0x214:[b]
+
+[Difficulty]
+00000203 0000{DF}
+
+[Round Time]
+00000205 0000{RT}
+
+[Fight Count]
+00000204 0000{FC}
