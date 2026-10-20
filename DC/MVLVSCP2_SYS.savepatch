@@ -1,0 +1,71 @@
+; MVLVSCP2_SYS
+; Marvel vs. Capcom 2: New Age of Heroes
+; codes by bucanero, offsets from game-tools-collection save editor
+; offsets are from the start of the VMS file (0x280-byte VMS header + icon included)
+; the VMS header CRC (+0x46) is left alone: Apollo updates it when it writes the file back
+
+:MVLVSCP2_SYS
+
+{DF}0000=Level 1;0001=Level 2;0002=Level 3;0003=Level 4;0004=Level 5;0005=Level 6;0006=Level 7;0007=Level 8{/DF}
+{TM}0000=30 seconds;0001=60 seconds;0002=99 seconds;0003=Infinite{/TM}
+{DM}0000=Level 1;0001=Level 2;0002=Level 3;0003=Level 4{/DM}
+{SP}0000=Free;0001=Turbo;0002=Turbo 2{/SP}
+
+[LE:Max Points 9999]
+;shop points (D-pts on the Japanese release), u16 at 0x28E
+1000028E 0000270F
+
+[Level 99]
+0000028C 00000063
+
+[Unlock All Characters]
+;shop flags 0x294..0x29B, 56 characters (0x297 bits 3-7 and 0x29B bits 0-2 only)
+write at 0x294:FFFFFF
+set [b]:read(0x297,1)
+set [b]:or:F8
+write at 0x297:[b]
+write at 0x298:FFFFFF
+set [b]:read(0x29B,1)
+set [b]:or:07
+write at 0x29B:[b]
+
+[Unlock All New Colors]
+;same layout as the characters, at 0x29C..0x2A3
+write at 0x29C:FFFFFF
+set [b]:read(0x29F,1)
+set [b]:or:F8
+write at 0x29F:[b]
+write at 0x2A0:FFFFFF
+set [b]:read(0x2A3,1)
+set [b]:or:07
+write at 0x2A3:[b]
+
+[Unlock All Stages]
+;number of extra stages bought (0-7)
+000002A4 00000007
+
+[Difficulty]
+00000970 0000{DF}
+
+[Round Time]
+00000971 0000{TM}
+
+[Damage]
+00000972 0000{DM}
+
+[Game Speed]
+00000973 0000{SP}
+
+[Update Game Checksum (Required)]
+;u32 LE at 0x9A4: low half = LE u16 word sum, high half = byte sum, both over 0x280..0x9A3
+carry(0)
+set [w]:0
+set [w]:wadd_le(0x280,0x9A3)
+set [w]:right([w],2)
+set [w]:endian_swap
+write at 0x9A4:[w]
+set [s]:0
+set [s]:add(0x280,0x9A3)
+set [s]:right([s],2)
+set [s]:endian_swap
+write at 0x9A6:[s]

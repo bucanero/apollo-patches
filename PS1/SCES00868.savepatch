@@ -4,6 +4,8 @@
 
 :B?SCES-00868FF7*
 
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
 {MT}0000=MP Plus;0001=HP Plus;0002=Speed Plus;0003=Magic Plus;0004=Luck Plus;0005=EXP Plus;0006=Gil Plus;0007=Enemy Away;0008=Enemy Lure;0009=Chocobo Lure;000A=Pre-Emptive;000B=Long Range;000C=Mega All;000D=Counter Attack;000E=Slash-All;000F=Double Cut;0010=Cover;0011=Underwater;0012=HP<->MP;0013=W-Magic;0014=W-Summon;0015=W-Item;0017=All;0018=Counter;0019=Magic Counter;001A=MP Turbo;001B=MP Absorb;001C=HP Absorb;001D=Elemental;001E=Added Effect;001F=Sneak Attack;0020=Final Attack;0021=Added Cut;0022=Steal as well;0023=Quadra Magic;0024=Steal;0025=Sense;0027=Throw;0028=Morph;0029=Deathblow;002A=Manipulate;002B=Mime;002C=Enemy Skill;0030=Master Command;0031=Fire;0032=Ice;0033=Earth;0034=Lightning;0035=Restore;0036=Heal;0037=Revive;0038=Seal;0039=Mystify;003A=Transform;003B=Exit;003C=Poison;003D=Gravity;003E=Barrier;0040=Comet;0041=Time;0044=Destruct;0045=Contain;0046=Full Cure;0047=Shield;0048=Ultima;0049=Master Magic;004A=Choco/Mog;004B=Shiva;004C=Ifrit;004D=Ramuh;004E=Titan;004F=Odin;0050=Leviathan;0051=Bahamut;0052=Kjata;0053=Alexander;0054=Phoenix;0055=Neo Bahamut;0056=Hades;0057=Typhoon;0058=Bahamut ZERO;0059=Knights of Round;005A=Master Summon{/MT}
 
 [LE:Max 9,999,999 Gil]

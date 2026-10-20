@@ -1,0 +1,292 @@
+; SLPS25158
+; .hack//Vol.3 - Erosion Pollution
+; codes by bucanero, offsets from game-tools-collection save editor
+;
+; 12 save slots = files dhdata01..dhdata12 (0x8530 or 0x8D84 bytes, same layout up to 0x8530).
+; Slot NN checksum = sum of all bytes of dhdataNN & 0xFFFF, stored u16 LE in the system
+; file (named like the save folder) at (NN-1)*0x1C+0x16, next to the slot's 'used' flag at +0x00.
+; Every cheat edits the dhdata file you pick. The Required codes then sum all 12 dhdata files
+; and write each sum back for every used slot, so no slot has to be chosen twice.
+
+:dhdata*
+
+[INFO:Pick the same file for every cheat: dhdata01-12 = save slot 1-12]
+[INFO:Checksums of all used slots are rebuilt by the Required codes]
+
+[LE:Max GP (9,999,999)]
+2000749C 0098967F
+
+[LE:Kite Level 99]
+10007496 00000063
+
+[LE:Kite Max HP 9999 / Max SP 999]
+100074AC 0000270F
+100074AE 000003E7
+
+[Kite All Stats 999]
+;phys atk/def/acc/eva, mag atk/def/acc/eva, 6 affinities, 2 condition resists: 16 x u16 LE
+write at 0x74B0:E703E703E703E703E703E703E703E703E703E703E703E703E703E703E703E703
+
+[Unlock All Servers]
+;0x2234 bits 0-4 = Delta, Theta, Lambda, Sigma, Omega
+set [b]:read(0x2234,1)
+set [b]:or:1F
+write at 0x2234:[b]
+
+[99 of Every Virus Core (A-P)]
+write at 0xCFC:63636363636363636363636363636363
+
+[99 of Every Grunty Food]
+write at 0xD16:63636363636363636363636363636363
+
+[All Ryu Books (Book of 1000)]
+;key items 0x111-0x118 = Ryu Book I-VIII
+write at 0xE0D:0101010101010101
+
+:dhdata01
+
+[Compute Slot 01 Byte-Sum (Required)]
+;[s01] = sum of every byte of dhdata01; [d01] = 1 marks it as computed in this run
+carry(0)
+set [s01]:0
+set [s01]:add(0x0,eof)
+set [d01]:01
+
+:dhdata02
+
+[Compute Slot 02 Byte-Sum (Required)]
+;[s02] = sum of every byte of dhdata02; [d02] = 1 marks it as computed in this run
+carry(0)
+set [s02]:0
+set [s02]:add(0x0,eof)
+set [d02]:01
+
+:dhdata03
+
+[Compute Slot 03 Byte-Sum (Required)]
+;[s03] = sum of every byte of dhdata03; [d03] = 1 marks it as computed in this run
+carry(0)
+set [s03]:0
+set [s03]:add(0x0,eof)
+set [d03]:01
+
+:dhdata04
+
+[Compute Slot 04 Byte-Sum (Required)]
+;[s04] = sum of every byte of dhdata04; [d04] = 1 marks it as computed in this run
+carry(0)
+set [s04]:0
+set [s04]:add(0x0,eof)
+set [d04]:01
+
+:dhdata05
+
+[Compute Slot 05 Byte-Sum (Required)]
+;[s05] = sum of every byte of dhdata05; [d05] = 1 marks it as computed in this run
+carry(0)
+set [s05]:0
+set [s05]:add(0x0,eof)
+set [d05]:01
+
+:dhdata06
+
+[Compute Slot 06 Byte-Sum (Required)]
+;[s06] = sum of every byte of dhdata06; [d06] = 1 marks it as computed in this run
+carry(0)
+set [s06]:0
+set [s06]:add(0x0,eof)
+set [d06]:01
+
+:dhdata07
+
+[Compute Slot 07 Byte-Sum (Required)]
+;[s07] = sum of every byte of dhdata07; [d07] = 1 marks it as computed in this run
+carry(0)
+set [s07]:0
+set [s07]:add(0x0,eof)
+set [d07]:01
+
+:dhdata08
+
+[Compute Slot 08 Byte-Sum (Required)]
+;[s08] = sum of every byte of dhdata08; [d08] = 1 marks it as computed in this run
+carry(0)
+set [s08]:0
+set [s08]:add(0x0,eof)
+set [d08]:01
+
+:dhdata09
+
+[Compute Slot 09 Byte-Sum (Required)]
+;[s09] = sum of every byte of dhdata09; [d09] = 1 marks it as computed in this run
+carry(0)
+set [s09]:0
+set [s09]:add(0x0,eof)
+set [d09]:01
+
+:dhdata10
+
+[Compute Slot 10 Byte-Sum (Required)]
+;[s10] = sum of every byte of dhdata10; [d10] = 1 marks it as computed in this run
+carry(0)
+set [s10]:0
+set [s10]:add(0x0,eof)
+set [d10]:01
+
+:dhdata11
+
+[Compute Slot 11 Byte-Sum (Required)]
+;[s11] = sum of every byte of dhdata11; [d11] = 1 marks it as computed in this run
+carry(0)
+set [s11]:0
+set [s11]:add(0x0,eof)
+set [d11]:01
+
+:dhdata12
+
+[Compute Slot 12 Byte-Sum (Required)]
+;[s12] = sum of every byte of dhdata12; [d12] = 1 marks it as computed in this run
+carry(0)
+set [s12]:0
+set [s12]:add(0x0,eof)
+set [d12]:01
+
+:BISLPS-25158DOTHACK
+
+[Update Byte-Sum Checksum (Required)]
+;for each slot NN (entry E = (NN-1)*0x1C): f = used flag at E, d = sum computed this run.
+;the u16 LE sum lands at E+0x12+2*(f+d): only f=d=1 reaches E+0x16, the checksum.
+;E+0x12..0x15 is saved first and restored after, so f+d < 2 changes nothing.
+;d is cleared after use, so a stale sum from an earlier run is never written again.
+;slot 01
+set [f]:read(0x0,1)
+set [f]:and:01
+set [k]:read(0x12,4)
+set [v]:right([s01],2)
+set [v]:endian_swap
+set pointer:0x12
+set pointer:[f]+[f]+pointer+[d01]+[d01]
+write next (0):[v]
+write at 0x12:[k]
+set [d01]:00
+;slot 02
+set [f]:read(0x1C,1)
+set [f]:and:01
+set [k]:read(0x2E,4)
+set [v]:right([s02],2)
+set [v]:endian_swap
+set pointer:0x2E
+set pointer:[f]+[f]+pointer+[d02]+[d02]
+write next (0):[v]
+write at 0x2E:[k]
+set [d02]:00
+;slot 03
+set [f]:read(0x38,1)
+set [f]:and:01
+set [k]:read(0x4A,4)
+set [v]:right([s03],2)
+set [v]:endian_swap
+set pointer:0x4A
+set pointer:[f]+[f]+pointer+[d03]+[d03]
+write next (0):[v]
+write at 0x4A:[k]
+set [d03]:00
+;slot 04
+set [f]:read(0x54,1)
+set [f]:and:01
+set [k]:read(0x66,4)
+set [v]:right([s04],2)
+set [v]:endian_swap
+set pointer:0x66
+set pointer:[f]+[f]+pointer+[d04]+[d04]
+write next (0):[v]
+write at 0x66:[k]
+set [d04]:00
+;slot 05
+set [f]:read(0x70,1)
+set [f]:and:01
+set [k]:read(0x82,4)
+set [v]:right([s05],2)
+set [v]:endian_swap
+set pointer:0x82
+set pointer:[f]+[f]+pointer+[d05]+[d05]
+write next (0):[v]
+write at 0x82:[k]
+set [d05]:00
+;slot 06
+set [f]:read(0x8C,1)
+set [f]:and:01
+set [k]:read(0x9E,4)
+set [v]:right([s06],2)
+set [v]:endian_swap
+set pointer:0x9E
+set pointer:[f]+[f]+pointer+[d06]+[d06]
+write next (0):[v]
+write at 0x9E:[k]
+set [d06]:00
+;slot 07
+set [f]:read(0xA8,1)
+set [f]:and:01
+set [k]:read(0xBA,4)
+set [v]:right([s07],2)
+set [v]:endian_swap
+set pointer:0xBA
+set pointer:[f]+[f]+pointer+[d07]+[d07]
+write next (0):[v]
+write at 0xBA:[k]
+set [d07]:00
+;slot 08
+set [f]:read(0xC4,1)
+set [f]:and:01
+set [k]:read(0xD6,4)
+set [v]:right([s08],2)
+set [v]:endian_swap
+set pointer:0xD6
+set pointer:[f]+[f]+pointer+[d08]+[d08]
+write next (0):[v]
+write at 0xD6:[k]
+set [d08]:00
+;slot 09
+set [f]:read(0xE0,1)
+set [f]:and:01
+set [k]:read(0xF2,4)
+set [v]:right([s09],2)
+set [v]:endian_swap
+set pointer:0xF2
+set pointer:[f]+[f]+pointer+[d09]+[d09]
+write next (0):[v]
+write at 0xF2:[k]
+set [d09]:00
+;slot 10
+set [f]:read(0xFC,1)
+set [f]:and:01
+set [k]:read(0x10E,4)
+set [v]:right([s10],2)
+set [v]:endian_swap
+set pointer:0x10E
+set pointer:[f]+[f]+pointer+[d10]+[d10]
+write next (0):[v]
+write at 0x10E:[k]
+set [d10]:00
+;slot 11
+set [f]:read(0x118,1)
+set [f]:and:01
+set [k]:read(0x12A,4)
+set [v]:right([s11],2)
+set [v]:endian_swap
+set pointer:0x12A
+set pointer:[f]+[f]+pointer+[d11]+[d11]
+write next (0):[v]
+write at 0x12A:[k]
+set [d11]:00
+;slot 12
+set [f]:read(0x134,1)
+set [f]:and:01
+set [k]:read(0x146,4)
+set [v]:right([s12],2)
+set [v]:endian_swap
+set pointer:0x146
+set pointer:[f]+[f]+pointer+[d12]+[d12]
+write next (0):[v]
+write at 0x146:[k]
+set [d12]:00

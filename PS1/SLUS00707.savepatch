@@ -4,6 +4,8 @@
 
 :B?SLUS-00707*
 
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
 ; Each SILENTxx file holds 11 game slots (0x280 bytes at 0x380 + i*0x280)
 ; and 11 save preview entries (0xC bytes at 0x204 + i*0xC).
 {SF}0380=Slot 1;0600=Slot 2;0880=Slot 3;0B00=Slot 4;0D80=Slot 5;1000=Slot 6;1280=Slot 7;1500=Slot 8;1780=Slot 9;1A00=Slot 10;1C80=Slot 11{/SF}
@@ -46,64 +48,64 @@ write at 0x327:[b]
 set pointer:0x0000{SF}
 set [b]:read(pointer+0x25C,1)
 set [b]:or:01
-write at pointer+0x25C:[b]
+write next 0x25C:[b]
 
 [All Maps]
 set pointer:0x0000{SF}
 set [b]:read(pointer+0x164,1)
 set [b]:or:FE
-write at pointer+0x164:[b]
+write next 0x164:[b]
 set [b]:read(pointer+0x165,1)
 set [b]:or:FF
-write at pointer+0x165:[b]
+write next 0x165:[b]
 set [b]:read(pointer+0x166,1)
 set [b]:or:FF
-write at pointer+0x166:[b]
+write next 0x166:[b]
 set [b]:read(pointer+0x16C,1)
 set [b]:or:40
-write at pointer+0x16C:[b]
+write next 0x16C:[b]
 set [b]:read(pointer+0x170,1)
 set [b]:or:08
-write at pointer+0x170:[b]
+write next 0x170:[b]
 set [b]:read(pointer+0x17D,1)
 set [b]:or:08
-write at pointer+0x17D:[b]
+write next 0x17D:[b]
 set [b]:read(pointer+0x181,1)
 set [b]:or:80
-write at pointer+0x181:[b]
+write next 0x181:[b]
 set [b]:read(pointer+0x182,1)
 set [b]:or:01
-write at pointer+0x182:[b]
+write next 0x182:[b]
 set [b]:read(pointer+0x195,1)
 set [b]:or:02
-write at pointer+0x195:[b]
+write next 0x195:[b]
 set [b]:read(pointer+0x196,1)
 set [b]:or:04
-write at pointer+0x196:[b]
+write next 0x196:[b]
 set [b]:read(pointer+0x19E,1)
 set [b]:or:10
-write at pointer+0x19E:[b]
+write next 0x19E:[b]
 
 [All Channeling Stone Locations]
 set pointer:0x0000{SF}
 set [b]:read(pointer+0x1A1,1)
 set [b]:or:1F
-write at pointer+0x1A1:[b]
+write next 0x1A1:[b]
 
 [Extra Items Available (Katana, Gasoline Tank, Channeling Stone)]
 set pointer:0x0000{SF}
 set [b]:read(pointer+0x16F,1)
 set [b]:or:46
-write at pointer+0x16F:[b]
+write next 0x16F:[b]
 
 [Good+ Ending Requirements (Vial Found, Cybil Saved)]
 set pointer:0x0000{SF}
 set [b]:read(pointer+0x198,1)
 set [b]:or:80
-write at pointer+0x198:[b]
+write next 0x198:[b]
 set [b]:read(pointer+0x1A0,1)
 set [b]:or:02
-write at pointer+0x1A0:[b]
+write next 0x1A0:[b]
 
 [Best Ranking Stats (Playtime 0, 1 Save, 0 Continues)]
 ;playtime slot+0x250 and its overflow bits 1-2 of slot+0x25C, saves slot+0xA6, continues slot+0x27B
@@ -111,17 +113,17 @@ set pointer:0x0000{SF}
 ;literal writes do not take pointer+N on v1.4.0, so these go through a variable
 set [b]:read(pointer+0x250,4)
 set [b]:and:00000000
-write at pointer+0x250:[b]
+write next 0x250:[b]
 set [b]:read(pointer+0x25C,1)
 set [b]:and:F9
-write at pointer+0x25C:[b]
+write next 0x25C:[b]
 set [b]:read(pointer+0xA6,2)
 set [b]:and:0000
 set [b]:or:0100
-write at pointer+0xA6:[b]
+write next 0xA6:[b]
 set [b]:read(pointer+0x27B,1)
 set [b]:and:00
-write at pointer+0x27B:[b]
+write next 0x27B:[b]
 
 [Sync Save Preview Mirrors (Required)]
 ;preview +4 = slot+0x250 (playtime), +8 = slot+0xA6 (saves), +A = slot+0xA8, +B = slot+0x25C

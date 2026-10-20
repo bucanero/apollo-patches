@@ -51,6 +51,9 @@ jobs:
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ../PS1
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
+          # Dreamcast VMU saves: only apollo-ps3 loads cheats for them
+          cd ../DC
+          zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ..
           zip -9 -r _site/PS3/apollo-ps3-update.zip python/
 

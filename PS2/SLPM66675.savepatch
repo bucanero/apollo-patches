@@ -1,0 +1,98 @@
+; SLPM66675
+; Kingdom Hearts II - Final Mix +
+; codes by bucanero, offsets from game-tools-collection save editor
+; Final Mix+ layout (offsets from finalmix.ts)
+
+:BISLPM-66675FM-*
+
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
+[INFO:Use on slot saves (-00 to -99), not on the -SYS system save]
+
+[LE:Max Munny (999,999)]
+;u32 at 0x2440
+20002440 000F423F
+
+[Sora Level 99]
+;level byte 0x24FF only: stats do not grow with it
+000024FF 00000063
+
+[LE:Sora Max EXP (9,999,999)]
+;u32 at 0x36E0, Sora's EXP (the editor shows it under every party member)
+200036E0 0098967F
+
+[Sora Max Drive Gauge (9)]
+;drive level current/max 0x3529/0x352A, Sora only
+00003529 00000009
+0000352A 00000009
+
+[All Drive Forms]
+;Valor, Wisdom, Limit, Master, Final: 0x36C0 bits 1,2,4,6, Limit 0x36CA bit 3
+set [b]:read(0x36C0,1)
+set [b]:or:56
+write at 0x36C0:[b]
+set [b]:read(0x36CA,1)
+set [b]:or:08
+write at 0x36CA:[b]
+
+[All Drive Forms Level 7]
+;form level at 0x32F6 + form*0x38 (Valor, Wisdom, Limit, Master, Final); level-up abilities are not granted
+000032F6 00000007
+0000332E 00000007
+00003366 00000007
+0000339E 00000007
+000033D6 00000007
+
+[Max Magic (all -ga)]
+;Fire, Blizzard, Thunder, Cure 0x3594; Magnet, Reflect 0x35CF
+write at 0x3594:03030303
+write at 0x35CF:0303
+
+[All Summons (Level 7)]
+;Stitch, Chicken Little 0x36C0 bits 0,3; Genie, Peter Pan 0x36C4 bits 4,5; summon level 0x3526
+set [b]:read(0x36C0,1)
+set [b]:or:09
+write at 0x36C0:[b]
+set [b]:read(0x36C4,1)
+set [b]:or:30
+write at 0x36C4:[b]
+write at 0x3526:07
+
+[99 Recovery Items]
+;Potion..Megalixir, Tent, Drive Recovery, High Drive Recovery
+write at 0x3580:63636363636363
+write at 0x35E1:63
+write at 0x3664:6363
+
+[99 Power, Magic, Defense and AP Boosts]
+write at 0x3666:63636363
+
+[99 Synthesis Materials]
+;60 materials, stock base 0x3580
+write at 0x360F:63636363
+write at 0x3617:63636363636363636363636363636363636363636363636363636363636363636363636363
+write at 0x364B:6363636363
+write at 0x366A:63636363
+write at 0x36A8:63636363636363636363
+
+[All Keyblades]
+;one of each: Kingdom Key, Oathkeeper, Oblivion, Star Seeker, Hidden Dragon, Hero's Crest, Monochrome, Follow the Wind, Circle of Life, Photon Debugger, Gull Wing, Rumbling Rose, Guardian Soul, Wishing Lamp, Decisive Pumpkin, Sleeping Lion, Sweet Memories, Mysterious Abyss, Fatal Crest, Bond of Flame, Fenrir, Ultima Weapon, Two Become One, Winner's Proof
+write at 0x35A1:010101
+write at 0x367B:0101
+write at 0x367F:0101010101010101010101010101010101
+write at 0x3698:0101
+
+[All Secret Ansem Reports]
+;reports 1-13: 0x36C4 bits 6-7, 0x36C5, 0x36C6 bits 0-2
+set [b]:read(0x36C4,2)
+set [b]:or:C0FF
+write at 0x36C4:[b]
+set [b]:read(0x36C6,1)
+set [b]:or:07
+write at 0x36C6:[b]
+
+[Update KH2 Checksum (Required)]
+;CRC-32 (poly 04C11DB7, game table) over the whole file except 0x8..0xB, stored LE at 0x8
+set range:0x0,eof
+set [c]:kh25_checksum
+write at 0x8:[c]

@@ -4,6 +4,8 @@
 
 :B?SLES-00719*
 
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
 ; 0x200 + n*0x2C: 24 level-start records (n = game level, 1 = The Great Wall)
 ;   +0x00 ammo u16 x7 (pistols, automatic pistols, uzi, shotgun, M16, grenades, harpoons)
 ;   +0x0E small medi, +0x0F large medi, +0x11 flares, +0x14 bit0 available, bits1-7 weapons
