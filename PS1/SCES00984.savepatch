@@ -1,0 +1,28 @@
+; SCES00984
+; Gran Turismo
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SCES-00984GT*
+
+[INFO:Requires Apollo with Python support (not Apollo PS2)]
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
+[python:Max Credits (99,999,999 Cr)]
+import granturismo1
+granturismo1.set_credits(savedata, 99999999)
+
+[python:All Licenses Gold]
+import granturismo1
+granturismo1.gold_licenses(savedata)
+
+[python:All GT Mode Races Gold]
+import granturismo1
+granturismo1.gold_races(savedata)
+
+[python:All Arcade Classes Cleared (Easy, Normal, Hard)]
+import granturismo1
+granturismo1.arcade_clear(savedata)
+
+[python:Update Checksum (Required)]
+import granturismo1
+granturismo1.fix(savedata)

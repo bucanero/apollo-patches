@@ -22,7 +22,7 @@
 
 ;------------------------
 
-[999999 Max Red Orbs]
+[LE:999999 Max Red Orbs]
 95000000 0000{SF}
 28000004 000F423F
 
@@ -36,7 +36,7 @@
 
 [Update WSUB Checksum - Slot 1-10 (Required)]
 ;DMC 3 custom Checksum
-set [start]:{SF}
+set [start]:0x0000{SF}
 set [end]:0x6BD
 set [end]:[end]+[start]
 set [csum]:0

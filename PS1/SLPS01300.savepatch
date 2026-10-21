@@ -1,0 +1,76 @@
+; SLPS01300
+; Tekken 3
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLPS-01300*
+
+[INFO:Requires Apollo with Python support (not Apollo PS2)]
+[INFO:Also select the Decrypt, checksum and Encrypt codes, they are not applied automatically]
+
+{DF}0000=Easy;0001=Medium;0002=Hard{/DF}
+{FC}0000=1 Round;0001=2 Rounds;0002=3 Rounds;0003=4 Rounds;0004=5 Rounds{/FC}
+{RT}0000=20 Seconds;0001=30 Seconds;0002=40 Seconds;0003=50 Seconds;0004=60 Seconds;0005=Infinite{/RT}
+
+[python:Decrypt (Decode) Save (Required)]
+import tekken23
+tekken23.decrypt_save(savedata)
+
+[python:Unlock All Characters]
+# Paul..Xiaoyu (0x201), Eddy..Mokujin (0x202), Gun Jack..True Ogre (0x203 bits 0-4)
+import tekken23
+tekken23.set_byte(savedata, 0x201, 0xFF)
+tekken23.set_byte(savedata, 0x202, 0xFF)
+tekken23.or_byte(savedata, 0x203, 0x1F)
+
+[python:All Characters Arcade Completed]
+import tekken23
+tekken23.set_byte(savedata, 0x209, 0xFF)
+tekken23.set_byte(savedata, 0x20A, 0xFF)
+tekken23.or_byte(savedata, 0x20B, 0x1F)
+
+[python:Unlock Tekken Ball and Theatre Modes]
+import tekken23
+tekken23.or_byte(savedata, 0x237, 0x01)
+tekken23.or_byte(savedata, 0x238, 0x01)
+
+[python:Unlock Extra Movies]
+# Tiger + Panda (0x20E bits 0/3), Gun Jack (0x20F bit 0)
+import tekken23
+tekken23.or_byte(savedata, 0x20E, 0x09)
+tekken23.or_byte(savedata, 0x20F, 0x01)
+
+[python:Unlock Alternate Costumes]
+# Law, Xiaoyu (0x205 bits 1/7), Eddy, Jin (0x206 bits 0/1), Gun Jack, Anna (0x207 bits 0/2)
+import tekken23
+tekken23.or_byte(savedata, 0x205, 0x82)
+tekken23.or_byte(savedata, 0x206, 0x03)
+tekken23.or_byte(savedata, 0x207, 0x05)
+
+[python:Tekken Force Gold Key]
+import tekken23
+tekken23.set_byte(savedata, 0x229, 0x03)
+
+[python:Max Tekken Force Hi-Score]
+# 99,999,999 (uint32 LE at 0x225)
+import tekken23
+tekken23.set_bytes(savedata, 0x225, b"\xFF\xE0\xF5\x05")
+
+[python:Difficulty]
+import tekken23
+tekken23.set_byte(savedata, 0x217, 0x{DF})
+
+[python:Fight Count]
+import tekken23
+tekken23.set_byte(savedata, 0x218, 0x{FC})
+
+[python:Round Time]
+import tekken23
+tekken23.set_byte(savedata, 0x219, 0x{RT})
+
+[python:Update Checksum (Required)]
+import tekken23
+tekken23.update_checksum(savedata)
+
+[python:Encrypt (Encode) Save (Required)]
+import tekken23
+tekken23.encrypt_save(savedata)

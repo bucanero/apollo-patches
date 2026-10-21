@@ -1,0 +1,29 @@
+; SCUS94900
+; Crash Bandicoot
+; codes by bucanero, offsets from game-tools-collection save editor
+; the checksum code also rebuilds the save preview and the completion rate in the save title
+
+:B?SCUS-94900*
+
+[INFO:Requires Apollo with Python support (not Apollo PS2)]
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
+[python:100% Completion (All Levels, Gems and Keys)]
+import crash1
+crash1.complete(savedata)
+
+[python:All Levels Cleared]
+import crash1
+crash1.all_levels(savedata)
+
+[python:All 26 Gems]
+import crash1
+crash1.all_gems(savedata)
+
+[python:Both Keys (Secret Levels)]
+import crash1
+crash1.all_keys(savedata)
+
+[python:Update Checksum (Required)]
+import crash1
+crash1.fix(savedata)
