@@ -1,0 +1,427 @@
+; SLUS00677
+; Kagero - Deception II
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLUS-00677*
+
+[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+
+[LE:Max Ark 9,999,999]
+2000091B 0098967F
+
+[LE:Max Total Ark 9,999,999]
+20000245 0098967F
+
+[99 Clear Count]
+00000269 00000063
+
+[All Endings Seen]
+set [b]:read(0x249,1)
+set [b]:or:0F
+write at 0x249:[b]
+
+[Unlock All Traps]
+;bit 6 of the 55 trap flag bytes (0xD84-0xDBA)
+set [b]:read(0xD84,4)
+set [b]:or:40404040
+write at 0xD84:[b]
+set [b]:read(0xD88,4)
+set [b]:or:40404040
+write at 0xD88:[b]
+set [b]:read(0xD8C,4)
+set [b]:or:40404040
+write at 0xD8C:[b]
+set [b]:read(0xD90,4)
+set [b]:or:40404040
+write at 0xD90:[b]
+set [b]:read(0xD94,4)
+set [b]:or:40404040
+write at 0xD94:[b]
+set [b]:read(0xD98,4)
+set [b]:or:40404040
+write at 0xD98:[b]
+set [b]:read(0xD9C,4)
+set [b]:or:40404040
+write at 0xD9C:[b]
+set [b]:read(0xDA0,4)
+set [b]:or:40404040
+write at 0xDA0:[b]
+set [b]:read(0xDA4,4)
+set [b]:or:40404040
+write at 0xDA4:[b]
+set [b]:read(0xDA8,4)
+set [b]:or:40404040
+write at 0xDA8:[b]
+set [b]:read(0xDAC,4)
+set [b]:or:40404040
+write at 0xDAC:[b]
+set [b]:read(0xDB0,4)
+set [b]:or:40404040
+write at 0xDB0:[b]
+set [b]:read(0xDB4,4)
+set [b]:or:40404040
+write at 0xDB4:[b]
+set [b]:read(0xDB8,2)
+set [b]:or:4040
+write at 0xDB8:[b]
+set [b]:read(0xDBA,1)
+set [b]:or:40
+write at 0xDBA:[b]
+
+[Max Trap Use Counts (9999)]
+;55 u16 counters, low 14 bits; 0xDFF is a check byte
+set [b]:read(0xDC3,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDC3:[b]
+set [b]:read(0xDC7,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDC7:[b]
+set [b]:read(0xDCB,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDCB:[b]
+set [b]:read(0xDCF,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDCF:[b]
+set [b]:read(0xDD3,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDD3:[b]
+set [b]:read(0xDD7,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDD7:[b]
+set [b]:read(0xDDB,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDDB:[b]
+set [b]:read(0xDDF,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDDF:[b]
+set [b]:read(0xDE3,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDE3:[b]
+set [b]:read(0xDE7,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDE7:[b]
+set [b]:read(0xDEB,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDEB:[b]
+set [b]:read(0xDEF,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDEF:[b]
+set [b]:read(0xDF3,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDF3:[b]
+set [b]:read(0xDF7,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDF7:[b]
+set [b]:read(0xDFB,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xDFB:[b]
+set [b]:read(0xE00,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE00:[b]
+set [b]:read(0xE04,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE04:[b]
+set [b]:read(0xE08,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE08:[b]
+set [b]:read(0xE0C,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE0C:[b]
+set [b]:read(0xE10,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE10:[b]
+set [b]:read(0xE14,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE14:[b]
+set [b]:read(0xE18,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE18:[b]
+set [b]:read(0xE1C,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE1C:[b]
+set [b]:read(0xE20,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE20:[b]
+set [b]:read(0xE24,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE24:[b]
+set [b]:read(0xE28,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE28:[b]
+set [b]:read(0xE2C,4)
+set [b]:and:00C000C0
+set [b]:or:0F270F27
+write at 0xE2C:[b]
+set [b]:read(0xE30,2)
+set [b]:and:00C0
+set [b]:or:0F27
+write at 0xE30:[b]
+
+[Update Frame XOR Checksums (Required)]
+;60 frames of 0x80 bytes from 0x200: byte 0x7F = (XOR of bytes 0x00-0x7E) + 1
+set [x]:xor(0x200,0x27F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x27F:[c]
+set [x]:xor(0x280,0x2FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x2FF:[c]
+set [x]:xor(0x300,0x37F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x37F:[c]
+set [x]:xor(0x380,0x3FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x3FF:[c]
+set [x]:xor(0x400,0x47F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x47F:[c]
+set [x]:xor(0x480,0x4FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x4FF:[c]
+set [x]:xor(0x500,0x57F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x57F:[c]
+set [x]:xor(0x580,0x5FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x5FF:[c]
+set [x]:xor(0x600,0x67F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x67F:[c]
+set [x]:xor(0x680,0x6FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x6FF:[c]
+set [x]:xor(0x700,0x77F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x77F:[c]
+set [x]:xor(0x780,0x7FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x7FF:[c]
+set [x]:xor(0x800,0x87F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x87F:[c]
+set [x]:xor(0x880,0x8FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x8FF:[c]
+set [x]:xor(0x900,0x97F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x97F:[c]
+set [x]:xor(0x980,0x9FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x9FF:[c]
+set [x]:xor(0xA00,0xA7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xA7F:[c]
+set [x]:xor(0xA80,0xAFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xAFF:[c]
+set [x]:xor(0xB00,0xB7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xB7F:[c]
+set [x]:xor(0xB80,0xBFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xBFF:[c]
+set [x]:xor(0xC00,0xC7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xC7F:[c]
+set [x]:xor(0xC80,0xCFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xCFF:[c]
+set [x]:xor(0xD00,0xD7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xD7F:[c]
+set [x]:xor(0xD80,0xDFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xDFF:[c]
+set [x]:xor(0xE00,0xE7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xE7F:[c]
+set [x]:xor(0xE80,0xEFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xEFF:[c]
+set [x]:xor(0xF00,0xF7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xF7F:[c]
+set [x]:xor(0xF80,0xFFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0xFFF:[c]
+set [x]:xor(0x1000,0x107F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x107F:[c]
+set [x]:xor(0x1080,0x10FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x10FF:[c]
+set [x]:xor(0x1100,0x117F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x117F:[c]
+set [x]:xor(0x1180,0x11FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x11FF:[c]
+set [x]:xor(0x1200,0x127F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x127F:[c]
+set [x]:xor(0x1280,0x12FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x12FF:[c]
+set [x]:xor(0x1300,0x137F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x137F:[c]
+set [x]:xor(0x1380,0x13FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x13FF:[c]
+set [x]:xor(0x1400,0x147F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x147F:[c]
+set [x]:xor(0x1480,0x14FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x14FF:[c]
+set [x]:xor(0x1500,0x157F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x157F:[c]
+set [x]:xor(0x1580,0x15FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x15FF:[c]
+set [x]:xor(0x1600,0x167F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x167F:[c]
+set [x]:xor(0x1680,0x16FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x16FF:[c]
+set [x]:xor(0x1700,0x177F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x177F:[c]
+set [x]:xor(0x1780,0x17FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x17FF:[c]
+set [x]:xor(0x1800,0x187F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x187F:[c]
+set [x]:xor(0x1880,0x18FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x18FF:[c]
+set [x]:xor(0x1900,0x197F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x197F:[c]
+set [x]:xor(0x1980,0x19FF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x19FF:[c]
+set [x]:xor(0x1A00,0x1A7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1A7F:[c]
+set [x]:xor(0x1A80,0x1AFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1AFF:[c]
+set [x]:xor(0x1B00,0x1B7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1B7F:[c]
+set [x]:xor(0x1B80,0x1BFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1BFF:[c]
+set [x]:xor(0x1C00,0x1C7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1C7F:[c]
+set [x]:xor(0x1C80,0x1CFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1CFF:[c]
+set [x]:xor(0x1D00,0x1D7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1D7F:[c]
+set [x]:xor(0x1D80,0x1DFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1DFF:[c]
+set [x]:xor(0x1E00,0x1E7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1E7F:[c]
+set [x]:xor(0x1E80,0x1EFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1EFF:[c]
+set [x]:xor(0x1F00,0x1F7F,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1F7F:[c]
+set [x]:xor(0x1F80,0x1FFF,1)
+set [c]:left([x],1)
+set [c]:right([c]+1,1)
+write at 0x1FFF:[c]

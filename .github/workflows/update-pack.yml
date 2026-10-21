@@ -41,6 +41,11 @@ jobs:
           repository: bucanero/apollo-patcher
           path: .apollo-patcher
 
+      # dctitleid.txt maps Dreamcast VMU file names to patches (from the "; DC:"
+      # header lines). Built once here; the PS3, PS4 and Vita packs ship it.
+      - name: Build DC title catalog
+        run: python3 tools/build-dc-catalog.py DC dctitleid.txt
+
       - name: Create PS3 update file
         run: |
           mkdir -p _site/PS3
@@ -51,7 +56,11 @@ jobs:
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ../PS1
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
+          # Dreamcast VMU saves, with the catalog built above
+          cd ../DC
+          zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ..
+          zip -9 _site/PS3/apollo-ps3-update.zip dctitleid.txt
           zip -9 -r _site/PS3/apollo-ps3-update.zip python/
 
       - name: Create PS4 update file
@@ -64,7 +73,11 @@ jobs:
           zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ../PS1
           zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
+          # Dreamcast VMU saves, with the catalog built above
+          cd ../DC
+          zip -9 ../_site/PS4/apollo-ps4-update.zip *.*
           cd ..
+          zip -9 _site/PS4/apollo-ps4-update.zip dctitleid.txt
           zip -9 -r _site/PS4/apollo-ps4-update.zip python/
 
       - name: Create PSP update file
@@ -74,7 +87,7 @@ jobs:
           cd PSP
           zip -9 ../_site/PSP/apollo-psp-update.zip *.*
           cd ../PS1
-          zip -9 ../_site/PS3/apollo-psp-update.zip *.*
+          zip -9 ../_site/PSP/apollo-psp-update.zip *.*
           cd ..
           zip -9 -r _site/PSP/apollo-psp-update.zip python/
 
@@ -87,8 +100,12 @@ jobs:
           cd ../PSP
           zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ../PS1
-          zip -9 ../_site/PS3/apollo-vita-update.zip *.*
+          zip -9 ../_site/PSV/apollo-vita-update.zip *.*
+          # Dreamcast VMU saves, with the catalog built above
+          cd ../DC
+          zip -9 ../_site/PSV/apollo-vita-update.zip *.*
           cd ..
+          zip -9 _site/PSV/apollo-vita-update.zip dctitleid.txt
           zip -9 -r _site/PSV/apollo-vita-update.zip python/
 
       - name: Build patch index and pages

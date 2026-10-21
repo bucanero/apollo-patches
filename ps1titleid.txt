@@ -3989,6 +3989,7 @@ SLES03334;Tomb Raider Die Chronik
 SLES00718;Tomb Raider II
 SLES00719;Tomb Raider II
 SLES00720;Tomb Raider II
+SLES00107;Tomb Raider II
 SLES01649;Tomb Raider III - Adventures of Lara Croft
 SLES01683;Tomb Raider III - Adventures of Lara Croft
 SLES01684;Tomb Raider III - Adventures of Lara Croft
@@ -4349,6 +4350,7 @@ SLPM86290;Aizouban Houshinengi [Priced Down]
 SLPS00187;Akagi - Topaiten
 SLPS00619;Akazu no Aida [Reprint]
 SLPS03263;Akazu no Aida [Reprint]
+SCPS45196;Akumajo Dracula X - Gekka no Yasoukyoku
 SLPM86073;Akumajo Dracula X - Gekka no Yasoukyoku [PlayStation The Best]
 SLPM87328;Akumajo Dracula X - Gekka no Yasoukyoku [PSone Books]
 SLPS02961;Alabama
@@ -8915,6 +8917,7 @@ SLPM86204;Teitoku no Ketsudan III [Koei The Best]
 SLPM87180;Teitoku no Ketsudan III [Koei The Best]
 SLPS01216;Teitoku no Ketsudan III with Power Pack
 93899C1E;Tekken
+SLPS00040;Tekken
 SLPS91020;Tekken [PlayStation The Best]
 SLPS00300;Tekken 2
 SLPS91055;Tekken 2 [PlayStation The Best]

@@ -1,0 +1,50 @@
+; SCES00255
+; Tekken 2
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SCES-00255*
+
+[INFO:Requires Apollo with Python support (not Apollo PS2)]
+[INFO:Also select the Decrypt, checksum and Encrypt codes, they are not applied automatically]
+
+{DF}0000=Easy;0001=Medium;0002=Hard{/DF}
+{FC}0000=1 Round;0001=2 Rounds;0002=3 Rounds;0003=4 Rounds{/FC}
+{RT}0000=20 Seconds;0001=30 Seconds;0002=40 Seconds;0003=50 Seconds;0004=60 Seconds;0005=Infinite{/RT}
+
+[python:Decrypt (Decode) Save (Required)]
+import tekken23
+tekken23.decrypt_save(savedata)
+
+[python:Unlock All Characters]
+# Kazuya..Michelle (0x201), Wang..Kuma (0x202), Kunimitsu..Roger (0x203 bits 0-6)
+import tekken23
+tekken23.set_byte(savedata, 0x201, 0xFF)
+tekken23.set_byte(savedata, 0x202, 0xFF)
+tekken23.or_byte(savedata, 0x203, 0x7F)
+
+[python:All Characters Arcade Completed]
+# Paul..Michelle (0x205 bits 1-7), Wang..Kuma (0x206), Kunimitsu..Roger (0x207 bits 0-6), Kazuya (0x207 bit 7)
+import tekken23
+tekken23.or_byte(savedata, 0x205, 0xFE)
+tekken23.set_byte(savedata, 0x206, 0xFF)
+tekken23.set_byte(savedata, 0x207, 0xFF)
+
+[python:Difficulty]
+import tekken23
+tekken23.set_byte(savedata, 0x20F, 0x{DF})
+
+[python:Fight Count]
+import tekken23
+tekken23.set_byte(savedata, 0x210, 0x{FC})
+
+[python:Round Time]
+import tekken23
+tekken23.set_byte(savedata, 0x211, 0x{RT})
+
+[python:Update Checksum (Required)]
+import tekken23
+tekken23.update_checksum(savedata)
+
+[python:Encrypt (Encode) Save (Required)]
+import tekken23
+tekken23.encrypt_save(savedata)

@@ -1,0 +1,113 @@
+; SLUS20911
+; Shin Megami Tensei - Nocturne
+; codes by bucanero, offsets from game-tools-collection save editor
+;
+; EU/US layout (Maniax content, data file starts with VER 05, 0x1A510 bytes). No checksum.
+
+:BASLUS-20911-dds3-*
+
+[LE:Max Macca (9,999,999)]
+20000A48 0098967F
+
+[LE:Protagonist Max HP & MP (999)]
+10000A5A 000003E7
+10000A5C 000003E7
+10000A5E 000003E7
+10000A60 000003E7
+
+[LE:Protagonist Level 99]
+10000A68 00000063
+;save preview level
+00000006 00000063
+
+[Protagonist Max Stats (40)]
+;St, Ma, Vi, Ag, Lu
+00000A6A 00000028
+00000A6C 00000028
+00000A6D 00000028
+00000A6E 00000028
+00000A6F 00000028
+
+[LE:Max Demon Stock Size (12)]
+20000A50 0000000C
+
+[99 of All Items]
+;item quantities at 0x1928 + item id (Incense excluded)
+write at 0x1929:6363636363636363636363636363636363636363636363636363636363636363
+write at 0x194A:63636363
+write at 0x1954:636363
+write at 0x195C:6363636363
+write at 0x1962:63
+write at 0x1965:63
+
+[99 of All Incense]
+;St, Ma, Vi, Ag, Lu Incense
+write at 0x194E:63
+write at 0x1950:63636363
+
+[99 of All Gems]
+write at 0x1988:6363636363636363636363
+write at 0x1994:63
+write at 0x1996:6363
+
+[All Magatama]
+;owned list (ids 01-19, sorted) + owned count
+write at 0x1CFB:0102030405060708090A0B0C0D0E0F10111213141516171819
+write at 0x1D7B:19
+
+[Unlock All Terminals]
+set [b]:read(0x8C8,1)
+set [b]:or:02
+write at 0x8C8:[b]
+set [b]:read(0x8CC,1)
+set [b]:or:02
+write at 0x8CC:[b]
+set [b]:read(0x8D0,1)
+set [b]:or:02
+write at 0x8D0:[b]
+set [b]:read(0x8D8,1)
+set [b]:or:02
+write at 0x8D8:[b]
+set [b]:read(0x8DC,1)
+set [b]:or:06
+write at 0x8DC:[b]
+set [b]:read(0x8E0,1)
+set [b]:or:02
+write at 0x8E0:[b]
+set [b]:read(0x8E4,1)
+set [b]:or:02
+write at 0x8E4:[b]
+set [b]:read(0x8E8,1)
+set [b]:or:02
+write at 0x8E8:[b]
+set [b]:read(0x8F0,1)
+set [b]:or:02
+write at 0x8F0:[b]
+set [b]:read(0x8F4,1)
+set [b]:or:02
+write at 0x8F4:[b]
+set [b]:read(0x8F8,1)
+set [b]:or:02
+write at 0x8F8:[b]
+set [b]:read(0x90C,1)
+set [b]:or:0E
+write at 0x90C:[b]
+set [b]:read(0x910,1)
+set [b]:or:02
+write at 0x910:[b]
+set [b]:read(0x914,1)
+set [b]:or:02
+write at 0x914:[b]
+set [b]:read(0x91C,1)
+set [b]:or:02
+write at 0x91C:[b]
+
+[Difficulty: Normal]
+0000099E 00000004
+;save preview difficulty
+00000007 00000001
+
+[Difficulty: Hard]
+0000099E 00000000
+;save preview difficulty
+00000007 00000000
