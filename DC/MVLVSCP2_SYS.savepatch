@@ -1,10 +1,12 @@
 ; MVLVSCP2_SYS
 ; Marvel vs. Capcom 2: New Age of Heroes
+; DC: MVLVSCP2_SYS MVLVS.C2_SYS
+; one patch for the international (MVLVSCP2_SYS) and Japanese (MVLVS.C2_SYS) system files: same layout
 ; codes by bucanero, offsets from game-tools-collection save editor
 ; offsets are from the start of the VMS file (0x280-byte VMS header + icon included)
 ; the VMS header CRC (+0x46) is left alone: Apollo updates it when it writes the file back
 
-:MVLVSCP2_SYS
+:MVLVS??2_SYS
 
 {DF}0000=Level 1;0001=Level 2;0002=Level 3;0003=Level 4;0004=Level 5;0005=Level 6;0006=Level 7;0007=Level 8{/DF}
 {TM}0000=30 seconds;0001=60 seconds;0002=99 seconds;0003=Infinite{/TM}

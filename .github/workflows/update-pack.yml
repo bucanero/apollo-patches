@@ -51,10 +51,13 @@ jobs:
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ../PS1
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
-          # Dreamcast VMU saves: only apollo-ps3 loads cheats for them
+          # Dreamcast VMU saves: only apollo-ps3 loads cheats for them.
+          # dctitleid.txt maps VMU file names to patches (from "; DC:" header lines)
           cd ../DC
           zip -9 ../_site/PS3/apollo-ps3-update.zip *.*
           cd ..
+          python3 tools/build-dc-catalog.py DC dctitleid.txt
+          zip -9 _site/PS3/apollo-ps3-update.zip dctitleid.txt
           zip -9 -r _site/PS3/apollo-ps3-update.zip python/
 
       - name: Create PS4 update file
