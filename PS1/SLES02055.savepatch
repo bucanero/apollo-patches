@@ -217,7 +217,7 @@ write at 0x320:[b]
 
 [Update Checksum (Required)]
 ;sum of (byte + 1) over 0x280..0xC7F = byte sum + 0xA00, low 16 bits stored little-endian at 0x236
-carry(0)
+
 set [csum]:0
 set [csum]:add(0x280,0xC7F)
 set [csum]:[csum]+0xA00

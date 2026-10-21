@@ -44,7 +44,7 @@ write at 0x249C:0300E7030300E7030300E703
 [Update Word Sum Checksum (Required)]
 ;16-bit sum of little-endian words over 0x8..0x3FFF; high byte stored at 0x0, low byte at 0x4,
 ;each as a zero-extended u32
-carry(0)
+
 set [csum]:0
 set [csum]:wadd_le(0x8,0x3FFF)
 set [sum16]:right([csum],2)

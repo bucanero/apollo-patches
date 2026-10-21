@@ -60,7 +60,7 @@ write at 0x2A3:[b]
 
 [Update Game Checksum (Required)]
 ;u32 LE at 0x9A4: low half = LE u16 word sum, high half = byte sum, both over 0x280..0x9A3
-carry(0)
+
 set [w]:0
 set [w]:wadd_le(0x280,0x9A3)
 set [w]:right([w],2)

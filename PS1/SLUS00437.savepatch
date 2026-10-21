@@ -202,7 +202,7 @@ write at 0x632:[b]
 [Update Negated Byte-Sum Checksum (Required)]
 ;0x64B = -(sum of bytes 0x200..0x1ECF) & 0xFF, with 0x64B zeroed first
 write at 0x64B:00
-carry(0)
+
 set [s]:0
 set [s]:add(0x200,0x1ECF)
 set [s]:right([s],1)

@@ -105,7 +105,7 @@ write at 0x984:E3F1783C1E8FC7E3F1783C1E8FC7E3F1783C1E8FC7E3F1783C1E8FC7E3F1783C1
 
 [Update Byte-Sum Checksum (Required)]
 ;u32 sum of bytes 0x0000..0x1FF7, stored little-endian at 0x1FFC
-carry(0)
+
 set [v]:0
 set [v]:add(0x0,0x1FF7)
 set [v]:endian_swap

@@ -10,7 +10,7 @@
 [Update Checksum for System Data (Required)]
 ;DMC1 System Checksum: 32-bit byte sum of 0x04..0x103
 ;write value as little-endian
-carry(0)
+
 set [csum]:0
 set [csum]:add(0x000004,0x103)
 set [csum]:endian_swap
@@ -92,7 +92,7 @@ write at 0x4D8:9F8601009F8601009F8601009F8601009F860100
 [Update Checksum for SaveData-0X (Required)]
 ;DMC1 SaveData Checksum: 32-bit byte sum of 0x0C..0x96F
 ;write value as little-endian
-carry(0)
+
 set [csum]:0
 set [csum]:add(0x00000C,0x96F)
 set [csum]:endian_swap

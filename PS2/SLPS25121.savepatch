@@ -47,7 +47,7 @@ write at 0xE0D:0101010101010101
 
 [Compute Slot 01 Byte-Sum (Required)]
 ;[s01] = sum of every byte of dhdata01; [d01] = 1 marks it as computed in this run
-carry(0)
+
 set [s01]:0
 set [s01]:add(0x0,eof)
 set [d01]:01
@@ -56,7 +56,7 @@ set [d01]:01
 
 [Compute Slot 02 Byte-Sum (Required)]
 ;[s02] = sum of every byte of dhdata02; [d02] = 1 marks it as computed in this run
-carry(0)
+
 set [s02]:0
 set [s02]:add(0x0,eof)
 set [d02]:01
@@ -65,7 +65,7 @@ set [d02]:01
 
 [Compute Slot 03 Byte-Sum (Required)]
 ;[s03] = sum of every byte of dhdata03; [d03] = 1 marks it as computed in this run
-carry(0)
+
 set [s03]:0
 set [s03]:add(0x0,eof)
 set [d03]:01
@@ -74,7 +74,7 @@ set [d03]:01
 
 [Compute Slot 04 Byte-Sum (Required)]
 ;[s04] = sum of every byte of dhdata04; [d04] = 1 marks it as computed in this run
-carry(0)
+
 set [s04]:0
 set [s04]:add(0x0,eof)
 set [d04]:01
@@ -83,7 +83,7 @@ set [d04]:01
 
 [Compute Slot 05 Byte-Sum (Required)]
 ;[s05] = sum of every byte of dhdata05; [d05] = 1 marks it as computed in this run
-carry(0)
+
 set [s05]:0
 set [s05]:add(0x0,eof)
 set [d05]:01
@@ -92,7 +92,7 @@ set [d05]:01
 
 [Compute Slot 06 Byte-Sum (Required)]
 ;[s06] = sum of every byte of dhdata06; [d06] = 1 marks it as computed in this run
-carry(0)
+
 set [s06]:0
 set [s06]:add(0x0,eof)
 set [d06]:01
@@ -101,7 +101,7 @@ set [d06]:01
 
 [Compute Slot 07 Byte-Sum (Required)]
 ;[s07] = sum of every byte of dhdata07; [d07] = 1 marks it as computed in this run
-carry(0)
+
 set [s07]:0
 set [s07]:add(0x0,eof)
 set [d07]:01
@@ -110,7 +110,7 @@ set [d07]:01
 
 [Compute Slot 08 Byte-Sum (Required)]
 ;[s08] = sum of every byte of dhdata08; [d08] = 1 marks it as computed in this run
-carry(0)
+
 set [s08]:0
 set [s08]:add(0x0,eof)
 set [d08]:01
@@ -119,7 +119,7 @@ set [d08]:01
 
 [Compute Slot 09 Byte-Sum (Required)]
 ;[s09] = sum of every byte of dhdata09; [d09] = 1 marks it as computed in this run
-carry(0)
+
 set [s09]:0
 set [s09]:add(0x0,eof)
 set [d09]:01
@@ -128,7 +128,7 @@ set [d09]:01
 
 [Compute Slot 10 Byte-Sum (Required)]
 ;[s10] = sum of every byte of dhdata10; [d10] = 1 marks it as computed in this run
-carry(0)
+
 set [s10]:0
 set [s10]:add(0x0,eof)
 set [d10]:01
@@ -137,7 +137,7 @@ set [d10]:01
 
 [Compute Slot 11 Byte-Sum (Required)]
 ;[s11] = sum of every byte of dhdata11; [d11] = 1 marks it as computed in this run
-carry(0)
+
 set [s11]:0
 set [s11]:add(0x0,eof)
 set [d11]:01
@@ -146,7 +146,7 @@ set [d11]:01
 
 [Compute Slot 12 Byte-Sum (Required)]
 ;[s12] = sum of every byte of dhdata12; [d12] = 1 marks it as computed in this run
-carry(0)
+
 set [s12]:0
 set [s12]:add(0x0,eof)
 set [d12]:01
