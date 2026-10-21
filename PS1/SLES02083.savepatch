@@ -1,8 +1,8 @@
-; SLPSP01880
+; SLES02083
 ; Final Fantasy VIII
 ; codes by bucanero, offsets from game-tools-collection save editor
 
-:B?SLPSP01880*
+:B?SLESP02083*
 
 [INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
 
