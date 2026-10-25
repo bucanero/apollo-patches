@@ -20,7 +20,7 @@ write at 0x000000:[csum]
 
 :SaveData-0*
 
-[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+[INFO:Also select the checksum update code at the end of this list]
 
 ; some code offset/values from https://github.com/joaovitorbf/dmcsaveeditor
 ; difficulty values from game-tools-collection save editor

@@ -4,7 +4,7 @@
 
 :B?SLES-02055*
 
-[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+[INFO:Also select the checksum update code at the end of this list]
 
 ; Career records: 11 characters, 0xE bytes each, base 0x288 + c*0xE
 ; +0 tape count, +4/+5/+6/+8/+9/+B goal bits 0-4, +7/+A/+C competition medal (0x20 gold)

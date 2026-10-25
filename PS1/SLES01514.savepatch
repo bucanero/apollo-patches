@@ -4,7 +4,7 @@
 
 :B?SLES-01514*
 
-[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+[INFO:Also select the checksum update code at the end of this list]
 
 ; Each SILENTxx file holds 11 game slots (0x280 bytes at 0x380 + i*0x280)
 ; and 11 save preview entries (0xC bytes at 0x204 + i*0xC).

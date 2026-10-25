@@ -5,7 +5,7 @@
 
 :BESLES-54232-*
 
-[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+[INFO:Also select the checksum update code at the end of this list]
 
 [INFO:Use on slot saves (-00 to -99), not on the -SYS system save]
 

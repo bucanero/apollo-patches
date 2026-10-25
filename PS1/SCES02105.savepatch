@@ -4,7 +4,7 @@
 
 :B?SCES-02105*
 
-[INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
+[INFO:Also select the checksum update code at the end of this list]
 
 ; Adventure profiles: 4 per file, 0x50 bytes each, base 0x104 + k*0x50
 {SF}0104=Profile 1;0154=Profile 2;01A4=Profile 3;01F4=Profile 4{/SF}
