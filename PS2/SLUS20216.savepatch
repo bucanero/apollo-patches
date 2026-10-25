@@ -23,8 +23,8 @@ write at 0x000000:[csum]
 [INFO:Also select the checksum update code at the end of this list, it is not applied automatically]
 
 ; some code offset/values from https://github.com/joaovitorbf/dmcsaveeditor
-; difficulty settings
-{DS}0001=Easy Automatic;0003=Normal;0005=Hard;0007=Dante Must Die{/DS}
+; difficulty values from game-tools-collection save editor
+{DS}0002=Easy Automatic;0003=Normal;0005=Hard;0006=Dante Must Die{/DS}
 ; character values
 {CH}0000=Dante;0001=Legendary Dark Knight;0002=Super Dante{/CH}
 
