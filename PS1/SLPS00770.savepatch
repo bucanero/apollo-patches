@@ -1,0 +1,44 @@
+; SLPS00770
+; Final Fantasy Tactics
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLPS-00770*
+
+[INFO:Requires Apollo with Python support (not Apollo PS2)]
+[INFO:Also select the checksum update code at the end of this list]
+
+[python:Max War Funds (99999999)]
+import fftactics
+fftactics.set_war_funds(savedata)
+
+[python:All Items x99]
+import fftactics
+fftactics.all_items(savedata)
+
+[python:All Units Level 99]
+import fftactics
+fftactics.set_level(savedata)
+
+[python:All Units Brave 97 + Faith 90]
+import fftactics
+fftactics.set_brave_faith(savedata)
+
+[python:All Units 9999 JP in Every Job]
+import fftactics
+fftactics.set_jp(savedata)
+
+[python:All Units Learn All Abilities]
+import fftactics
+fftactics.learn_all_abilities(savedata)
+
+[python:Unlock All World Map Places and Routes]
+import fftactics
+fftactics.unlock_world_map(savedata)
+
+[python:Unlock All Brave Story Events and Persons]
+import fftactics
+fftactics.unlock_brave_story(savedata)
+
+[python:Update Parity Checksum (Required)]
+import fftactics
+fftactics.fix(savedata)

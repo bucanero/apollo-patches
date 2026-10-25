@@ -1,0 +1,99 @@
+; SCES50967
+; Kingdom Hearts
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:BESCES-50967-*
+
+{LC}0000=Consistent;0001=Fast then Slow;0002=Slow then Fast{/LC}
+
+[LE:Max Munny (99999)]
+2001641C 0001869F
+
+[Sora Level 100]
+;level 0x04 and its copy 0x38
+00000004 00000064
+00000038 00000064
+
+[LE:Sora Max EXP (999999)]
+20000040 000F423F
+
+[Sora 255 HP / 20 MP]
+00000005 000000FF
+00000006 000000FF
+00000007 00000014
+00000008 00000014
+
+[Sora Max AP, Strength, Defense (100)]
+00000009 00000064
+0000000A 00000064
+0000000B 00000064
+
+[Sora All Magic (Level 3)]
+;known magic bits 0x74, magic levels 0x492-0x498
+set [b]:read(0x74,1)
+set [b]:or:7F
+write at 0x74:[b]
+write at 0x492:03030303030303
+
+[All Summons]
+;Dumbo, Bambi, Genie, Tinker Bell, Mushu, Simba
+write at 0x7D0:000102030405
+
+[8 Accessory and Item Slots (Sora, Donald, Goofy)]
+0000001C 00000008
+00000025 00000008
+00000090 00000008
+00000099 00000008
+00000104 00000008
+0000010D 00000008
+
+[99 Recovery Items]
+;Potion..Megalixir, Tent, Camping Set, Cottage
+write at 0x49A:63636363
+write at 0x49F:636363
+write at 0x527:636363
+
+[99 Power Up, Defense Up, AP Up]
+write at 0x531:636363
+
+[99 Synthesis Materials]
+;rare drops and synthesis materials
+write at 0x537:63636363636363636363
+write at 0x582:6363636363636363636363636363636363636363636363
+
+[99 All Accessories]
+write at 0x4AA:636363636363636363636363636363636363636363636363636363636363636363636363636363
+
+[All Weapons]
+;Sora keyblades, Donald staffs, Goofy shields
+write at 0x4EA:0101010101010101010101010101010101010101
+write at 0x500:01010101010101010101010101
+write at 0x510:01010101010101010101010101
+
+[All Ansem Reports]
+;report items + journal flags 0x19C0-0x19C1
+write at 0x541:01010101010101010101
+write at 0x19C0:FF
+set [b]:read(0x19C1,1)
+set [b]:or:C0
+write at 0x19C1:[b]
+
+[All 99 Dalmatians]
+;flags 0x1703.0 .. 0x170F.5
+write at 0x1703:FFFFFFFFFFFFFFFFFFFFFFFF
+set [b]:read(0x170F,1)
+set [b]:or:E0
+write at 0x170F:[b]
+
+[Unlock All Trinities]
+;Jump, Charge, Ladder, Push, Detect
+set [b]:read(0x1C1B,1)
+set [b]:or:1F
+write at 0x1C1B:[b]
+
+[Max Gummi Blocks]
+;each block 0xBE78+i set to its max
+write at 0xBE78:0101010106060404026363631E1E0A0A0A63636314140808086363630A0A0606061E1E14140A0A0A0A636363040402020101020202020101060A0A08060806040101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
+
+[Leveling Curve]
+0000048D 0000{LC}

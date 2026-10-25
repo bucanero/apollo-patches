@@ -1,0 +1,395 @@
+; SLPS25207
+; TimeSplitter - Jikuu no Shinryakusha
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:BISLPS-25207-TS2-OPT
+
+; 16 profile slots of 0x20D4 bytes, profile i fields at <offset> + i*0x20D4 (profile count at 0x4).
+; Every code asks for the profile; pick one that exists (profile names are shown in the game's profile menu).
+; {PSF} is 5 hex digits wide because the last slot base (0x1EC6C) does not fit a 4-digit {SF} tag.
+; Pointer writes use 'write next', which adds the pointer on every engine ('write at pointer+N' does not parse).
+{PSF}00000=Profile 1;020D4=Profile 2;041A8=Profile 3;0627C=Profile 4;08350=Profile 5;0A424=Profile 6;0C4F8=Profile 7;0E5CC=Profile 8;106A0=Profile 9;12774=Profile 10;14848=Profile 11;1691C=Profile 12;189F0=Profile 13;1AAC4=Profile 14;1CB98=Profile 15;1EC6C=Profile 16{/PSF}
+
+[Unlock All (Platinum Medals in Arcade League and Challenges)]
+;medal bit blocks Bronze/Silver/Gold/Platinum at 0x1B10/0x1B20/0x1B30/0x1B40: bits 0-20 challenges, 21-65 arcade matches
+;these bits are what unlock characters, cheats, modes, hats and levels
+;then award = 4 (Platinum) at +0xC of the 66 records at 0x13CC + k*0x14 (21 challenges, 45 arcade matches), play count bit 0 set
+set pointer:0x{PSF}
+write next 0x1B10:FFFFFFFFFFFFFFFF
+set [b]:read(pointer+0x1B18,1)
+set [b]:or:03
+write next 0x1B18:[b]
+write next 0x1B20:FFFFFFFFFFFFFFFF
+set [b]:read(pointer+0x1B28,1)
+set [b]:or:03
+write next 0x1B28:[b]
+write next 0x1B30:FFFFFFFFFFFFFFFF
+set [b]:read(pointer+0x1B38,1)
+set [b]:or:03
+write next 0x1B38:[b]
+write next 0x1B40:FFFFFFFFFFFFFFFF
+set [b]:read(pointer+0x1B48,1)
+set [b]:or:03
+write next 0x1B48:[b]
+write next 0x13D8:04000000
+write next 0x13EC:04000000
+write next 0x1400:04000000
+write next 0x1414:04000000
+write next 0x1428:04000000
+write next 0x143C:04000000
+write next 0x1450:04000000
+write next 0x1464:04000000
+write next 0x1478:04000000
+write next 0x148C:04000000
+write next 0x14A0:04000000
+write next 0x14B4:04000000
+write next 0x14C8:04000000
+write next 0x14DC:04000000
+write next 0x14F0:04000000
+write next 0x1504:04000000
+write next 0x1518:04000000
+write next 0x152C:04000000
+write next 0x1540:04000000
+write next 0x1554:04000000
+write next 0x1568:04000000
+write next 0x157C:04000000
+write next 0x1590:04000000
+write next 0x15A4:04000000
+write next 0x15B8:04000000
+write next 0x15CC:04000000
+write next 0x15E0:04000000
+write next 0x15F4:04000000
+write next 0x1608:04000000
+write next 0x161C:04000000
+write next 0x1630:04000000
+write next 0x1644:04000000
+write next 0x1658:04000000
+write next 0x166C:04000000
+write next 0x1680:04000000
+write next 0x1694:04000000
+write next 0x16A8:04000000
+write next 0x16BC:04000000
+write next 0x16D0:04000000
+write next 0x16E4:04000000
+write next 0x16F8:04000000
+write next 0x170C:04000000
+write next 0x1720:04000000
+write next 0x1734:04000000
+write next 0x1748:04000000
+write next 0x175C:04000000
+write next 0x1770:04000000
+write next 0x1784:04000000
+write next 0x1798:04000000
+write next 0x17AC:04000000
+write next 0x17C0:04000000
+write next 0x17D4:04000000
+write next 0x17E8:04000000
+write next 0x17FC:04000000
+write next 0x1810:04000000
+write next 0x1824:04000000
+write next 0x1838:04000000
+write next 0x184C:04000000
+write next 0x1860:04000000
+write next 0x1874:04000000
+write next 0x1888:04000000
+write next 0x189C:04000000
+write next 0x18B0:04000000
+write next 0x18C4:04000000
+write next 0x18D8:04000000
+write next 0x18EC:04000000
+set [b]:read(pointer+0x13CC,1)
+set [b]:or:01
+write next 0x13CC:[b]
+set [b]:read(pointer+0x13E0,1)
+set [b]:or:01
+write next 0x13E0:[b]
+set [b]:read(pointer+0x13F4,1)
+set [b]:or:01
+write next 0x13F4:[b]
+set [b]:read(pointer+0x1408,1)
+set [b]:or:01
+write next 0x1408:[b]
+set [b]:read(pointer+0x141C,1)
+set [b]:or:01
+write next 0x141C:[b]
+set [b]:read(pointer+0x1430,1)
+set [b]:or:01
+write next 0x1430:[b]
+set [b]:read(pointer+0x1444,1)
+set [b]:or:01
+write next 0x1444:[b]
+set [b]:read(pointer+0x1458,1)
+set [b]:or:01
+write next 0x1458:[b]
+set [b]:read(pointer+0x146C,1)
+set [b]:or:01
+write next 0x146C:[b]
+set [b]:read(pointer+0x1480,1)
+set [b]:or:01
+write next 0x1480:[b]
+set [b]:read(pointer+0x1494,1)
+set [b]:or:01
+write next 0x1494:[b]
+set [b]:read(pointer+0x14A8,1)
+set [b]:or:01
+write next 0x14A8:[b]
+set [b]:read(pointer+0x14BC,1)
+set [b]:or:01
+write next 0x14BC:[b]
+set [b]:read(pointer+0x14D0,1)
+set [b]:or:01
+write next 0x14D0:[b]
+set [b]:read(pointer+0x14E4,1)
+set [b]:or:01
+write next 0x14E4:[b]
+set [b]:read(pointer+0x14F8,1)
+set [b]:or:01
+write next 0x14F8:[b]
+set [b]:read(pointer+0x150C,1)
+set [b]:or:01
+write next 0x150C:[b]
+set [b]:read(pointer+0x1520,1)
+set [b]:or:01
+write next 0x1520:[b]
+set [b]:read(pointer+0x1534,1)
+set [b]:or:01
+write next 0x1534:[b]
+set [b]:read(pointer+0x1548,1)
+set [b]:or:01
+write next 0x1548:[b]
+set [b]:read(pointer+0x155C,1)
+set [b]:or:01
+write next 0x155C:[b]
+set [b]:read(pointer+0x1570,1)
+set [b]:or:01
+write next 0x1570:[b]
+set [b]:read(pointer+0x1584,1)
+set [b]:or:01
+write next 0x1584:[b]
+set [b]:read(pointer+0x1598,1)
+set [b]:or:01
+write next 0x1598:[b]
+set [b]:read(pointer+0x15AC,1)
+set [b]:or:01
+write next 0x15AC:[b]
+set [b]:read(pointer+0x15C0,1)
+set [b]:or:01
+write next 0x15C0:[b]
+set [b]:read(pointer+0x15D4,1)
+set [b]:or:01
+write next 0x15D4:[b]
+set [b]:read(pointer+0x15E8,1)
+set [b]:or:01
+write next 0x15E8:[b]
+set [b]:read(pointer+0x15FC,1)
+set [b]:or:01
+write next 0x15FC:[b]
+set [b]:read(pointer+0x1610,1)
+set [b]:or:01
+write next 0x1610:[b]
+set [b]:read(pointer+0x1624,1)
+set [b]:or:01
+write next 0x1624:[b]
+set [b]:read(pointer+0x1638,1)
+set [b]:or:01
+write next 0x1638:[b]
+set [b]:read(pointer+0x164C,1)
+set [b]:or:01
+write next 0x164C:[b]
+set [b]:read(pointer+0x1660,1)
+set [b]:or:01
+write next 0x1660:[b]
+set [b]:read(pointer+0x1674,1)
+set [b]:or:01
+write next 0x1674:[b]
+set [b]:read(pointer+0x1688,1)
+set [b]:or:01
+write next 0x1688:[b]
+set [b]:read(pointer+0x169C,1)
+set [b]:or:01
+write next 0x169C:[b]
+set [b]:read(pointer+0x16B0,1)
+set [b]:or:01
+write next 0x16B0:[b]
+set [b]:read(pointer+0x16C4,1)
+set [b]:or:01
+write next 0x16C4:[b]
+set [b]:read(pointer+0x16D8,1)
+set [b]:or:01
+write next 0x16D8:[b]
+set [b]:read(pointer+0x16EC,1)
+set [b]:or:01
+write next 0x16EC:[b]
+set [b]:read(pointer+0x1700,1)
+set [b]:or:01
+write next 0x1700:[b]
+set [b]:read(pointer+0x1714,1)
+set [b]:or:01
+write next 0x1714:[b]
+set [b]:read(pointer+0x1728,1)
+set [b]:or:01
+write next 0x1728:[b]
+set [b]:read(pointer+0x173C,1)
+set [b]:or:01
+write next 0x173C:[b]
+set [b]:read(pointer+0x1750,1)
+set [b]:or:01
+write next 0x1750:[b]
+set [b]:read(pointer+0x1764,1)
+set [b]:or:01
+write next 0x1764:[b]
+set [b]:read(pointer+0x1778,1)
+set [b]:or:01
+write next 0x1778:[b]
+set [b]:read(pointer+0x178C,1)
+set [b]:or:01
+write next 0x178C:[b]
+set [b]:read(pointer+0x17A0,1)
+set [b]:or:01
+write next 0x17A0:[b]
+set [b]:read(pointer+0x17B4,1)
+set [b]:or:01
+write next 0x17B4:[b]
+set [b]:read(pointer+0x17C8,1)
+set [b]:or:01
+write next 0x17C8:[b]
+set [b]:read(pointer+0x17DC,1)
+set [b]:or:01
+write next 0x17DC:[b]
+set [b]:read(pointer+0x17F0,1)
+set [b]:or:01
+write next 0x17F0:[b]
+set [b]:read(pointer+0x1804,1)
+set [b]:or:01
+write next 0x1804:[b]
+set [b]:read(pointer+0x1818,1)
+set [b]:or:01
+write next 0x1818:[b]
+set [b]:read(pointer+0x182C,1)
+set [b]:or:01
+write next 0x182C:[b]
+set [b]:read(pointer+0x1840,1)
+set [b]:or:01
+write next 0x1840:[b]
+set [b]:read(pointer+0x1854,1)
+set [b]:or:01
+write next 0x1854:[b]
+set [b]:read(pointer+0x1868,1)
+set [b]:or:01
+write next 0x1868:[b]
+set [b]:read(pointer+0x187C,1)
+set [b]:or:01
+write next 0x187C:[b]
+set [b]:read(pointer+0x1890,1)
+set [b]:or:01
+write next 0x1890:[b]
+set [b]:read(pointer+0x18A4,1)
+set [b]:or:01
+write next 0x18A4:[b]
+set [b]:read(pointer+0x18B8,1)
+set [b]:or:01
+write next 0x18B8:[b]
+set [b]:read(pointer+0x18CC,1)
+set [b]:or:01
+write next 0x18CC:[b]
+set [b]:read(pointer+0x18E0,1)
+set [b]:or:01
+write next 0x18E0:[b]
+
+[Complete Story (All Difficulties) and All Cutscenes]
+;Easy/Normal/Hard bits at 0x1AF8/0x1AFC/0x1B00 (10 levels), cutscenes at 0x1AF4 (13)
+set pointer:0x{PSF}
+set [b]:read(pointer+0x1AF4,2)
+set [b]:or:FF1F
+write next 0x1AF4:[b]
+set [b]:read(pointer+0x1AF8,2)
+set [b]:or:FF03
+write next 0x1AF8:[b]
+set [b]:read(pointer+0x1AFC,2)
+set [b]:or:FF03
+write next 0x1AFC:[b]
+set [b]:read(pointer+0x1B00,2)
+set [b]:or:FF03
+write next 0x1B00:[b]
+
+[Complete Co-op Story (All Difficulties)]
+;co-op Easy/Normal/Hard bits at 0x1B04/0x1B08/0x1B0C
+set pointer:0x{PSF}
+set [b]:read(pointer+0x1B04,2)
+set [b]:or:FF03
+write next 0x1B04:[b]
+set [b]:read(pointer+0x1B08,2)
+set [b]:or:FF03
+write next 0x1B08:[b]
+set [b]:read(pointer+0x1B0C,2)
+set [b]:or:FF03
+write next 0x1B0C:[b]
+
+[All Arcade Awards]
+;58 award bytes at 0x1AB8..0x1AF1, bit 0
+set pointer:0x{PSF}
+set [b]:read(pointer+0x1AB8,4)
+set [b]:or:01010101
+write next 0x1AB8:[b]
+set [b]:read(pointer+0x1ABC,4)
+set [b]:or:01010101
+write next 0x1ABC:[b]
+set [b]:read(pointer+0x1AC0,4)
+set [b]:or:01010101
+write next 0x1AC0:[b]
+set [b]:read(pointer+0x1AC4,4)
+set [b]:or:01010101
+write next 0x1AC4:[b]
+set [b]:read(pointer+0x1AC8,4)
+set [b]:or:01010101
+write next 0x1AC8:[b]
+set [b]:read(pointer+0x1ACC,4)
+set [b]:or:01010101
+write next 0x1ACC:[b]
+set [b]:read(pointer+0x1AD0,4)
+set [b]:or:01010101
+write next 0x1AD0:[b]
+set [b]:read(pointer+0x1AD4,4)
+set [b]:or:01010101
+write next 0x1AD4:[b]
+set [b]:read(pointer+0x1AD8,4)
+set [b]:or:01010101
+write next 0x1AD8:[b]
+set [b]:read(pointer+0x1ADC,4)
+set [b]:or:01010101
+write next 0x1ADC:[b]
+set [b]:read(pointer+0x1AE0,4)
+set [b]:or:01010101
+write next 0x1AE0:[b]
+set [b]:read(pointer+0x1AE4,4)
+set [b]:or:01010101
+write next 0x1AE4:[b]
+set [b]:read(pointer+0x1AE8,4)
+set [b]:or:01010101
+write next 0x1AE8:[b]
+set [b]:read(pointer+0x1AEC,4)
+set [b]:or:01010101
+write next 0x1AEC:[b]
+set [b]:read(pointer+0x1AF0,2)
+set [b]:or:0101
+write next 0x1AF0:[b]
+
+[Unlock Mini-Games (Anaconda, RetroRacer, AstroLander)]
+;bit 0 of 0x2258, 0x225C, 0x2264 (0x2260 is unknown and left alone)
+set pointer:0x{PSF}
+set [b]:read(pointer+0x2258,1)
+set [b]:or:01
+write next 0x2258:[b]
+set [b]:read(pointer+0x225C,1)
+set [b]:or:01
+write next 0x225C:[b]
+set [b]:read(pointer+0x2264,1)
+set [b]:or:01
+write next 0x2264:[b]
+
+[Update CRC-32 Checksum (Required)]
+;zlib CRC-32 over 0x4..0x20F4F, stored little-endian at 0x20F50
+set range:0x4,0x20F4F
+set [crc]:crc32
+set [crc]:endian_swap
+write at 0x20F50:[crc]

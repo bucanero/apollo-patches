@@ -1,0 +1,212 @@
+; SLES00107
+; Tomb Raider II
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLES-00107*
+
+[INFO:Also select the checksum update code at the end of this list]
+
+; 0x200 + n*0x2C: 24 level-start records (n = game level, 1 = The Great Wall)
+;   +0x00 ammo u16 x7 (pistols, automatic pistols, uzi, shotgun, M16, grenades, harpoons)
+;   +0x0E small medi, +0x0F large medi, +0x11 flares, +0x14 bit0 available, bits1-7 weapons
+; 0x620 current level statistics, 0x634 current level, 0x640 bonus game flag
+
+[Unlock All Levels]
+;bit 0 of +0x14 in the records of levels 1-18
+set [b]:read(0x240,1)
+set [b]:or:01
+write at 0x240:[b]
+set [b]:read(0x26C,1)
+set [b]:or:01
+write at 0x26C:[b]
+set [b]:read(0x298,1)
+set [b]:or:01
+write at 0x298:[b]
+set [b]:read(0x2C4,1)
+set [b]:or:01
+write at 0x2C4:[b]
+set [b]:read(0x2F0,1)
+set [b]:or:01
+write at 0x2F0:[b]
+set [b]:read(0x31C,1)
+set [b]:or:01
+write at 0x31C:[b]
+set [b]:read(0x348,1)
+set [b]:or:01
+write at 0x348:[b]
+set [b]:read(0x374,1)
+set [b]:or:01
+write at 0x374:[b]
+set [b]:read(0x3A0,1)
+set [b]:or:01
+write at 0x3A0:[b]
+set [b]:read(0x3CC,1)
+set [b]:or:01
+write at 0x3CC:[b]
+set [b]:read(0x3F8,1)
+set [b]:or:01
+write at 0x3F8:[b]
+set [b]:read(0x424,1)
+set [b]:or:01
+write at 0x424:[b]
+set [b]:read(0x450,1)
+set [b]:or:01
+write at 0x450:[b]
+set [b]:read(0x47C,1)
+set [b]:or:01
+write at 0x47C:[b]
+set [b]:read(0x4A8,1)
+set [b]:or:01
+write at 0x4A8:[b]
+set [b]:read(0x4D4,1)
+set [b]:or:01
+write at 0x4D4:[b]
+set [b]:read(0x500,1)
+set [b]:or:01
+write at 0x500:[b]
+set [b]:read(0x52C,1)
+set [b]:or:01
+write at 0x52C:[b]
+
+[Game Cleared (Bonus Game: All Weapons, Unlimited Ammo)]
+00000640 00000001
+
+[All Weapons]
+;bits 1-7 of +0x14 in every level-start record, including the one the saved game resumes from
+set [b]:read(0x214,1)
+set [b]:or:FE
+write at 0x214:[b]
+set [b]:read(0x240,1)
+set [b]:or:FE
+write at 0x240:[b]
+set [b]:read(0x26C,1)
+set [b]:or:FE
+write at 0x26C:[b]
+set [b]:read(0x298,1)
+set [b]:or:FE
+write at 0x298:[b]
+set [b]:read(0x2C4,1)
+set [b]:or:FE
+write at 0x2C4:[b]
+set [b]:read(0x2F0,1)
+set [b]:or:FE
+write at 0x2F0:[b]
+set [b]:read(0x31C,1)
+set [b]:or:FE
+write at 0x31C:[b]
+set [b]:read(0x348,1)
+set [b]:or:FE
+write at 0x348:[b]
+set [b]:read(0x374,1)
+set [b]:or:FE
+write at 0x374:[b]
+set [b]:read(0x3A0,1)
+set [b]:or:FE
+write at 0x3A0:[b]
+set [b]:read(0x3CC,1)
+set [b]:or:FE
+write at 0x3CC:[b]
+set [b]:read(0x3F8,1)
+set [b]:or:FE
+write at 0x3F8:[b]
+set [b]:read(0x424,1)
+set [b]:or:FE
+write at 0x424:[b]
+set [b]:read(0x450,1)
+set [b]:or:FE
+write at 0x450:[b]
+set [b]:read(0x47C,1)
+set [b]:or:FE
+write at 0x47C:[b]
+set [b]:read(0x4A8,1)
+set [b]:or:FE
+write at 0x4A8:[b]
+set [b]:read(0x4D4,1)
+set [b]:or:FE
+write at 0x4D4:[b]
+set [b]:read(0x500,1)
+set [b]:or:FE
+write at 0x500:[b]
+set [b]:read(0x52C,1)
+set [b]:or:FE
+write at 0x52C:[b]
+
+[999 Ammo]
+;automatic pistols, uzi, shotgun, M16, grenades, harpoons in every level-start record
+write at 0x202:E703E703E703E703E703E703
+write at 0x22E:E703E703E703E703E703E703
+write at 0x25A:E703E703E703E703E703E703
+write at 0x286:E703E703E703E703E703E703
+write at 0x2B2:E703E703E703E703E703E703
+write at 0x2DE:E703E703E703E703E703E703
+write at 0x30A:E703E703E703E703E703E703
+write at 0x336:E703E703E703E703E703E703
+write at 0x362:E703E703E703E703E703E703
+write at 0x38E:E703E703E703E703E703E703
+write at 0x3BA:E703E703E703E703E703E703
+write at 0x3E6:E703E703E703E703E703E703
+write at 0x412:E703E703E703E703E703E703
+write at 0x43E:E703E703E703E703E703E703
+write at 0x46A:E703E703E703E703E703E703
+write at 0x496:E703E703E703E703E703E703
+write at 0x4C2:E703E703E703E703E703E703
+write at 0x4EE:E703E703E703E703E703E703
+write at 0x51A:E703E703E703E703E703E703
+
+[99 Medi Packs and Flares]
+write at 0x20E:6363
+write at 0x211:63
+write at 0x23A:6363
+write at 0x23D:63
+write at 0x266:6363
+write at 0x269:63
+write at 0x292:6363
+write at 0x295:63
+write at 0x2BE:6363
+write at 0x2C1:63
+write at 0x2EA:6363
+write at 0x2ED:63
+write at 0x316:6363
+write at 0x319:63
+write at 0x342:6363
+write at 0x345:63
+write at 0x36E:6363
+write at 0x371:63
+write at 0x39A:6363
+write at 0x39D:63
+write at 0x3C6:6363
+write at 0x3C9:63
+write at 0x3F2:6363
+write at 0x3F5:63
+write at 0x41E:6363
+write at 0x421:63
+write at 0x44A:6363
+write at 0x44D:63
+write at 0x476:6363
+write at 0x479:63
+write at 0x4A2:6363
+write at 0x4A5:63
+write at 0x4CE:6363
+write at 0x4D1:63
+write at 0x4FA:6363
+write at 0x4FD:63
+write at 0x526:6363
+write at 0x529:63
+
+[All Secrets Found (Current Level)]
+;statistics 0x632: Gold, Jade, Stone dragons
+set [b]:read(0x632,1)
+set [b]:or:07
+write at 0x632:[b]
+
+[Update Negated Byte-Sum Checksum (Required)]
+;0x64B = -(sum of bytes 0x200..0x1ECF) & 0xFF, with 0x64B zeroed first
+write at 0x64B:00
+
+set [s]:0
+set [s]:add(0x200,0x1ECF)
+set [s]:right([s],1)
+set [s]:xor:FF
+set [s]:[s]+1
+set [s]:right([s],1)
+write at 0x64B:[s]

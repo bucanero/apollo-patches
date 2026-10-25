@@ -1,0 +1,148 @@
+; SCPS10118
+; Crash Bandicoot Racing
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SCPS-10118*
+
+[INFO:Also select the checksum update code at the end of this list]
+
+; Adventure profiles: 4 per file, 0x50 bytes each, base 0x104 + k*0x50
+{SF}0104=Profile 1;0154=Profile 2;01A4=Profile 3;01F4=Profile 4{/SF}
+{CH}0000=Crash;0001=Cortex;0002=Tiny;0003=Coco;0004=N. Gin;0005=Dingodile;0006=Polar;0007=Pura;0008=Pinstripe;0009=Papu Papu;000A=Ripper Roo;000B=Komodo Joe;000C=N. Tropy;000D=Penta Penguin;000E=Fake Crash{/CH}
+
+[Unlock All Characters]
+;N. Tropy, Penta, Ripper Roo (0x248 bits 5-7), Papu, Komodo Joe, Pinstripe, Fake Crash (0x249 bits 0-3)
+set [b]:read(0x248,2)
+set [b]:or:E00F
+write at 0x248:[b]
+
+[Unlock Turbo Track and Battle Arenas]
+;Turbo Track, Parking Lot, The North Bowl, Lab Basement (0x248 bits 1-4)
+set [b]:read(0x248,1)
+set [b]:or:1E
+write at 0x248:[b]
+
+[Unlock All Arcade Cups]
+;Easy 0x249 bits 4-7, Medium 0x24A bits 0-3, Hard 0x24A bits 4-7, plus the saved copies at 0x24B and 0x24C bits 0-3
+set [b]:read(0x249,1)
+set [b]:or:F0
+write at 0x249:[b]
+set [b]:read(0x24A,2)
+set [b]:or:FFFF
+write at 0x24A:[b]
+set [b]:read(0x24C,1)
+set [b]:or:0F
+write at 0x24C:[b]
+
+[Unlock Scrapbook]
+set [b]:read(0x24C,1)
+set [b]:or:10
+write at 0x24C:[b]
+
+[101% Adventure Completion]
+;trophies, sapphire/gold/platinum relics, CTR tokens, boss keys, N. Oxide challenges, world doors, gems, bonus rounds
+set pointer:{SF}
+set [b]:read(pointer,1)
+set [b]:or:C0
+write next 0:[b]
+write next 1:FFFFFFFFFFFFFFFFFFFF
+set [b]:read(pointer+B,2)
+set [b]:or:CFFF
+write next B:[b]
+set [b]:read(pointer+D,2)
+set [b]:or:FD1F
+write next D:[b]
+
+[All Trophies]
+;16 trophies: +0 bits 6-7, +1, +2 bits 0-5
+set pointer:{SF}
+set [b]:read(pointer,1)
+set [b]:or:C0
+write next 0:[b]
+write next 1:FF
+set [b]:read(pointer+2,1)
+set [b]:or:3F
+write next 2:[b]
+
+[All Relics (Sapphire, Gold, Platinum)]
+;+2 bits 6-7 .. +9 bits 0-3
+set pointer:{SF}
+set [b]:read(pointer+2,1)
+set [b]:or:C0
+write next 2:[b]
+write next 3:FFFFFFFFFFFF
+set [b]:read(pointer+9,1)
+set [b]:or:0F
+write next 9:[b]
+
+[All CTR Tokens]
+;16 tokens: +9 bits 4-7, +A, +B bits 0-3
+set pointer:{SF}
+set [b]:read(pointer+9,1)
+set [b]:or:F0
+write next 9:[b]
+write next A:FF
+set [b]:read(pointer+B,1)
+set [b]:or:0F
+write next B:[b]
+
+[Adventure Character]
+95000000 0000{SF}
+0800002A 0000{CH}
+
+[Open N. Tropy and N. Oxide Ghosts (All Tracks)]
+;time trial events byte at 0x370 + track*0x124, tracks 0-15: N. Tropy opened, N. Tropy beaten, N. Oxide opened
+set [b]:read(0x370,1)
+set [b]:or:07
+write at 0x370:[b]
+set [b]:read(0x494,1)
+set [b]:or:07
+write at 0x494:[b]
+set [b]:read(0x5B8,1)
+set [b]:or:07
+write at 0x5B8:[b]
+set [b]:read(0x6DC,1)
+set [b]:or:07
+write at 0x6DC:[b]
+set [b]:read(0x800,1)
+set [b]:or:07
+write at 0x800:[b]
+set [b]:read(0x924,1)
+set [b]:or:07
+write at 0x924:[b]
+set [b]:read(0xA48,1)
+set [b]:or:07
+write at 0xA48:[b]
+set [b]:read(0xB6C,1)
+set [b]:or:07
+write at 0xB6C:[b]
+set [b]:read(0xC90,1)
+set [b]:or:07
+write at 0xC90:[b]
+set [b]:read(0xDB4,1)
+set [b]:or:07
+write at 0xDB4:[b]
+set [b]:read(0xED8,1)
+set [b]:or:07
+write at 0xED8:[b]
+set [b]:read(0xFFC,1)
+set [b]:or:07
+write at 0xFFC:[b]
+set [b]:read(0x1120,1)
+set [b]:or:07
+write at 0x1120:[b]
+set [b]:read(0x1244,1)
+set [b]:or:07
+write at 0x1244:[b]
+set [b]:read(0x1368,1)
+set [b]:or:07
+write at 0x1368:[b]
+set [b]:read(0x148C,1)
+set [b]:or:07
+write at 0x148C:[b]
+
+[Update CRC-16/XMODEM Checksum (Required)]
+;CRC-16/XMODEM over 0x100..0x177D, stored big-endian at 0x177E
+set range:0x100,0x177D
+set [hash]:crc16
+write at 0x177E:[hash]

@@ -1,0 +1,323 @@
+; SLES02081
+; Final Fantasy VIII
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:B?SLESP02081*
+
+[INFO:Also select the checksum update code at the end of this list]
+
+[LE:Max Gil (Squall + Laguna)]
+;99,999,999 Gil for both timelines, plus the save preview copy at 0x18C
+20000C8C 05F5E0FF
+20000C90 05F5E0FF
+2000018C 05F5E0FF
+
+[All Items x100]
+;198 inventory slots at 0xCC4 = (item id 0x01..0xC6, quantity 100)
+write at 0xCC4:0164026403640464056406640764086409640A640B640C640D640E640F6410641164126413641464156416641764186419641A641B641C641D641E641F6420642164226423642464256426642764286429642A642B642C642D642E642F6430643164326433643464356436643764386439643A643B643C643D643E643F6440644164426443644464456446644764486449644A644B644C644D644E644F6450645164526453645464556456645764586459645A645B645C645D645E645F6460646164626463646464656466646764686469646A646B646C646D646E646F6470647164726473647464756476647764786479647A647B647C647D647E647F6480648164826483648464856486648764886489648A648B648C648D648E648F6490649164926493649464956496649764986499649A649B649C649D649E649F64A064A164A264A364A464A564A664A764A864A964AA64AB64AC64AD64AE64AF64B064B164B264B364B464B564B664B764B864B964BA64BB64BC64BD64BE64BF64C064C164C264C364C464C564C664
+
+[LE:All Characters Level 100]
+;EXP 99000 for the 8 character records (0x610 + i*0x98), plus Squall level in the save preview
+20000614 000182B8
+200006AC 000182B8
+20000744 000182B8
+200007DC 000182B8
+20000874 000182B8
+2000090C 000182B8
+200009A4 000182B8
+20000A3C 000182B8
+00000194 00000064
+
+[LE:All GFs Level 100]
+;EXP 49500 for the 16 GF records (0x1D0 + g*0x44)
+200001DC 0000C15C
+20000220 0000C15C
+20000264 0000C15C
+200002A8 0000C15C
+200002EC 0000C15C
+20000330 0000C15C
+20000374 0000C15C
+200003B8 0000C15C
+200003FC 0000C15C
+20000440 0000C15C
+20000484 0000C15C
+200004C8 0000C15C
+2000050C 0000C15C
+20000550 0000C15C
+20000594 0000C15C
+200005D8 0000C15C
+
+[Max GF Compatibility]
+;16 x u16 per character at 0x680 + i*0x98, stored 1000 = compatibility 1000
+write at 0x680:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0x718:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0x7B0:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0x848:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0x8E0:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0x978:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0xA10:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+write at 0xAA8:E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803E803
+
+[All GF Abilities Learned]
+;per GF: OR its 21 learnable abilities into the mask at +0x14, AP progress at +0x24 = full, clear forgotten flags at +0x41
+;Quezacotl
+set [b]:read(0x1E4,4)
+set [b]:or:1A54B002
+write at 0x1E4:[b]
+set [b]:read(0x1E8,4)
+set [b]:or:00000300
+write at 0x1E8:[b]
+set [b]:read(0x1EC,4)
+set [b]:or:0000B809
+write at 0x1EC:[b]
+set [b]:read(0x1F0,4)
+set [b]:or:02000900
+write at 0x1F0:[b]
+write at 0x1F4:28468C28460A1E3C323C78A0326482285032010101
+write at 0x211:000000
+;Shiva
+set [b]:read(0x228,4)
+set [b]:or:2C54B004
+write at 0x228:[b]
+set [b]:read(0x22C,4)
+set [b]:or:00601800
+write at 0x22C:[b]
+set [b]:read(0x230,4)
+set [b]:or:0000B809
+write at 0x230:[b]
+set [b]:read(0x234,4)
+set [b]:or:04000000
+write at 0x234:[b]
+write at 0x238:28468C2846010A1E323C783C78648232A03C320101
+write at 0x255:000000
+;Ifrit
+set [b]:read(0x26C,4)
+set [b]:or:0654B008
+write at 0x26C:[b]
+set [b]:read(0x270,4)
+set [b]:or:000C0000
+write at 0x270:[b]
+set [b]:read(0x274,4)
+set [b]:or:0400B80B
+write at 0x274:[b]
+set [b]:read(0x278,4)
+set [b]:or:08080000
+write at 0x278:[b]
+write at 0x27C:28468C28468C0A1E1E3C78A064320164823C320101
+write at 0x299:000000
+;Siren
+set [b]:read(0x2B0,4)
+set [b]:or:1028B110
+write at 0x2B0:[b]
+set [b]:read(0x2B4,4)
+set [b]:or:00000300
+write at 0x2B4:[b]
+set [b]:read(0x2B8,4)
+set [b]:or:1080B809
+write at 0x2B8:[b]
+set [b]:read(0x2BC,4)
+set [b]:or:10140000
+write at 0x2BC:[b]
+write at 0x2C0:28461E28468C0A1E1E3C78A0640164826428320101
+write at 0x2DD:000000
+;Brothers
+set [b]:read(0x2F4,4)
+set [b]:or:2614B020
+write at 0x2F4:[b]
+set [b]:read(0x2F8,4)
+set [b]:or:80030040
+write at 0x2F8:[b]
+set [b]:read(0x2FC,4)
+set [b]:or:0200B80B
+write at 0x2FC:[b]
+write at 0x304:28468C28468C0A3C78F06432A03264016464320101
+write at 0x321:000000
+;Diablos
+set [b]:read(0x338,4)
+set [b]:or:1201B440
+write at 0x338:[b]
+set [b]:read(0x33C,4)
+set [b]:or:80030304
+write at 0x33C:[b]
+set [b]:read(0x340,4)
+set [b]:or:00008303
+write at 0x340:[b]
+set [b]:read(0x344,4)
+set [b]:or:60000000
+write at 0x344:[b]
+write at 0x348:28468C1E1E323C78F0323C7801781E6464C8960101
+write at 0x365:000000
+;Carbuncle
+set [b]:read(0x37C,4)
+set [b]:or:1A28B500
+write at 0x37C:[b]
+set [b]:read(0x380,4)
+set [b]:or:80610010
+write at 0x380:[b]
+set [b]:read(0x384,4)
+set [b]:or:08018003
+write at 0x384:[b]
+set [b]:read(0x388,4)
+set [b]:or:00020000
+write at 0x388:[b]
+write at 0x38C:28468C1E3C7864323C7832A06482C8FA0196320101
+write at 0x3A9:000000
+;Leviathan
+set [b]:read(0x3C0,4)
+set [b]:or:3044B080
+write at 0x3C0:[b]
+set [b]:read(0x3C4,4)
+set [b]:or:00001800
+write at 0x3C4:[b]
+set [b]:read(0x3C8,4)
+set [b]:or:2004B80B
+write at 0x3C8:[b]
+set [b]:read(0x3CC,4)
+set [b]:or:80400000
+write at 0x3CC:[b]
+write at 0x3D0:28468C28468C0A1E1E3C7864328232A096C8010101
+write at 0x3ED:000000
+;Pandemona
+set [b]:read(0x404,4)
+set [b]:or:4454B000
+write at 0x404:[b]
+set [b]:read(0x408,4)
+set [b]:or:010CC080
+write at 0x408:[b]
+set [b]:read(0x40C,4)
+set [b]:or:0000B80B
+write at 0x40C:[b]
+write at 0x414:28468C28468C0A7896C83C78326482A0A050010101
+write at 0x431:000000
+;Cerberus
+set [b]:read(0x448,4)
+set [b]:or:7429B700
+write at 0x448:[b]
+set [b]:read(0x44C,4)
+set [b]:or:0000C000
+write at 0x44C:[b]
+set [b]:read(0x450,4)
+set [b]:or:004A8003
+write at 0x450:[b]
+write at 0x458:28468C7896C8FA326482B4A09632C832FA78010101
+write at 0x475:000000
+;Alexander
+set [b]:read(0x48C,4)
+set [b]:or:20C4B400
+write at 0x48C:[b]
+set [b]:read(0x490,4)
+set [b]:or:02001808
+write at 0x490:[b]
+set [b]:read(0x494,4)
+set [b]:or:0000B80B
+write at 0x494:[b]
+set [b]:read(0x498,4)
+set [b]:or:00000600
+write at 0x498:[b]
+write at 0x49C:28468C28468C0AC8783C783C96A082B432C8010101
+write at 0x4B9:000000
+;Doomtrain
+set [b]:read(0x4D0,4)
+set [b]:or:008CB240
+write at 0x4D0:[b]
+set [b]:read(0x4D4,4)
+set [b]:or:01000000
+write at 0x4D4:[b]
+set [b]:read(0x4D8,4)
+set [b]:or:8000F80F
+write at 0x4D8:[b]
+set [b]:read(0x4DC,4)
+set [b]:or:01200000
+write at 0x4DC:[b]
+write at 0x4E0:28468CC828468CC80AFA506496C8B4B401A0A00101
+write at 0x4FD:000000
+;Bahamut
+set [b]:read(0x514,4)
+set [b]:or:0000B800
+write at 0x514:[b]
+set [b]:read(0x518,4)
+set [b]:or:00100404
+write at 0x518:[b]
+set [b]:read(0x51C,4)
+set [b]:or:4108FC0F
+write at 0x51C:[b]
+set [b]:read(0x520,4)
+set [b]:or:00010000
+write at 0x520:[b]
+write at 0x524:28468CC828468CC80AC8FAFA01FAC8F0F01EC80101
+write at 0x541:000000
+;Cactuar
+set [b]:read(0x558,4)
+set [b]:or:8002B020
+write at 0x558:[b]
+set [b]:read(0x55C,4)
+set [b]:or:10000083
+write at 0x55C:[b]
+set [b]:read(0x560,4)
+set [b]:or:3F0C8003
+write at 0x560:[b]
+write at 0x568:28468C01C896FAC8C86496A06464646464C8640101
+write at 0x585:000000
+;Tonberry
+set [b]:read(0x59C,4)
+set [b]:or:0000B000
+write at 0x59C:[b]
+set [b]:read(0x5A0,4)
+set [b]:or:0C000083
+write at 0x5A0:[b]
+set [b]:read(0x5A4,4)
+set [b]:or:0104B8FB
+write at 0x5A4:[b]
+write at 0x5AC:28468C28468C0A96C8A0C80196969696C864640101
+write at 0x5C9:000000
+;Eden
+set [b]:read(0x5E0,4)
+set [b]:or:C001B048
+write at 0x5E0:[b]
+set [b]:read(0x5E4,4)
+set [b]:or:20000002
+write at 0x5E4:[b]
+set [b]:read(0x5E8,4)
+set [b]:or:0010F80F
+write at 0x5E8:[b]
+set [b]:read(0x5EC,4)
+set [b]:or:00800000
+write at 0x5EC:[b]
+write at 0x5F0:28468CC828468CC80A1E643C7878C8C8FA64010101
+write at 0x60D:000000
+
+[All Limit Breaks]
+;Quistis 0xC94-0xC95, Zell 0xC96 + 0xC97 b0-1, Irvine 0xC98, Selphie 0xC99 b0-5
+;Angelo learned 0xC9A, learnable 0xC9B, remaining points 0xC9C-0xCA3 = 0
+write at 0xC94:FFFFFF
+set [b]:read(0xC97,1)
+set [b]:or:03
+write at 0xC97:[b]
+write at 0xC98:FF
+set [b]:read(0xC99,1)
+set [b]:or:3F
+write at 0xC99:[b]
+write at 0xC9A:FFFF0000000000000000
+
+[All Common Triple Triad Cards x100]
+;77 cards at 0x1460: bit7 obtained, bits0-6 quantity
+write at 0x1460:E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4E4
+
+[All Rare Triple Triad Cards]
+;33 rare card locations at 0x14AD = 0xF0 (in hand), obtained-ever bits 0x14CE..0x14D2 b0
+write at 0x14AD:F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+write at 0x14CE:FFFFFFFF
+set [b]:read(0x14D2,1)
+set [b]:or:01
+write at 0x14D2:[b]
+
+[LE:SeeD Rank A]
+;rank 3100 (SeeD level 31)
+10000EF0 00000C1C
+
+[Update FF8 Checksum (Required)]
+;CRC-16 0x1021 with the game's table (entry 0xFF = 0) over 0x1D0..0x151F, stored at 0x180 and 0x1520
+set range:0x1D0,0x151F
+set [c]:ffx_checksum
+write at 0x180:[c]
+write at 0x1520:[c]

@@ -1,0 +1,120 @@
+; SLPS25023
+; Bouncer, The
+; codes by bucanero, offsets from game-tools-collection save editor
+; The file holds 16 slots of 0x400 bytes. Every code asks for the slot and then
+; recomputes that slot's CRC-32/BZIP2 (+0x00..+0x1DF without +0x2C..+0x2F,
+; stored LE at +0x2C), so the other slots, empty ones included, stay untouched.
+
+:BISLPS-25023*
+
+{SF}0000=Slot 1;0400=Slot 2;0800=Slot 3;0C00=Slot 4;1000=Slot 5;1400=Slot 6;1800=Slot 7;1C00=Slot 8;2000=Slot 9;2400=Slot 10;2800=Slot 11;2C00=Slot 12;3000=Slot 13;3400=Slot 14;3800=Slot 15;3C00=Slot 16{/SF}
+
+[Unlock All Stages, Characters and Costumes]
+;+0x100 bits 4-7 (stages), +0x101/+0x102 (stages, characters), +0x103 bits 0-4 (characters, costumes)
+set pointer:{SF}
+set [b]:read(pointer+0x100,4)
+set [b]:or:F0FFFF1F
+write next 0x100:[b]
+set crc_bandwidth:32
+set crc_polynomial:0x04C11DB7
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:pointer,pointer+0x2B
+set [c]:crc
+set crc_initial_value:[c]
+set crc_output_xor:0xFFFFFFFF
+set range:pointer+0x30,pointer+0x1DF
+set [c]:crc
+set [c]:endian_swap
+write next 0x2C:[c]
+
+[Max Bouncer Points (99999)]
+;u32 at +0x148 (Sion), +0x150 (Volt), +0x158 (Kou)
+set pointer:{SF}
+write next 0x148:9F860100
+write next 0x150:9F860100
+write next 0x158:9F860100
+set crc_bandwidth:32
+set crc_polynomial:0x04C11DB7
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:pointer,pointer+0x2B
+set [c]:crc
+set crc_initial_value:[c]
+set crc_output_xor:0xFFFFFFFF
+set range:pointer+0x30,pointer+0x1DF
+set [c]:crc
+set [c]:endian_swap
+write next 0x2C:[c]
+
+[Max Stats and All Skills (Rank S)]
+;Life/Power/Defence 7 and rank S nibbles +0x120..+0x125, skills +0x126/+0x128/+0x12A, BP spent 23400 at +0x14C/+0x154/+0x15C
+set pointer:{SF}
+write next 0x120:777777777777
+set [b]:read(pointer+0x126,1)
+set [b]:or:7F
+write next 0x126:[b]
+set [b]:read(pointer+0x128,1)
+set [b]:or:7F
+write next 0x128:[b]
+write next 0x12A:FF
+write next 0x14C:685B0000
+write next 0x154:685B0000
+write next 0x15C:685B0000
+set crc_bandwidth:32
+set crc_polynomial:0x04C11DB7
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:pointer,pointer+0x2B
+set [c]:crc
+set crc_initial_value:[c]
+set crc_output_xor:0xFFFFFFFF
+set range:pointer+0x30,pointer+0x1DF
+set [c]:crc
+set [c]:endian_swap
+write next 0x2C:[c]
+
+[99 Clear Count]
+;float32 99.0 at +0x84
+set pointer:{SF}
+write next 0x84:0000C642
+set crc_bandwidth:32
+set crc_polynomial:0x04C11DB7
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:pointer,pointer+0x2B
+set [c]:crc
+set crc_initial_value:[c]
+set crc_output_xor:0xFFFFFFFF
+set range:pointer+0x30,pointer+0x1DF
+set [c]:crc
+set [c]:endian_swap
+write next 0x2C:[c]
+
+[Story: Game Cleared]
+;location float32 999.0 at +0x80 and its save-preview value 32.0 at +0xBC
+set pointer:{SF}
+write next 0x80:00C07944
+write next 0xBC:00000042
+set crc_bandwidth:32
+set crc_polynomial:0x04C11DB7
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0
+set crc_reflection_input:0
+set crc_reflection_output:0
+set range:pointer,pointer+0x2B
+set [c]:crc
+set crc_initial_value:[c]
+set crc_output_xor:0xFFFFFFFF
+set range:pointer+0x30,pointer+0x1DF
+set [c]:crc
+set [c]:endian_swap
+write next 0x2C:[c]

@@ -1,0 +1,61 @@
+; SLPS25026
+; Dead or Alive 2 - Hardcore
+; codes by bucanero, offsets from game-tools-collection save editor
+
+:BISLPS-25026
+
+[Unlock Tengu and Bayman]
+;0x1805 Tengu, 0x1806 Bayman (bit 0)
+set [b]:read(0x1805,2)
+set [b]:or:0101
+write at 0x1805:[b]
+
+[Unlock CG Gallery]
+set [b]:read(0x1807,1)
+set [b]:or:01
+write at 0x1807:[b]
+
+[Unlock Collection Menu]
+set [b]:read(0x1818,1)
+set [b]:or:01
+write at 0x1818:[b]
+
+[Unlock All Costumes]
+;costume count per character, 0x932..0x93F (Zack..Bayman)
+write at 0x932:0607060506080607050508080204
+
+[Story Mode Cleared with All Characters]
+;clear count (0x1808) and cleared-once flag (0x940) for the 12 regular characters
+set [b]:read(0x1808,4)
+set [b]:or:01010101
+write at 0x1808:[b]
+set [b]:read(0x180C,4)
+set [b]:or:01010101
+write at 0x180C:[b]
+set [b]:read(0x1810,4)
+set [b]:or:01010101
+write at 0x1810:[b]
+set [b]:read(0x940,4)
+set [b]:or:01010101
+write at 0x940:[b]
+set [b]:read(0x944,4)
+set [b]:or:01010101
+write at 0x944:[b]
+set [b]:read(0x948,4)
+set [b]:or:01010101
+write at 0x948:[b]
+
+[All Collection Items x99]
+;owned flags 0x181A..0x1820 (50 bits), quantity u16 at 0x182A + 2*n
+write at 0x181A:FFFFFFFFFFFF
+set [b]:read(0x1820,1)
+set [b]:or:03
+write at 0x1820:[b]
+write at 0x182A:63006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300630063006300
+
+[Update XOR-8 Checksum (Required)]
+;XOR of bytes 0x0..0x1977, stored at 0x1978
+set [x]:0
+set [x]:xor(0x0,0x1977,1)
+set [c]:left([x],1)
+write at 0x1978:[c]

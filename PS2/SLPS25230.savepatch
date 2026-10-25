@@ -1,0 +1,38 @@
+; SLPS25230
+; Soulcalibur II
+; codes by bucanero, offsets from game-tools-collection save editor
+; The save holds two identical copies, SC2 and SC2_1: apply the same cheats to both
+
+:BISLPS-25230SC2*
+
+[INFO:Requires Apollo with Python support (PS3/PS4 apps with PS2 cards or the web patcher), not Apollo PS2]
+[INFO:The save has two copies (SC2 and SC2_1): apply the same cheats to both files]
+[INFO:Also select the Decrypt, checksum and Encrypt codes, they are not applied automatically]
+
+[python:Decrypt SC2 (Required)]
+import soulcalibur2 as sc2
+sc2.decrypt(savedata)
+
+[python:Max Gold 99,999,900]
+import soulcalibur2 as sc2
+sc2.max_gold(savedata, "SLPS25230")
+
+[python:Max Experience (Ultimate Edgemaster)]
+import soulcalibur2 as sc2
+sc2.max_experience(savedata, "SLPS25230")
+
+[python:Unlock All Characters, Modes, Stages and Weapons]
+import soulcalibur2 as sc2
+sc2.unlock_all(savedata, "SLPS25230")
+
+[python:All Weapon Master Chapters Cleared]
+import soulcalibur2 as sc2
+sc2.all_chapters(savedata, "SLPS25230")
+
+[python:Update SC2 Key Checksum (Required)]
+import soulcalibur2 as sc2
+sc2.fix(savedata)
+
+[python:Encrypt SC2 (Required)]
+import soulcalibur2 as sc2
+sc2.encrypt(savedata)
