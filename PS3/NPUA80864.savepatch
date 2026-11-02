@@ -7,6 +7,10 @@
 42000084 00050700
 40310080 00000000
 
+:DATA2.BIN
+[999999 Money]
+0007D3D8 000F423F
+
 ;codes below may affected online mode,USE IT AT YOUR ON RISK!
 :DATA4.BIN
 [Grade 0]
