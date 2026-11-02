@@ -1,0 +1,22 @@
+; CUSA12153
+; Dead or Alive 6
+; decryption by Bucanero
+
+:SYSTEMDATA
+
+[python:Decrypt SYSTEMDATA (Required)]
+import doa6
+
+doa6.doa6_crypt(doa6.DECRYPT, savedata)
+
+
+;
+;[example]
+;cheat codes should go here
+;
+
+
+[python:Encrypt SYSTEMDATA (Required)]
+import doa6
+
+doa6.doa6_crypt(doa6.ENCRYPT, savedata)
