@@ -7,7 +7,7 @@
 [python:Decrypt SYSTEMDATA (Required)]
 import doa6
 
-doa6.doa6_crypt(doa6.DECRYPT, savedata)
+doa6.doa6_crypt(doa6.DECRYPT, savedata, "SYSTEMDATA")
 
 
 ;
@@ -19,4 +19,4 @@ doa6.doa6_crypt(doa6.DECRYPT, savedata)
 [python:Encrypt SYSTEMDATA (Required)]
 import doa6
 
-doa6.doa6_crypt(doa6.ENCRYPT, savedata)
+doa6.doa6_crypt(doa6.ENCRYPT, savedata, "SYSTEMDATA")

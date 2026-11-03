@@ -17,6 +17,9 @@ DECRYPT = ucrypto.DECRYPT
 def derive_key_iv(name):
     """Key and IV only depend on the save file name (e.g. SYSTEMDATA)"""
 
+    if isinstance(name, str):
+        name = name.encode()
+
     r = uhashlib.md5(name + b"\x00" * (32 - len(name)))
     hu = "".join(["%02X" % b for b in r])
 
@@ -28,7 +31,7 @@ def derive_key_iv(name):
     return key.encode(), iv
 
 
-def doa6_crypt(mode, data: bytearray, name=b"SYSTEMDATA"):
+def doa6_crypt(mode, data: bytearray, name):
     """Main function to handle decryption/encryption of the save file"""
 
     if mode != ENCRYPT and mode != DECRYPT:
