@@ -1,0 +1,41 @@
+name: Check DC title catalog
+
+# dctitleid.txt (Dreamcast VMU file name -> patch) is generated from the "; DC:"
+# header lines of the DC patches, and committed so apps and builds can use it
+# without running the generator. This fails when the committed copy no longer
+# matches the patches. To fix it, run and commit:
+#
+#   python3 tools/build-dc-catalog.py DC dctitleid.txt
+
+on:
+  push:
+    paths:
+      - 'DC/**'
+      - 'dctitleid.txt'
+      - 'tools/build-dc-catalog.py'
+      - '.github/workflows/check-dc-catalog.yml'
+  pull_request:
+    paths:
+      - 'DC/**'
+      - 'dctitleid.txt'
+      - 'tools/build-dc-catalog.py'
+      - '.github/workflows/check-dc-catalog.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild the catalog
+        run: python3 tools/build-dc-catalog.py DC dctitleid.txt
+
+      - name: Compare with the committed copy
+        run: |
+          if ! git diff --exit-code -- dctitleid.txt; then
+            echo "::error file=dctitleid.txt::dctitleid.txt is out of date. Run 'python3 tools/build-dc-catalog.py DC dctitleid.txt' and commit the result."
+            exit 1
+          fi
