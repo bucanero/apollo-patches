@@ -1,7 +1,8 @@
 name: Build update packs and site
 
 # Everything published to GitHub Pages is built here from the patches as
-# pushed; nothing generated is committed.
+# pushed; nothing generated is committed, except dctitleid.txt (see
+# check-dc-catalog.yml, which keeps the committed copy in step with DC/).
 #
 #   <PLATFORM>/apollo-*-update.zip   what the console apps download
 #                                    (ONLINE_PATCH_URL in each app); these
