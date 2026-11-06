@@ -7,7 +7,7 @@
 [python:Decrypt SYSTEMDATA (Required)]
 import doa6
 
-doa6.doa6_crypt(doa6.DECRYPT, savedata, "SYSTEMDATA")
+doa6.doa6_crypt(doa6.DECRYPT, savedata, host_file_path)
 
 
 [Combo Challenge (Kasumi, 20 combos completed)]
@@ -33,4 +33,4 @@ doa6.doa6_crypt(doa6.DECRYPT, savedata, "SYSTEMDATA")
 [python:Encrypt SYSTEMDATA (Required)]
 import doa6
 
-doa6.doa6_crypt(doa6.ENCRYPT, savedata, "SYSTEMDATA")
+doa6.doa6_crypt(doa6.ENCRYPT, savedata, host_file_path)
