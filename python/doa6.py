@@ -20,8 +20,6 @@ def derive_key_iv(name):
     if isinstance(name, str):
         name = name.encode()
 
-    # accept a full path (e.g. host_file_path), only the file name is used
-    name = bytes(name).split(b"/")[-1]
     print("Save file name: {}".format(name.decode()))
 
     r = uhashlib.md5(name + b"\x00" * (32 - len(name)))
