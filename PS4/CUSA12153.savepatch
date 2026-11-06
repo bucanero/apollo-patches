@@ -1,0 +1,38 @@
+; CUSA12153
+; Dead or Alive 6
+; decryption by Bucanero
+
+:SYSTEMDATA
+
+[python:Decrypt SYSTEMDATA (Required)]
+import doa6
+
+filename = bytes(host_file_path).split(b"/")[-1]
+doa6.doa6_crypt(doa6.DECRYPT, savedata, filename)
+
+
+[Combo Challenge (Kasumi, 20 combos completed)]
+2001B09F 000FFFFF
+
+[Command Training (Kasumi, 156 moves completed)]
+2001B347 FFFFFFFF
+2001B34B FFFFFFFF
+2001B34F FFFFFFFF
+2001B353 FFFFFFFF
+2001B357 FFFFFFFF
+1001B35B 0000FFFF
+
+[Tutorial (40 groups, 190 lessons completed)]
+2001AC09 FFFFFFFF
+2001AC0D FFFFFFFF
+2001AC11 FFFFFFFF
+2001AC15 FFFFFFFF
+2001AC19 FFFFFFFF
+2001AC1D 3FFFFFFF
+
+
+[python:Encrypt SYSTEMDATA (Required)]
+import doa6
+
+filename = bytes(host_file_path).split(b"/")[-1]
+doa6.doa6_crypt(doa6.ENCRYPT, savedata, filename)
