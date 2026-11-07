@@ -1,0 +1,16 @@
+; CUSA12398
+; The Forest
+; decode/encode by Bucanero
+
+:__RESUME__
+
+[python:Decode __RESUME__ (Required)]
+import theforest
+
+theforest.theforest_decode(savedata)
+
+
+[python:Encode __RESUME__ (Required)]
+import theforest
+
+theforest.theforest_encode(savedata)
