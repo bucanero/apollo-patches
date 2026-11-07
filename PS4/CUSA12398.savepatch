@@ -10,6 +10,12 @@ import theforest
 theforest.theforest_decode(savedata)
 
 
+;
+; [example]
+; codes go here
+;
+
+
 [python:Encode __RESUME__ (Required)]
 import theforest
 
