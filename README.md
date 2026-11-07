@@ -1,15 +1,18 @@
 # Apollo Save Game Patches
 
 [![License][img_license]][app_license]
+![PS1 Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PS1?type=file&extension=savepatch&label=PS1%20Save%20patches)
+![PS2 Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PS2?type=file&extension=savepatch&label=PS2%20Save%20patches)
 ![PS3 Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PS3?type=file&extension=savepatch&label=PS3%20Save%20patches)
 ![PS4 Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PS4?type=file&extension=savepatch&label=PS4%20Save%20patches)
 ![PSP Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PSP?type=file&extension=savepatch&label=PSP%20Save%20patches)
 ![PSV Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/PSV?type=file&extension=savepatch&label=Vita%20Save%20patches)
-
+![DC Patches](https://img.shields.io/github/directory-file-count/bucanero/apollo-patches/DC?type=file&extension=savepatch&label=DC%20Save%20patches)
 
 ## Introduction
 
 The save-game patches project is part of [Apollo Save Tool](https://github.com/bucanero/apollo-ps3):
+ - [Dreamcast](https://github.com/bucanero/apollo-dc) version
  - [PlayStation 2](https://github.com/bucanero/apollo-ps2) version
  - [PlayStation 3](https://github.com/bucanero/apollo-ps3) version
  - [PlayStation 4](https://github.com/bucanero/apollo-ps4) version
