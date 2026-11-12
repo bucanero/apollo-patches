@@ -81,6 +81,16 @@ jobs:
           zip -9 _site/PS4/apollo-ps4-update.zip dctitleid.txt
           zip -9 -r _site/PS4/apollo-ps4-update.zip python/
 
+      # PS2 and PS1 save patches only: no DC saves, and no python/ scripts.
+      - name: Create PS2 update file
+        run: |
+          mkdir -p _site/PS2
+          zip -9 _site/PS2/apollo-ps2-update.zip ps1titleid.txt ps2titleid.txt
+          cd PS2
+          zip -9 ../_site/PS2/apollo-ps2-update.zip *.*
+          cd ../PS1
+          zip -9 ../_site/PS2/apollo-ps2-update.zip *.*
+
       - name: Create PSP update file
         run: |
           mkdir -p _site/PSP
