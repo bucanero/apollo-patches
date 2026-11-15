@@ -1,0 +1,16 @@
+; CUSA09485
+; Star Ocean: The Last Hope 4K & Full HD Remaster
+; decryption by Bucanero
+
+:USR-DATA*.BIN
+
+[python:Decrypt USR-DATA (Required)]
+import starocean4
+
+starocean4.so4_crypt(starocean4.DECRYPT, savedata)
+
+
+[python:Encrypt USR-DATA (Required)]
+import starocean4
+
+starocean4.so4_crypt(starocean4.ENCRYPT, savedata)
