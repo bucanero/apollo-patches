@@ -3,12 +3,14 @@
 ;source: discord
 ;Credits: Xx-GIPPI-xX
 ;Automated & simplified file by @officialahmed0
+;unpack & checksum by Bucanero
 
-:*
 
-[INFO:Untested - Make sure to backup your save data first]
+:inventory.zwei
 
-;Max Upgrades
+; Note: codes are also valid on file mapstart.zwei
+
+; --- Max Upgrades ---
 
 [Energy]
 80010004 73746F72
@@ -34,7 +36,7 @@
 80010004 73746F72
 08000203 00000005
 
-;Max Revolver Upgrade
+; --- Max Revolver Upgrade ---
 
 [Damage Multiplier]
 80010004 652F6861
@@ -64,7 +66,7 @@
 80010004 652F6861
 08000047 00000005
 
-;Max Ammo
+; --- Max Ammo ---
 
 [Pistol]
 80010004 6D6F2F70
@@ -93,3 +95,38 @@
 61636869 6E656775
 18000020 00000F27
 
+
+[Group:\]
+
+[Update inventory.zwei checksum (Required)]
+set range:0x0004,EOF+1
+set [hash]:md5_xor
+write at 0x00:[hash]
+
+
+:instance*.zwei
+
+[Decompress instance*.zwei]
+decompress(0, -15)
+
+
+:~extracted\00000000.dat
+
+; instance*.zwei cheats go here (decompressed data)
+
+
+:instance*.zwei
+
+[Compress instance*.zwei]
+; trim the file, so it only holds the new deflate stream
+delete at 4:EOF
+compress(0)
+
+[Update instance*.zwei checksum]
+; tail = MD5_XOR of the last 0x20000-byte block of the deflate stream
+set [start]:eof
+set [start]:and:0xFFFE0000
+set range:[start],EOF+1
+set [tail]:md5_xor
+set [tail]:endian_swap
+insert at 7FFFFFFF:[tail]
