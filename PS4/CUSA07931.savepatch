@@ -1,0 +1,13 @@
+; CUSA07931
+; Samurai Warriors: Spirit of Sanada
+; checksum by Bucanero
+
+:app.dat
+
+; app.dat = 0x1000 header + 4 save slots of 0x28A000 bytes
+; cheats go here
+
+[python:Update Checksums (Required)]
+import samuraiwarriors
+
+samuraiwarriors.sos_fix(savedata)
