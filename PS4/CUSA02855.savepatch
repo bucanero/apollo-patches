@@ -1,0 +1,12 @@
+; CUSA02855
+; Samurai Warriors 4-II
+; checksum by Bucanero
+
+:app.dat
+
+; cheats go here
+
+[python:Update Checksums (Required)]
+import samuraiwarriors
+
+samuraiwarriors.sw4ii_fix(savedata)

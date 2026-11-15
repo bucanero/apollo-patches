@@ -1,0 +1,60 @@
+; CUSA00919
+; Samurai Warriors 4
+; checksum by Bucanero
+; cheats ported from PS3 NPUB31564 (savedata.jp)
+
+:app.dat
+
+[INFO:Untested - Make sure to backup your save data first]
+
+[Max Gold]
+20007842 000F423F
+
+[Max Kills]
+2000784A 05F5E0FF
+
+[All Gems Max]
+200078BC 63636363
+200078C0 63636363
+
+[All Chars Proficiency Max]
+42000C44 14141414
+403C0044 00000000
+
+[EXP 2,078,000 for every char]
+42000C22 001FB530
+40370044 00000000
+
+[Musou Gauge x50]
+40000C56 00000032
+40370044 00000000
+
+[All 1st weapon become rare]
+40003883 00000000
+403C0110 00000002
+
+[All 1st weapon rare]
+40003883 00000001
+403C0110 00000002
+
+[All 1st weapon become rare and skills lv 5]
+40003883 00000001
+403C0110 00000002
+42003884 05050505
+403C0110 00000000
+42003888 05050505
+403C0110 00000000
+42003894 05050505
+403C0110 00000000
+42003898 05050505
+403C0110 00000000
+4200389C 02020202
+403C0110 00000000
+420038A0 02020202
+403C0110 00000000
+
+
+[python:Update Checksums (Required)]
+import samuraiwarriors
+
+samuraiwarriors.sw4_fix(savedata)
