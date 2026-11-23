@@ -81,7 +81,7 @@ jobs:
           zip -9 _site/PS4/apollo-ps4-update.zip dctitleid.txt
           zip -9 -r _site/PS4/apollo-ps4-update.zip python/
 
-      # PS2 and PS1 save patches only: no DC saves, and no python/ scripts.
+      # PS2 and PS1 save patches (no DC saves), with the python/ scripts.
       - name: Create PS2 update file
         run: |
           mkdir -p _site/PS2
@@ -90,6 +90,19 @@ jobs:
           zip -9 ../_site/PS2/apollo-ps2-update.zip *.*
           cd ../PS1
           zip -9 ../_site/PS2/apollo-ps2-update.zip *.*
+          cd ..
+          zip -9 -r _site/PS2/apollo-ps2-update.zip python/
+
+      # Dreamcast VMU save patches, with the catalog built above and the
+      # python/ scripts.
+      - name: Create DC update file
+        run: |
+          mkdir -p _site/DC
+          zip -9 _site/DC/apollo-dc-update.zip dctitleid.txt
+          cd DC
+          zip -9 ../_site/DC/apollo-dc-update.zip *.*
+          cd ..
+          zip -9 -r _site/DC/apollo-dc-update.zip python/
 
       - name: Create PSP update file
         run: |
