@@ -1,0 +1,26 @@
+; CUSA27746
+; Demon Gaze EXTRA
+; unpack/repack ported from dgs_aio.py
+
+:DGA*.SAV
+
+; DGAZ_xx.SAV slot saves and DGAUTO.SAV autosave
+; unpacked data starts at 0x68 (after the DGS header)
+
+[python:Unpack Save data (Required)]
+import demongaze
+
+savedata = demongaze.dg_unpack(savedata)
+
+
+;
+; cheat codes should go here
+;
+
+
+[INFO:Compression takes time, please wait until it's done]
+
+[python:Pack Save data (Required)]
+import demongaze
+
+savedata = demongaze.dg_pack(savedata)
